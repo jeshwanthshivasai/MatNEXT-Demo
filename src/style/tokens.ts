@@ -27,4 +27,10 @@ export const ANIMATION_TOKENS = {
         damping: 20,
         mass: 1,
     },
+    // For very deliberate, cinematic movements
+    extraSlow: {
+        stiffness: 20,
+        damping: 15,
+        mass: 1,
+    }
 };
