@@ -9,9 +9,22 @@ export const COLOR_TOKENS = {
 };
 
 export const ANIMATION_TOKENS = {
+    // Fast but smooth, no bounce
+    premium: {
+        stiffness: 200,
+        damping: 30,
+        mass: 0.5,
+    },
+    // For slower, more graceful entries
+    slow: {
+        stiffness: 50,
+        damping: 20,
+        mass: 1,
+    },
+    // Standard spring (updated for less bounce)
     spring: {
         stiffness: 100,
-        damping: 10,
+        damping: 20,
         mass: 1,
     },
 };

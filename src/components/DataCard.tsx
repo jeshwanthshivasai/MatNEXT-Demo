@@ -20,63 +20,81 @@ export const DataCard: React.FC<DataCardProps> = ({
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
-    const scale = spring({
+    const anim = spring({
         frame: frame - delay,
         fps,
-        config: ANIMATION_TOKENS.spring,
+        config: ANIMATION_TOKENS.premium,
     });
 
-    const translateY = interpolate(scale, [0, 1], [40, 0]);
+    const translateY = interpolate(anim, [0, 1], [30, 0]);
+    const opacity = interpolate(anim, [0, 0.4], [0, 1]);
+    const blur = interpolate(anim, [0, 0.4], [10, 0]);
+
+    // Content stagger
+    const contentAnim = spring({
+        frame: frame - delay - 10,
+        fps,
+        config: ANIMATION_TOKENS.premium,
+    });
+    const subTranslateY = interpolate(contentAnim, [0, 1], [10, 0]);
+    const subOpacity = interpolate(contentAnim, [0, 0.5], [0, 1]);
 
     return (
         <div
             style={{
-                background: COLOR_TOKENS.surface,
-                borderRadius: 24,
-                padding: '32px 40px',
-                boxShadow: `0 10px 40px ${COLOR_TOKENS.shadow}`,
+                background: 'rgba(255, 255, 255, 0.8)',
+                backdropFilter: 'blur(20px)',
+                borderRadius: 20,
+                padding: '24px 32px',
+                minWidth: 260,
                 border: `1px solid ${COLOR_TOKENS.border}`,
-                width: 320,
-                height: 240,
+                boxShadow: `0 10px 40px ${COLOR_TOKENS.shadow}`,
+                opacity,
+                transform: `translateY(${translateY}px)`,
+                filter: `blur(${blur}px)`,
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
-                transform: `scale(${scale}) translateY(${translateY}px)`,
-                opacity: scale,
+                gap: 8,
             }}
         >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <div style={{
-                    fontSize: 18,
-                    color: COLOR_TOKENS.textSecondary,
+            <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                opacity: subOpacity,
+                transform: `translateY(${subTranslateY}px)`,
+            }}>
+                <span style={{
+                    fontSize: 14,
                     fontWeight: 600,
+                    color: COLOR_TOKENS.textSecondary,
+                    textTransform: 'uppercase',
+                    letterSpacing: 1,
                     fontFamily: 'Inter, sans-serif'
-                }}>
-                    {title}
-                </div>
+                }}>{title}</span>
                 {icon && <div style={{ color: COLOR_TOKENS.primary }}>{icon}</div>}
             </div>
-            <div>
-                <div style={{
+
+            <div style={{
+                display: 'flex',
+                alignItems: 'baseline',
+                gap: 8,
+                opacity: subOpacity,
+                transform: `translateY(${subTranslateY}px)`,
+            }}>
+                <span style={{
                     fontSize: 48,
-                    fontWeight: 'bold',
+                    fontWeight: 800,
                     color: COLOR_TOKENS.text,
-                    lineHeight: 1,
+                    fontFamily: 'Inter, sans-serif',
+                    letterSpacing: -2
+                }}>{value}</span>
+                {unit && <span style={{
+                    fontSize: 16,
+                    fontWeight: 500,
+                    color: COLOR_TOKENS.textSecondary,
                     fontFamily: 'Inter, sans-serif'
-                }}>
-                    {value}
-                </div>
-                {unit && (
-                    <div style={{
-                        fontSize: 14,
-                        color: COLOR_TOKENS.textSecondary,
-                        marginTop: 8,
-                        fontWeight: 500,
-                        fontFamily: 'Inter, sans-serif'
-                    }}>
-                        {unit}
-                    </div>
-                )}
+                }}>{unit}</span>}
             </div>
         </div>
     );

@@ -18,56 +18,61 @@ export const Frame: React.FC<FrameProps> = ({
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
-    const scale = spring({
+    const anim = spring({
         frame: frame - delay,
         fps,
-        config: ANIMATION_TOKENS.spring,
+        config: ANIMATION_TOKENS.premium,
     });
 
-    const translateY = interpolate(scale, [0, 1], [40, 0]);
+    const scale = interpolate(anim, [0, 1], [0.96, 1]);
+    const translateY = interpolate(anim, [0, 1], [60, 0]);
+    const opacity = interpolate(anim, [0, 0.4], [0, 1]);
+    const blur = interpolate(anim, [0, 0.4], [20, 0]);
 
     return (
         <div
             style={{
                 background: COLOR_TOKENS.surface,
-                borderRadius: 16,
+                borderRadius: 24,
                 overflow: 'hidden',
-                boxShadow: `0 20px 80px ${COLOR_TOKENS.shadow}`,
+                boxShadow: `0 40px 100px rgba(0,0,0,0.1)`,
                 border: `1px solid ${COLOR_TOKENS.border}`,
                 width: '90%',
                 height: '75%',
                 transform: `scale(${scale}) translateY(${translateY}px)`,
-                opacity: scale,
+                opacity,
+                filter: `blur(${blur}px)`,
                 display: 'flex',
                 flexDirection: 'column',
             }}
         >
             {/* Browser Header */}
             <div style={{
-                height: 48,
-                background: '#F1F5F9',
+                height: 54,
+                background: '#F8FAFC',
                 borderBottom: `1px solid ${COLOR_TOKENS.border}`,
                 display: 'flex',
                 alignItems: 'center',
-                padding: '0 16px',
-                gap: 8,
+                padding: '0 24px',
+                gap: 10,
                 zIndex: 10
             }}>
                 <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#EF4444' }} />
                 <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#F59E0B' }} />
                 <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#10B981' }} />
                 <div style={{
-                    marginLeft: 20,
-                    height: 24,
+                    marginLeft: 24,
+                    height: 28,
                     width: '60%',
                     background: 'white',
-                    borderRadius: 4,
-                    fontSize: 10,
+                    borderRadius: 8,
+                    fontSize: 12,
                     display: 'flex',
                     alignItems: 'center',
-                    paddingLeft: 10,
+                    paddingLeft: 12,
                     color: COLOR_TOKENS.textSecondary,
-                    fontFamily: 'Inter, sans-serif'
+                    fontFamily: 'Inter, sans-serif',
+                    border: `1px solid ${COLOR_TOKENS.border}`
                 }}>
                     www.matnext-app.com/dashboard
                 </div>

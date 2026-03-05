@@ -36,10 +36,6 @@ export const Sustainability: React.FC<SustainabilityProps> = ({
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
-    const titleDelay = 0;
-    const frameDelay = 30;
-    const statsDelay = 60;
-
     return (
         <AbsoluteFill style={{
             backgroundColor: COLOR_TOKENS.background,
@@ -48,33 +44,36 @@ export const Sustainability: React.FC<SustainabilityProps> = ({
             flexDirection: 'column',
             gap: 40,
             alignItems: 'center',
+            justifyContent: 'center',
         }}>
-            {/* Scene Title */}
+            {/* Scene Title Section - Staggered */}
             <div style={{ width: '100%', marginBottom: 20 }}>
                 <Typography
-                    delay={titleDelay}
+                    delay={0}
                     text={title}
-                    fontSize={56}
+                    fontSize={72}
                     textAlign="center"
+                    letterSpacing={-3}
                 />
                 <Typography
-                    delay={titleDelay + 10}
+                    delay={15}
                     text={subtitle}
                     fontSize={24}
                     color={COLOR_TOKENS.textSecondary}
                     fontWeight={500}
                     textAlign="center"
+                    letterSpacing={-0.5}
                 />
             </div>
 
-            {/* Real Dashboard Frame */}
+            {/* Premium Dashboard Frame */}
             <Frame
-                delay={frameDelay}
+                delay={30}
                 mediaUrl={mediaUrl}
                 mediaType="image"
             />
 
-            {/* Stats row */}
+            {/* Stats row - Staggered */}
             <div style={{
                 display: 'flex',
                 gap: 32,
@@ -83,14 +82,14 @@ export const Sustainability: React.FC<SustainabilityProps> = ({
                 marginTop: 20
             }}>
                 <DataCard
-                    delay={statsDelay}
+                    delay={60}
                     title={stats.title1}
                     value={stats.value1}
                     unit={stats.unit1}
                     icon={<BarChart3 size={24} />}
                 />
                 <DataCard
-                    delay={statsDelay + 10}
+                    delay={75}
                     title={stats.title2}
                     value={stats.value2}
                     unit={stats.unit2}

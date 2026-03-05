@@ -7,16 +7,20 @@ export const Intro: React.FC = () => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
-    const logoScale = spring({
+    const anim = spring({
         frame,
         fps,
-        config: ANIMATION_TOKENS.spring,
+        config: ANIMATION_TOKENS.premium,
     });
 
+    const scale = interpolate(anim, [0, 1], [0.8, 1]);
+    const opacity = interpolate(anim, [0, 0.4], [0, 1]);
+    const blur = interpolate(anim, [0, 0.4], [20, 0]);
+
     const dividerWidth = interpolate(
-        spring({ frame: frame - 30, fps, config: ANIMATION_TOKENS.spring }),
+        spring({ frame: frame - 30, fps, config: ANIMATION_TOKENS.slow }),
         [0, 1],
-        [0, 400]
+        [0, 600]
     );
 
     return (
@@ -25,45 +29,45 @@ export const Intro: React.FC = () => {
             justifyContent: 'center',
             alignItems: 'center',
         }}>
-            {/* Logos & Brand Reveal */}
+            {/* Logo Reveal with Masking logic built into Typography's new state */}
             <div style={{
+                transform: `scale(${scale})`,
+                opacity,
+                filter: `blur(${blur}px)`,
                 display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
-                gap: 40,
-                transform: `scale(${logoScale})`,
-                opacity: logoScale,
             }}>
-                {/* MatNEXT Logo */}
-                <div style={{
-                    fontSize: 128,
-                    fontWeight: 500,
-                    color: COLOR_TOKENS.primary,
-                    fontFamily: 'Inter, sans-serif'
-                }}>
-                    MatNEXT
-                </div>
+                <Typography
+                    text="MatNEXT"
+                    fontSize={128}
+                    fontWeight={500}
+                    color={COLOR_TOKENS.primary}
+                    delay={0}
+                    letterSpacing={-8}
+                />
             </div>
 
-            {/* Tagline */}
-            <div style={{ marginTop: 60, width: '100%' }}>
+            {/* Tagline - Staggered */}
+            <div style={{ marginTop: 20, width: '100%' }}>
                 <Typography
-                    delay={60}
+                    delay={45}
                     text="Powering the Circular Automotive Supply Chain"
                     fontSize={32}
                     color={COLOR_TOKENS.textSecondary}
                     fontWeight={500}
+                    letterSpacing={-0.5}
                 />
             </div>
 
-            {/* Animated Gradient Bar at the bottom */}
+            {/* Premium Animated Bottom Bar */}
             <div style={{
                 position: 'absolute',
-                bottom: 0,
-                left: 0,
-                height: 8,
-                width: `${dividerWidth * 5}px`, // Max 2000px
-                background: `linear-gradient(to right, ${COLOR_TOKENS.primary}, transparent)`,
-                opacity: 0.6
+                bottom: 100,
+                height: 1,
+                width: dividerWidth,
+                background: `linear-gradient(to right, transparent, ${COLOR_TOKENS.primary}, transparent)`,
+                opacity: interpolate(dividerWidth, [0, 600], [0, 0.4]),
             }} />
         </AbsoluteFill>
     );

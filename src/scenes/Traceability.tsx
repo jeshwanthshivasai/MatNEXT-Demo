@@ -4,15 +4,11 @@ import { Typography } from '../components/Typography';
 import { DataCard } from '../components/DataCard';
 import { Frame } from '../components/Frame';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../style/tokens';
-import { MapPin, Boxes, ReceiptText } from 'lucide-react';
+import { Boxes, ReceiptText } from 'lucide-react';
 
 export const Traceability: React.FC = () => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
-
-    const titleDelay = 0;
-    const frameDelay = 30;
-    const statsDelay = 60;
 
     return (
         <AbsoluteFill style={{
@@ -22,33 +18,36 @@ export const Traceability: React.FC = () => {
             flexDirection: 'column',
             gap: 40,
             alignItems: 'center',
+            justifyContent: 'center',
         }}>
-            {/* Scene Title */}
+            {/* Scene Title Section - Staggered */}
             <div style={{ width: '100%', marginBottom: 20 }}>
                 <Typography
-                    delay={titleDelay}
+                    delay={0}
                     text="End-to-End Traceability"
-                    fontSize={56}
+                    fontSize={72}
                     textAlign="center"
+                    letterSpacing={-3}
                 />
                 <Typography
-                    delay={titleDelay + 10}
-                    text="From ELV to Car. Every material tracked."
+                    delay={15}
+                    text="From Part Production to Recycling. Every material tracked."
                     fontSize={24}
                     color={COLOR_TOKENS.textSecondary}
                     fontWeight={500}
                     textAlign="center"
+                    letterSpacing={-0.5}
                 />
             </div>
 
-            {/* Real Video Frame */}
+            {/* Premium Video Frame */}
             <Frame
-                delay={frameDelay}
+                delay={30}
                 mediaUrl="Traceability View Video.mp4"
                 mediaType="video"
             />
 
-            {/* Stats row */}
+            {/* Stats row - Staggered */}
             <div style={{
                 display: 'flex',
                 gap: 32,
@@ -57,13 +56,13 @@ export const Traceability: React.FC = () => {
                 marginTop: 20
             }}>
                 <DataCard
-                    delay={statsDelay}
+                    delay={60}
                     title="Batch Accuracy"
                     value="99.8%"
                     icon={<Boxes size={24} />}
                 />
                 <DataCard
-                    delay={statsDelay + 10}
+                    delay={75}
                     title="Verified Invoices"
                     value="12,540+"
                     unit="Audited documents this quarter"
