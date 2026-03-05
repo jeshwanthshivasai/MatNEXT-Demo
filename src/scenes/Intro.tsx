@@ -35,8 +35,8 @@ export const Intro: React.FC = () => {
             }}>
                 {/* MatNEXT Logo */}
                 <div style={{
-                    fontSize: 64,
-                    fontWeight: 900,
+                    fontSize: 128,
+                    fontWeight: 500,
                     color: COLOR_TOKENS.primary,
                     fontFamily: 'Inter, sans-serif'
                 }}>
