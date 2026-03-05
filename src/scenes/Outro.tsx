@@ -27,27 +27,9 @@ export const Outro: React.FC = () => {
                 transform: `scale(${logoScale})`,
                 opacity: logoScale,
             }}>
-                {/* Mock MSIL Logo */}
-                <div style={{
-                    fontSize: 48,
-                    fontWeight: 900,
-                    color: '#004085', // MSIL Blue-ish
-                    fontFamily: 'Inter, sans-serif',
-                    letterSpacing: -2
-                }}>
-                    MARUTI SUZUKI
-                </div>
-
-                {/* Divider */}
-                <div style={{
-                    width: 1,
-                    height: 60,
-                    backgroundColor: COLOR_TOKENS.border,
-                }} />
-
                 {/* MatNEXT Logo */}
                 <div style={{
-                    fontSize: 48,
+                    fontSize: 64,
                     fontWeight: 900,
                     color: COLOR_TOKENS.primary,
                     fontFamily: 'Inter, sans-serif'
@@ -84,7 +66,7 @@ export const Outro: React.FC = () => {
                 fontWeight: 500,
                 opacity: interpolate(frame, [120, 150], [0, 1], { extrapolateRight: 'clamp' })
             }}>
-                www.matnext.com
+                www.matnext-app.com
             </div>
         </AbsoluteFill>
     );

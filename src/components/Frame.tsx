@@ -69,7 +69,7 @@ export const Frame: React.FC<FrameProps> = ({
                     color: COLOR_TOKENS.textSecondary,
                     fontFamily: 'Inter, sans-serif'
                 }}>
-                    matnext.com/dashboard/maruti-suzuki
+                    www.matnext-app.com/dashboard
                 </div>
             </div>
 
