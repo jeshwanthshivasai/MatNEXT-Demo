@@ -79,8 +79,8 @@ export const Section2_OEM: React.FC = () => {
         config: ANIMATION_TOKENS.slow,
     });
 
-    const dashboardScale = interpolate(focusAnim, [0, 1], [1, 1.4]);
-    const dashboardTranslateY = interpolate(focusAnim, [0, 1], [0, -100]);
+    const dashboardScale = 1; // Zoom removed
+    const dashboardTranslateY = 0; // Pan removed
     const overlayOpacity = interpolate(focusAnim, [0, 1], [0, 0.4]);
 
     return (
