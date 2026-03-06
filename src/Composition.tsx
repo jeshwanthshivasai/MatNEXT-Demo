@@ -5,6 +5,7 @@ import { fade } from "@remotion/transitions/fade";
 
 // Overhauled Scenes
 import { Section1_Intro } from './scenes/overhaul/Section1_Intro';
+import { Section1b_Traceability } from './scenes/overhaul/Section1b_Traceability';
 import { Section2_OEM } from './scenes/overhaul/Section2_OEM';
 import { Section3_SupplyChain } from './scenes/overhaul/Section3_SupplyChain';
 import { Section4_Compliance } from './scenes/overhaul/Section4_Compliance';
@@ -17,6 +18,15 @@ export const Main: React.FC = () => {
                 {/* Section 1: Intro (5s) */}
                 <TransitionSeries.Sequence durationInFrames={150}>
                     <Section1_Intro />
+                </TransitionSeries.Sequence>
+                <TransitionSeries.Transition
+                    presentation={fade()}
+                    timing={linearTiming({ durationInFrames: 30 })}
+                />
+
+                {/* Section 1b: Traceability View (10s) */}
+                <TransitionSeries.Sequence durationInFrames={300}>
+                    <Section1b_Traceability />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Transition
                     presentation={fade()}

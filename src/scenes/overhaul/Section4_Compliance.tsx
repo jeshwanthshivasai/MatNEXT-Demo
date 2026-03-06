@@ -130,15 +130,15 @@ export const Section4_Compliance: React.FC = () => {
                             display: 'grid',
                             gridTemplateColumns: '1fr 1fr',
                             gridTemplateRows: '1fr 1fr',
-                            gap: 24,
+                            gap: 60,
                             height: '100%',
-                            padding: '0 0 40px 0',
+                            fontFamily: 'Inter, sans-serif'
                         }}>
                             {/* TILE 1: Total Active Models */}
                             <div style={{
                                 background: 'white',
                                 borderRadius: 24,
-                                padding: '32px 40px',
+                                padding: '40px',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'space-between',
@@ -146,20 +146,20 @@ export const Section4_Compliance: React.FC = () => {
                                 opacity: spring({ frame: frame - tilesDelay, fps }),
                                 transform: `translateY(${interpolate(spring({ frame: frame - tilesDelay, fps }), [0, 1], [20, 0])}px)`
                             }}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <div style={{
-                                        fontSize: 14,
+                                        fontSize: 32,
                                         fontWeight: 600,
                                         color: COLOR_TOKENS.textSecondary,
                                         letterSpacing: 1,
                                     }}>TOTAL ACTIVE MODELS</div>
-                                    <div style={{ background: '#EEF2FF', padding: 12, borderRadius: '50%' }}>
-                                        <Car size={24} color="#3B82F6" />
+                                    <div style={{ background: '#EEF2FF', padding: 12, borderRadius: '25%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        <Car size={32} color="#3B82F6" />
                                     </div>
                                 </div>
                                 <div>
-                                    <div style={{ fontSize: 48, fontWeight: 700, color: '#3B82F6', lineHeight: 1 }}>12</div>
-                                    <div style={{ fontSize: 14, color: COLOR_TOKENS.textSecondary, marginTop: 8 }}>Across all segments</div>
+                                    <div style={{ fontSize: 64, fontWeight: 700, color: '#96CC39', lineHeight: 1 }}>12</div>
+                                    <div style={{ fontSize: 24, color: COLOR_TOKENS.textSecondary, marginTop: 12 }}>Across all segments</div>
                                 </div>
                             </div>
 
@@ -167,7 +167,7 @@ export const Section4_Compliance: React.FC = () => {
                             <div style={{
                                 background: 'white',
                                 borderRadius: 24,
-                                padding: '32px 40px',
+                                padding: '40px',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'space-between',
@@ -175,20 +175,20 @@ export const Section4_Compliance: React.FC = () => {
                                 opacity: spring({ frame: frame - tilesDelay - 5, fps }),
                                 transform: `translateY(${interpolate(spring({ frame: frame - tilesDelay - 5, fps }), [0, 1], [20, 0])}px)`
                             }}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <div style={{
-                                        fontSize: 14,
+                                        fontSize: 32,
                                         fontWeight: 600,
                                         color: COLOR_TOKENS.textSecondary,
                                         letterSpacing: 1,
                                     }}>FULLY COMPLIANT</div>
-                                    <div style={{ background: '#ECFDF5', padding: 12, borderRadius: '50%' }}>
-                                        <ShieldCheck size={24} color="#10B981" />
+                                    <div style={{ background: '#ECFDF5', padding: 12, borderRadius: '25%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        <ShieldCheck size={32} color="#10B981" />
                                     </div>
                                 </div>
                                 <div>
-                                    <div style={{ fontSize: 48, fontWeight: 700, color: '#10B981', lineHeight: 1 }}>85%</div>
-                                    <div style={{ fontSize: 14, color: COLOR_TOKENS.textSecondary, marginTop: 8 }}>10 Models</div>
+                                    <div style={{ fontSize: 64, fontWeight: 700, color: '#96CC39', lineHeight: 1 }}>85%</div>
+                                    <div style={{ fontSize: 24, color: COLOR_TOKENS.textSecondary, marginTop: 12 }}>10 Models</div>
                                 </div>
                             </div>
 
@@ -196,7 +196,7 @@ export const Section4_Compliance: React.FC = () => {
                             <div style={{
                                 background: 'white',
                                 borderRadius: 24,
-                                padding: '32px 40px',
+                                padding: '40px',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'space-between',
@@ -204,20 +204,20 @@ export const Section4_Compliance: React.FC = () => {
                                 opacity: spring({ frame: frame - tilesDelay - 10, fps }),
                                 transform: `translateY(${interpolate(spring({ frame: frame - tilesDelay - 10, fps }), [0, 1], [20, 0])}px)`
                             }}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <div style={{
-                                        fontSize: 14,
+                                        fontSize: 32,
                                         fontWeight: 600,
                                         color: COLOR_TOKENS.textSecondary,
                                         letterSpacing: 1,
                                     }}>AT RISK / NON-COMPLIANT</div>
-                                    <div style={{ background: '#FFFBEB', padding: 12, borderRadius: '50%' }}>
-                                        <AlertTriangle size={24} color="#F59E0B" />
+                                    <div style={{ background: '#FFFBEB', padding: 12, borderRadius: '25%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        <AlertTriangle size={32} color="#F59E0B" />
                                     </div>
                                 </div>
                                 <div>
-                                    <div style={{ fontSize: 48, fontWeight: 700, color: '#F59E0B', lineHeight: 1 }}>2</div>
-                                    <div style={{ fontSize: 14, color: COLOR_TOKENS.textSecondary, marginTop: 8 }}>Requires Attention</div>
+                                    <div style={{ fontSize: 64, fontWeight: 700, color: '#96CC39', lineHeight: 1 }}>2</div>
+                                    <div style={{ fontSize: 24, color: COLOR_TOKENS.textSecondary, marginTop: 12 }}>Requires Attention</div>
                                 </div>
                             </div>
 
@@ -225,7 +225,7 @@ export const Section4_Compliance: React.FC = () => {
                             <div style={{
                                 background: 'white',
                                 borderRadius: 24,
-                                padding: '32px 40px',
+                                padding: '40px',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'space-between',
@@ -233,20 +233,20 @@ export const Section4_Compliance: React.FC = () => {
                                 opacity: spring({ frame: frame - tilesDelay - 15, fps }),
                                 transform: `translateY(${interpolate(spring({ frame: frame - tilesDelay - 15, fps }), [0, 1], [20, 0])}px)`
                             }}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <div style={{
-                                        fontSize: 14,
+                                        fontSize: 32,
                                         fontWeight: 600,
                                         color: COLOR_TOKENS.textSecondary,
                                         letterSpacing: 1,
                                     }}>UPCOMING DEADLINE</div>
-                                    <div style={{ background: '#EEF2FF', padding: 12, borderRadius: '50%' }}>
-                                        <Calendar size={24} color="#3B82F6" />
+                                    <div style={{ background: '#EEF2FF', padding: 12, borderRadius: '25%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        <Calendar size={32} color="#3B82F6" />
                                     </div>
                                 </div>
                                 <div>
-                                    <div style={{ fontSize: 48, fontWeight: 700, color: '#3B82F6', lineHeight: 1 }}>15 Days</div>
-                                    <div style={{ fontSize: 14, color: COLOR_TOKENS.textSecondary, marginTop: 8 }}>RVSF Audit Due</div>
+                                    <div style={{ fontSize: 64, fontWeight: 700, color: '#96CC39', lineHeight: 1 }}>15 Days</div>
+                                    <div style={{ fontSize: 24, color: COLOR_TOKENS.textSecondary, marginTop: 12 }}>RVSF Audit Due</div>
                                 </div>
                             </div>
 
