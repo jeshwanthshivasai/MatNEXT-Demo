@@ -88,8 +88,6 @@ export const Section4_Compliance: React.FC = () => {
                 </div>
 
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', position: 'relative' }}>
-                    <ToasterTabs activeIndex={4} />
-
                     <div style={{
                         flex: 1,
                         background: 'white',
@@ -137,7 +135,7 @@ export const Section4_Compliance: React.FC = () => {
                 </div>
 
                 {/* Bottom Narration Text */}
-                <div style={{ marginTop: 40 }}>
+                {/* <div style={{ marginTop: 40 }}>
                     <Typography
                         delay={30}
                         text="Worry no more about Compliance complexity, as MatNEXT keeps you updated on the latest regulations, and measures your progress."
@@ -146,7 +144,7 @@ export const Section4_Compliance: React.FC = () => {
                         fontWeight={500}
                         textAlign="center"
                     />
-                </div>
+                </div> */}
             </AbsoluteFill>
         </AbsoluteFill>
     );
