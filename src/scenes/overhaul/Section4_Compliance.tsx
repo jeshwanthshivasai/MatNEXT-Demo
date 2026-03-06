@@ -43,7 +43,7 @@ export const Section4_Compliance: React.FC = () => {
     const REVEAL_START = 150;
     const tilesDelay = REVEAL_START + 60; // 210
     const dashboard1Delay = REVEAL_START + 120; // 270
-    const dashboard2Delay = REVEAL_START + 210; // 360
+    const dashboard2Delay = REVEAL_START + 300; // 450 (was 360, extended duration)
 
     // Header fade in
     const contentFade = spring({
@@ -52,12 +52,29 @@ export const Section4_Compliance: React.FC = () => {
         config: ANIMATION_TOKENS.slow,
     });
 
+    const lineAnim = spring({
+        frame: frame - (REVEAL_START + 10),
+        fps,
+        config: ANIMATION_TOKENS.slow,
+    });
+
     let headerTitle = "Regulatory Compliance";
-    if (frame >= dashboard1Delay && frame < dashboard2Delay) {
-        headerTitle = "Regulatory landscape";
-    } else if (frame >= dashboard2Delay) {
+    let textRevealStart = REVEAL_START + 25;
+
+    if (frame >= dashboard2Delay) {
         headerTitle = "Vehicle Wise CBAM compliance";
+        textRevealStart = dashboard2Delay;
+    } else if (frame >= dashboard1Delay) {
+        headerTitle = "Regulatory landscape";
+        textRevealStart = dashboard1Delay;
     }
+
+    const revealAnim = spring({
+        frame: frame - textRevealStart,
+        fps,
+        config: ANIMATION_TOKENS.slow,
+    });
+    const lineHeight = interpolate(lineAnim, [0, 1], [0, 95]);
 
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background }}>
@@ -83,8 +100,9 @@ export const Section4_Compliance: React.FC = () => {
                     top: 60,
                     left: 60,
                     width: 4,
-                    height: 95,
+                    height: lineHeight,
                     backgroundColor: COLOR_TOKENS.primary,
+                    opacity: interpolate(lineAnim, [0, 0.1], [0, 1]),
                 }} />
 
                 {/* Header Content */}
@@ -92,9 +110,12 @@ export const Section4_Compliance: React.FC = () => {
                     position: 'absolute',
                     top: 60,
                     left: 80,
+                    opacity: revealAnim,
+                    clipPath: `inset(0 ${100 - revealAnim * 100}% 0 0)`, // Reveal from left
+                    transform: `translateX(${interpolate(revealAnim, [0, 1], [-20, 0])}px)`,
                 }}>
                     <Typography text={headerTitle} fontSize={30} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
-                    <Typography text="Dashboard Overview (OEM)" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
+                    <Typography delay={15} text="Dashboard Overview (OEM)" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
                 </div>
 
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', position: 'relative' }}>

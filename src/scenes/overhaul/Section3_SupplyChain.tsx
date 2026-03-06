@@ -23,6 +23,19 @@ const DashboardSlide: React.FC<{
     });
     const overlayOpacity = interpolate(focusAnim, [0, 1], [0, 0.4]);
 
+    const lineAnim = spring({
+        frame: frame - 10,
+        fps,
+        config: ANIMATION_TOKENS.slow,
+    });
+
+    const revealAnim = spring({
+        frame: frame - 25,
+        fps,
+        config: ANIMATION_TOKENS.slow,
+    });
+    const lineHeight = interpolate(lineAnim, [0, 1], [0, 95]);
+
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background }}>
             <div style={{
@@ -30,17 +43,21 @@ const DashboardSlide: React.FC<{
                 top: 60,
                 left: 60,
                 width: 4,
-                height: 95,
+                height: lineHeight,
                 backgroundColor: COLOR_TOKENS.primary,
+                opacity: interpolate(lineAnim, [0, 0.1], [0, 1]),
             }} />
 
             <div style={{
                 position: 'absolute',
                 top: 60,
                 left: 80,
+                opacity: revealAnim,
+                clipPath: `inset(0 ${100 - revealAnim * 100}% 0 0)`, // Reveal from left
+                transform: `translateX(${interpolate(revealAnim, [0, 1], [-20, 0])}px)`,
             }}>
                 <Typography text={title} fontSize={30} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
-                <Typography text="Dashboard" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
+                <Typography delay={15} text="Dashboard" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
             </div>
 
             {/* Static Toggle in the exact final position from Section 2 */}
