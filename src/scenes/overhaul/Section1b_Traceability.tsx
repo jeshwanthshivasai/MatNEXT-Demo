@@ -17,7 +17,7 @@ export const Section1b_Traceability: React.FC = () => {
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background }}>
             <AbsoluteFill style={{
-                padding: '220px 60px 60px 60px',
+                padding: '150px 60px 60px 60px',
                 opacity: contentFade,
             }}>
                 {/* Vertical Line */}
@@ -26,7 +26,7 @@ export const Section1b_Traceability: React.FC = () => {
                     top: 60,
                     left: 60,
                     width: 4,
-                    height: 95,
+                    height: 55,
                     backgroundColor: COLOR_TOKENS.primary,
                 }} />
 
@@ -37,7 +37,7 @@ export const Section1b_Traceability: React.FC = () => {
                     left: 80,
                 }}>
                     <Typography text="Complete Vehicle Traceability" fontSize={30} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
-                    <Typography text="Material Specific Circularity" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
+                    {/* <Typography text="Material Specific Circularity" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" /> */}
                 </div>
 
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', position: 'relative' }}>
