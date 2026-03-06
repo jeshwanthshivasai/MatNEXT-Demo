@@ -5,7 +5,13 @@ import { Toggle } from '../../components/overhaul/Toggle';
 import { ToasterTabs } from '../../components/overhaul/ToasterTabs';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
 
-const DashboardSlide: React.FC<{ imageUrl: string; activeIndex: number; title: string }> = ({ imageUrl, activeIndex, title }) => {
+const DashboardSlide: React.FC<{
+    imageUrl: string;
+    activeIndex: number;
+    title: string;
+    highlightTop?: string;
+    highlightHeight?: string;
+}> = ({ imageUrl, activeIndex, title, highlightTop = '38.8%', highlightHeight = '19%' }) => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
@@ -67,10 +73,10 @@ const DashboardSlide: React.FC<{ imageUrl: string; activeIndex: number; title: s
                         {frame > 15 && (
                             <div style={{
                                 position: 'absolute',
-                                top: '45.8%', // Positioned over the 4 cards
-                                left: '4.6%',
-                                width: '95.4%',
-                                height: '19%',
+                                top: highlightTop, // Positioned over the 4 cards
+                                left: '4%',
+                                width: '96%',
+                                height: highlightHeight,
                                 border: `6px solid ${COLOR_TOKENS.primary}`,
                                 borderRadius: 25, // Slightly softer corners to match cards
                                 boxShadow: `0 0 0 1000px rgba(0,0,0,${overlayOpacity * 1.5})`, // Darkening outside only
@@ -89,13 +95,30 @@ export const Section3_SupplyChain: React.FC = () => {
     return (
         <Series>
             <Series.Sequence durationInFrames={450}>
-                <DashboardSlide imageUrl="media/RVSF-Dashboard.png" activeIndex={1} title="Registered Vehicle Scrapping Facility" />
+                <DashboardSlide
+                    imageUrl="media/RVSF-Dashboard.png"
+                    activeIndex={1}
+                    title="Registered Vehicle Scrapping Facility"
+                    highlightHeight="30.6%"
+                />
             </Series.Sequence>
             <Series.Sequence durationInFrames={450}>
-                <DashboardSlide imageUrl="media/Recycler-Dashboard.png" activeIndex={2} title="Recycler" />
+                <DashboardSlide
+                    imageUrl="media/Recycler-Dashboard.png"
+                    activeIndex={2}
+                    title="Recycler"
+                    highlightTop="38%"
+                    highlightHeight="21.5%"
+                />
             </Series.Sequence>
             <Series.Sequence durationInFrames={450}>
-                <DashboardSlide imageUrl="media/Supplier-Dashboard.png" activeIndex={3} title="Supplier" />
+                <DashboardSlide
+                    imageUrl="media/Supplier-Dashboard.png"
+                    activeIndex={3}
+                    title="Supplier"
+                    highlightHeight="14.3%"
+                    highlightTop="47%"
+                />
             </Series.Sequence>
         </Series>
     );
