@@ -4,6 +4,7 @@ import { Typography } from '../../components/Typography';
 import { Toggle } from '../../components/overhaul/Toggle';
 import { ToasterTabs } from '../../components/overhaul/ToasterTabs';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
+import { Car, ShieldCheck, AlertTriangle, Calendar } from 'lucide-react';
 
 export const Section4_Compliance: React.FC = () => {
     const frame = useCurrentFrame();
@@ -97,50 +98,160 @@ export const Section4_Compliance: React.FC = () => {
                 </div>
 
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', position: 'relative' }}>
-                    <div style={{
-                        flex: 1,
-                        background: 'white',
-                        borderRadius: '0 24px 24px 24px',
-                        border: `1px solid ${COLOR_TOKENS.border}`,
-                        boxShadow: '0 20px 80px rgba(0,0,0,0.08)',
-                        overflow: 'hidden',
-                        position: 'relative',
-                    }}>
-                        {/* Dashboards showing sequentially */}
-                        {frame >= dashboard1Delay && frame < dashboard2Delay && (
-                            <Img
-                                src={staticFile('media/Regulatory-Landscape.png')}
-                                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
-                            />
-                        )}
-                        {frame >= dashboard2Delay && (
-                            <Img
-                                src={staticFile('media/VW-CBAM.png')}
-                                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
-                            />
-                        )}
 
-                        {/* Reveal the tiles logic or 4-tile view if needed */}
-                        {frame < dashboard1Delay && (
+                    {/* Dashboards showing sequentially (FULL BLEED, NO BORDER RADIUS) */}
+                    {frame >= dashboard1Delay && (
+                        <div style={{
+                            flex: 1,
+                            background: 'white',
+                            border: `1px solid ${COLOR_TOKENS.border}`,
+                            boxShadow: '0 20px 80px rgba(0,0,0,0.08)',
+                            overflow: 'hidden',
+                            position: 'relative',
+                        }}>
+                            {frame >= dashboard1Delay && frame < dashboard2Delay && (
+                                <Img
+                                    src={staticFile('media/Regulatory-Landscape.png')}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
+                                />
+                            )}
+                            {frame >= dashboard2Delay && (
+                                <Img
+                                    src={staticFile('media/VW-CBAM.png')}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
+                                />
+                            )}
+                        </div>
+                    )}
+
+                    {/* Reveal the 4 tiles (ROUNDED BORDERS) */}
+                    {frame < dashboard1Delay && (
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: '1fr 1fr',
+                            gridTemplateRows: '1fr 1fr',
+                            gap: 24,
+                            height: '100%',
+                            padding: '0 0 40px 0',
+                        }}>
+                            {/* TILE 1: Total Active Models */}
                             <div style={{
-                                display: 'grid',
-                                gridTemplateColumns: '1fr 1fr',
-                                gridTemplateRows: '1fr 1fr',
-                                gap: 20,
-                                padding: 40,
-                                height: '100%'
+                                background: 'white',
+                                borderRadius: 24,
+                                padding: '32px 40px',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                                boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+                                opacity: spring({ frame: frame - tilesDelay, fps }),
+                                transform: `translateY(${interpolate(spring({ frame: frame - tilesDelay, fps }), [0, 1], [20, 0])}px)`
                             }}>
-                                {[1, 2, 3, 4].map(i => (
-                                    <div key={i} style={{
-                                        background: '#F1F5F9',
-                                        borderRadius: 16,
-                                        opacity: spring({ frame: frame - tilesDelay - (i * 5), fps }),
-                                        transform: `translateY(${interpolate(spring({ frame: frame - tilesDelay - (i * 5), fps }), [0, 1], [20, 0])}px)`
-                                    }} />
-                                ))}
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                    <div style={{
+                                        fontSize: 14,
+                                        fontWeight: 600,
+                                        color: COLOR_TOKENS.textSecondary,
+                                        letterSpacing: 1,
+                                    }}>TOTAL ACTIVE MODELS</div>
+                                    <div style={{ background: '#EEF2FF', padding: 12, borderRadius: '50%' }}>
+                                        <Car size={24} color="#3B82F6" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style={{ fontSize: 48, fontWeight: 700, color: '#3B82F6', lineHeight: 1 }}>12</div>
+                                    <div style={{ fontSize: 14, color: COLOR_TOKENS.textSecondary, marginTop: 8 }}>Across all segments</div>
+                                </div>
                             </div>
-                        )}
-                    </div>
+
+                            {/* TILE 2: Fully Compliant */}
+                            <div style={{
+                                background: 'white',
+                                borderRadius: 24,
+                                padding: '32px 40px',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                                boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+                                opacity: spring({ frame: frame - tilesDelay - 5, fps }),
+                                transform: `translateY(${interpolate(spring({ frame: frame - tilesDelay - 5, fps }), [0, 1], [20, 0])}px)`
+                            }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                    <div style={{
+                                        fontSize: 14,
+                                        fontWeight: 600,
+                                        color: COLOR_TOKENS.textSecondary,
+                                        letterSpacing: 1,
+                                    }}>FULLY COMPLIANT</div>
+                                    <div style={{ background: '#ECFDF5', padding: 12, borderRadius: '50%' }}>
+                                        <ShieldCheck size={24} color="#10B981" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style={{ fontSize: 48, fontWeight: 700, color: '#10B981', lineHeight: 1 }}>85%</div>
+                                    <div style={{ fontSize: 14, color: COLOR_TOKENS.textSecondary, marginTop: 8 }}>10 Models</div>
+                                </div>
+                            </div>
+
+                            {/* TILE 3: At Risk / Non-Compliant */}
+                            <div style={{
+                                background: 'white',
+                                borderRadius: 24,
+                                padding: '32px 40px',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                                boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+                                opacity: spring({ frame: frame - tilesDelay - 10, fps }),
+                                transform: `translateY(${interpolate(spring({ frame: frame - tilesDelay - 10, fps }), [0, 1], [20, 0])}px)`
+                            }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                    <div style={{
+                                        fontSize: 14,
+                                        fontWeight: 600,
+                                        color: COLOR_TOKENS.textSecondary,
+                                        letterSpacing: 1,
+                                    }}>AT RISK / NON-COMPLIANT</div>
+                                    <div style={{ background: '#FFFBEB', padding: 12, borderRadius: '50%' }}>
+                                        <AlertTriangle size={24} color="#F59E0B" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style={{ fontSize: 48, fontWeight: 700, color: '#F59E0B', lineHeight: 1 }}>2</div>
+                                    <div style={{ fontSize: 14, color: COLOR_TOKENS.textSecondary, marginTop: 8 }}>Requires Attention</div>
+                                </div>
+                            </div>
+
+                            {/* TILE 4: Upcoming Deadline */}
+                            <div style={{
+                                background: 'white',
+                                borderRadius: 24,
+                                padding: '32px 40px',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                                boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+                                opacity: spring({ frame: frame - tilesDelay - 15, fps }),
+                                transform: `translateY(${interpolate(spring({ frame: frame - tilesDelay - 15, fps }), [0, 1], [20, 0])}px)`
+                            }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                    <div style={{
+                                        fontSize: 14,
+                                        fontWeight: 600,
+                                        color: COLOR_TOKENS.textSecondary,
+                                        letterSpacing: 1,
+                                    }}>UPCOMING DEADLINE</div>
+                                    <div style={{ background: '#EEF2FF', padding: 12, borderRadius: '50%' }}>
+                                        <Calendar size={24} color="#3B82F6" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style={{ fontSize: 48, fontWeight: 700, color: '#3B82F6', lineHeight: 1 }}>15 Days</div>
+                                    <div style={{ fontSize: 14, color: COLOR_TOKENS.textSecondary, marginTop: 8 }}>RVSF Audit Due</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    )}
                 </div>
 
                 {/* Bottom Narration Text */}
