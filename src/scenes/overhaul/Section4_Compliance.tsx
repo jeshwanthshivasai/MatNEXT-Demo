@@ -62,10 +62,10 @@ export const Section4_Compliance: React.FC = () => {
     let textRevealStart = REVEAL_START + 25;
 
     if (frame >= dashboard2Delay) {
-        headerTitle = "Vehicle Wise CBAM compliance";
+        headerTitle = "Vehicle Wise CBAM Compliance";
         textRevealStart = dashboard2Delay;
     } else if (frame >= dashboard1Delay) {
-        headerTitle = "Regulatory landscape";
+        headerTitle = "Regulatory Landscape";
         textRevealStart = dashboard1Delay;
     }
 
