@@ -100,7 +100,7 @@ export const Section4_Compliance: React.FC = () => {
                     <div style={{
                         flex: 1,
                         background: 'white',
-                        borderRadius: '24px',
+                        borderRadius: '0 24px 24px 24px',
                         border: `1px solid ${COLOR_TOKENS.border}`,
                         boxShadow: '0 20px 80px rgba(0,0,0,0.08)',
                         overflow: 'hidden',
@@ -110,13 +110,13 @@ export const Section4_Compliance: React.FC = () => {
                         {frame >= dashboard1Delay && frame < dashboard2Delay && (
                             <Img
                                 src={staticFile('media/Regulatory-Landscape.png')}
-                                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
                             />
                         )}
                         {frame >= dashboard2Delay && (
                             <Img
                                 src={staticFile('media/VW-CBAM.png')}
-                                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
                             />
                         )}
 
