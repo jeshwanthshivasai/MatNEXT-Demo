@@ -73,8 +73,8 @@ export const Section2_OEM: React.FC = () => {
                 opacity: toggleMoveProgress,
                 transform: `translateX(${interpolate(toggleMoveProgress, [0, 1], [-20, 0])}px)`,
             }}>
-                <Typography text="Maruti Suzuki India Limited" fontSize={32} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
-                <Typography delay={15} text="Corporate OEM Overview" fontSize={18} color={COLOR_TOKENS.textSecondary} fontWeight={500} textAlign="left" />
+                <Typography text="Corporate OEM" fontSize={32} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
+                <Typography delay={15} text="Dashboard" fontSize={18} color={COLOR_TOKENS.textSecondary} fontWeight={500} textAlign="left" />
             </div>
 
             {/* Main Toggle (Centered then moves) */}

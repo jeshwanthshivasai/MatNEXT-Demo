@@ -53,7 +53,28 @@ export const Section1_Intro: React.FC = () => {
                 </div>
             </AbsoluteFill>
 
-            {/* Bottom Accent */}
+            {/* Website URL */}
+            <div style={{
+                position: 'absolute',
+                bottom: 130,
+                left: 0,
+                right: 0,
+                display: 'flex',
+                justifyContent: 'center',
+                opacity: interpolate(frame, [40, 60], [0, 1], { extrapolateRight: 'clamp' }),
+                transform: `translateY(${interpolate(frame, [40, 60], [20, 0], { extrapolateRight: 'clamp' })}px)`,
+            }}>
+                <p style={{
+                    color: COLOR_TOKENS.primary,
+                    fontWeight: 400,
+                    fontSize: 20,
+                    fontFamily: 'Inter, sans-serif',
+                    margin: 0,
+                    letterSpacing: 1
+                }}>
+                    www.matnext-app.com
+                </p>
+            </div>
             <div style={{
                 position: 'absolute',
                 bottom: 100,
@@ -62,7 +83,7 @@ export const Section1_Intro: React.FC = () => {
                 width: interpolate(anim, [0, 1], [0, 400]),
                 height: 2,
                 background: `linear-gradient(90deg, transparent, ${COLOR_TOKENS.primary}, transparent)`,
-                opacity: 0.5,
+                opacity: 1,
             }} />
         </AbsoluteFill>
     );
