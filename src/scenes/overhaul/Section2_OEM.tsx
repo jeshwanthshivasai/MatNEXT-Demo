@@ -169,28 +169,13 @@ export const Section2_OEM: React.FC = () => {
                                 border: `6px solid ${COLOR_TOKENS.primary}`,
                                 borderRadius: 25, // Slightly softer corners to match cards
                                 boxShadow: `0 0 0 1000px rgba(0,0,0,${overlayOpacity * 1.5})`, // Reduced darkening
+                                transform: `scale(${focusAnim})`, // Pop-in scaling animation
                                 opacity: focusAnim,
                             }} />
                         )}
                     </div>
                 </div>
             </AbsoluteFill>
-
-            {/* Score Focus (Circular Highlight) */}
-            {frame > SCORE_FOCUS_START && (
-                <div style={{
-                    position: 'absolute',
-                    top: '35%',
-                    right: '15%',
-                    width: 200,
-                    height: 200,
-                    borderRadius: '50%',
-                    border: `4px solid ${COLOR_TOKENS.primary}`,
-                    boxShadow: `0 0 0 2000px rgba(0,0,0,0.6)`,
-                    transform: `scale(${spring({ frame: frame - SCORE_FOCUS_START, fps })})`,
-                    zIndex: 200,
-                }} />
-            )}
         </AbsoluteFill>
     );
 };
