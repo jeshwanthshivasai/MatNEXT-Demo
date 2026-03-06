@@ -120,11 +120,12 @@ export const Section4_Compliance: React.FC = () => {
 
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', position: 'relative' }}>
 
-                    {/* Dashboards showing sequentially (FULL BLEED, NO BORDER RADIUS) */}
+                    {/* Dashboards showing sequentially */}
                     {frame >= dashboard1Delay && (
                         <div style={{
                             flex: 1,
                             background: 'white',
+                            borderRadius: '0 24px 24px 24px',
                             border: `1px solid ${COLOR_TOKENS.border}`,
                             boxShadow: '0 20px 80px rgba(0,0,0,0.08)',
                             overflow: 'hidden',
