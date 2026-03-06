@@ -32,9 +32,12 @@ export const Section2_OEM: React.FC = () => {
         config: ANIMATION_TOKENS.extraSlow, // Use extraSlow
     });
 
-    // Move from center to top-right
+    // Move from center to top-right corner, ensuring perfect symmetry
+    // Top Margin: 60px
+    // Right Margin: 60px 
+    // Therefore X = width - ToggleWidth(596) - 60 = width - 656
     const toggleY = interpolate(toggleMoveProgress, [0, 1], [height / 2 - 46, 60]);
-    const toggleX = interpolate(toggleMoveProgress, [0, 1], [width / 2 - 280, width - 620]);
+    const toggleX = interpolate(toggleMoveProgress, [0, 1], [width / 2 - 298, width - 656]);
     const toggleScale = interpolate(toggleEntrance, [0, 1], [0.8, 1]);
 
     // 2. Toggle Fade Out (once it triggers the dashboard)
@@ -85,8 +88,8 @@ export const Section2_OEM: React.FC = () => {
             {/* Vertical Reveal Line */}
             <div style={{
                 position: 'absolute',
-                top: 60,
-                left: 50,
+                top: 60, // Equal top margin
+                left: 60, // Equal left margin
                 width: 4,
                 height: lineHeight,
                 backgroundColor: COLOR_TOKENS.primary,
@@ -97,8 +100,8 @@ export const Section2_OEM: React.FC = () => {
             {/* Header Content (revealed from line) */}
             <div style={{
                 position: 'absolute',
-                top: 60,
-                left: 70,
+                top: 60, // Equal top margin
+                left: 80, // 60px base + 20px gap from the vertical line
                 opacity: revealAnim,
                 clipPath: `inset(0 ${100 - revealAnim * 100}% 0 0)`, // Reveal from left
                 transform: `translateX(${interpolate(revealAnim, [0, 1], [-20, 0])}px)`,
@@ -113,16 +116,15 @@ export const Section2_OEM: React.FC = () => {
                 top: toggleY,
                 left: toggleX,
                 transform: `scale(${toggleScale})`,
-                opacity: interpolate(toggleEntrance, [0, 1], [0, 1]) * toggleOpacity,
-                zIndex: 10, // Lowered z-index so it doesn't float over focus rings later
-                pointerEvents: toggleOpacity < 0.1 ? 'none' : 'auto',
+                opacity: interpolate(toggleEntrance, [0, 1], [0, 1]), // Always visible after entrance
+                zIndex: 10,
             }}>
                 <Toggle mode="corporate" />
             </div>
 
             {/* Dashboard Content */}
             <AbsoluteFill style={{
-                padding: '160px 40px 60px 70px',
+                padding: '160px 60px 60px 60px', // Uniform padding around the dashboard area
                 opacity: dashboardAnim,
                 transform: `translateY(${interpolate(dashboardAnim, [0, 1], [40, 0])}px)`,
             }}>
@@ -146,7 +148,12 @@ export const Section2_OEM: React.FC = () => {
                     }}>
                         <Img
                             src={staticFile('media/MSIL-Dashboard.png')}
-                            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                objectPosition: 'top center'
+                            }}
                         />
 
                         {/* Overlay for Isolation Focus */}

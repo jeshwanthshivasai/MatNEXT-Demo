@@ -11,7 +11,7 @@ export const Section4_Compliance: React.FC = () => {
 
     // Mode Toggle Animation at starts
     const toggleStart = 0;
-    const mode = frame < 45 ? 'corporate' : 'regulatory'; // Logic for animation visualization in Toggle component
+    const mode = 'regulatory'; // Hardcoded for this scene so no transition occurs
 
     // 4 Tiles reveal
     const tilesDelay = 60;
@@ -40,9 +40,8 @@ export const Section4_Compliance: React.FC = () => {
                     />
                 </div>
 
-                {/* Animated Toggle - Transitioning to Regulatory */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                    <span style={{ fontSize: 14, fontWeight: 600, color: COLOR_TOKENS.textSecondary, fontFamily: 'Inter, sans-serif' }}>MODE</span>
+                {/* Animated Toggle - Static on Regulatory */}
+                <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Toggle mode={mode} delay={toggleStart} />
                 </div>
             </div>

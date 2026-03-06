@@ -19,22 +19,33 @@ export const Toggle: React.FC<SegmentedToggleProps> = ({ mode, delay = 0 }) => {
     });
 
     const activeIndex = mode === 'corporate' ? 0 : 1;
-    const progress = interpolate(anim, [0, 1], [1 - activeIndex, activeIndex]);
+    // If mode is regulatory from the start (delay=0), it shouldn't animate from 0.
+    // We base the animation ONLY if it's supposed to transition.
+    const progress = interpolate(anim, [0, 1], [mode === 'corporate' ? 0 : 1, activeIndex], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp',
+    });
 
-    // Dimensions: 16px Padding
-    // Outer Width: 560px, Padding: 16px
-    // Inner Width: 528px
-    // Slider Width: 260px
-    // Slider Step: 268px
-    const sliderX = interpolate(progress, [0, 1], [16, 284]);
+    // Dimensions calculated for perfect symmetry (target padding ~26px around text on all sides)
+    const outerWidth = 596;
+    const padding = 8;
+    const sliderWidthCorporate = 272;
+    const sliderWidthRegulatory = 308; // Wider to accommodate the longer text
+
+    // X positions to seamlessly hug the edges
+    const sliderXCorporate = padding; // Left edge
+    const sliderXRegulatory = padding + sliderWidthCorporate; // Slides perfectly to the right
+
+    const sliderX = interpolate(progress, [0, 1], [sliderXCorporate, sliderXRegulatory]);
+    const sliderWidth = interpolate(progress, [0, 1], [sliderWidthCorporate, sliderWidthRegulatory]);
 
     return (
         <div style={{
-            width: 560,
+            width: outerWidth,
             height: 92,
             backgroundColor: '#F8FAFC',
-            borderRadius: 46,
-            padding: 16,
+            borderRadius: 16,
+            padding: 8, // Tightened padding to hug the slider deeply
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
@@ -46,22 +57,22 @@ export const Toggle: React.FC<SegmentedToggleProps> = ({ mode, delay = 0 }) => {
             <div style={{
                 position: 'absolute',
                 left: sliderX,
-                width: 260,
-                height: 60,
+                width: sliderWidth, // Exactly half
+                height: 76, // Height = Outer Height (92) - Top/Bot Padding (16)
                 backgroundColor: COLOR_TOKENS.primary,
-                borderRadius: 30,
+                borderRadius: 10,
                 boxShadow: '0 10px 25px rgba(150, 204, 57, 0.4)',
                 zIndex: 1,
             }} />
 
             {/* Corporate Option */}
             <div style={{
-                flex: 1,
+                width: sliderWidthCorporate,
                 zIndex: 2,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: 12,
+                gap: 16, // Optimal balance
                 color: progress < 0.5 ? 'white' : '#64748B',
                 transition: 'color 0.3s ease',
             }}>
@@ -71,12 +82,12 @@ export const Toggle: React.FC<SegmentedToggleProps> = ({ mode, delay = 0 }) => {
 
             {/* Regulatory Option */}
             <div style={{
-                flex: 1,
+                width: sliderWidthRegulatory,
                 zIndex: 2,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: 12,
+                gap: 16, // Optimal balance
                 color: progress > 0.5 ? 'white' : '#64748B',
                 transition: 'color 0.3s ease',
             }}>
