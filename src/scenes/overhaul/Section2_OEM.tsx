@@ -45,12 +45,29 @@ export const Section2_OEM: React.FC = () => {
     });
     const toggleOpacity = interpolate(toggleFadeOut, [0, 1], [1, 0]);
 
-    // 2. Dashboard/Toaster entrance
+    // 3. Vertical Line & Reveal Logic
+    const LINE_START = TOGGLE_CENTER_DUR + 10;
+    const REVEAL_START = LINE_START + 15;
+
+    const lineAnim = spring({
+        frame: frame - LINE_START,
+        fps,
+        config: ANIMATION_TOKENS.slow,
+    });
+
+    const revealAnim = spring({
+        frame: frame - REVEAL_START,
+        fps,
+        config: ANIMATION_TOKENS.slow,
+    });
+
     const dashboardAnim = spring({
         frame: frame - DASHBOARD_ENTRANCE,
         fps,
         config: ANIMATION_TOKENS.premium,
     });
+
+    const lineHeight = interpolate(lineAnim, [0, 1], [0, 95]); // Height of the two header words
 
     // 3. Isolation Focus Logic (Zooming into 4 tiles)
     const focusAnim = spring({
@@ -65,16 +82,29 @@ export const Section2_OEM: React.FC = () => {
 
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background }}>
-            {/* Header Content (reveals when toggle moves) */}
+            {/* Vertical Reveal Line */}
             <div style={{
                 position: 'absolute',
                 top: 60,
-                left: 60,
-                opacity: toggleMoveProgress,
-                transform: `translateX(${interpolate(toggleMoveProgress, [0, 1], [-20, 0])}px)`,
+                left: 50,
+                width: 4,
+                height: lineHeight,
+                backgroundColor: COLOR_TOKENS.primary,
+                // borderRadius: 2,
+                opacity: interpolate(lineAnim, [0, 0.1], [0, 1]),
+            }} />
+
+            {/* Header Content (revealed from line) */}
+            <div style={{
+                position: 'absolute',
+                top: 60,
+                left: 70,
+                opacity: revealAnim,
+                clipPath: `inset(0 ${100 - revealAnim * 100}% 0 0)`, // Reveal from left
+                transform: `translateX(${interpolate(revealAnim, [0, 1], [-20, 0])}px)`,
             }}>
-                <Typography text="Corporate OEM" fontSize={32} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
-                <Typography delay={15} text="Dashboard" fontSize={18} color={COLOR_TOKENS.textSecondary} fontWeight={500} textAlign="left" />
+                <Typography text="Corporate OEM" fontSize={30} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
+                <Typography delay={15} text="Dashboard" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
             </div>
 
             {/* Main Toggle (Centered then moves) */}
@@ -92,7 +122,7 @@ export const Section2_OEM: React.FC = () => {
 
             {/* Dashboard Content */}
             <AbsoluteFill style={{
-                padding: '160px 60px 60px 60px',
+                padding: '160px 40px 60px 70px',
                 opacity: dashboardAnim,
                 transform: `translateY(${interpolate(dashboardAnim, [0, 1], [40, 0])}px)`,
             }}>
