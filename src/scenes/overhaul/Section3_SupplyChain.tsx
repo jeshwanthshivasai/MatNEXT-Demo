@@ -6,6 +6,17 @@ import { ToasterTabs } from '../../components/overhaul/ToasterTabs';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
 
 const DashboardSlide: React.FC<{ imageUrl: string; activeIndex: number; title: string }> = ({ imageUrl, activeIndex, title }) => {
+    const frame = useCurrentFrame();
+    const { fps } = useVideoConfig();
+
+    // MSIL highlight animation, starting shortly after slide entrance
+    const focusAnim = spring({
+        frame: frame - 15,
+        fps,
+        config: ANIMATION_TOKENS.slow,
+    });
+    const overlayOpacity = interpolate(focusAnim, [0, 1], [0, 0.4]);
+
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background }}>
             <div style={{
@@ -48,8 +59,25 @@ const DashboardSlide: React.FC<{ imageUrl: string; activeIndex: number; title: s
                         border: `1px solid ${COLOR_TOKENS.border}`,
                         boxShadow: '0 20px 80px rgba(0,0,0,0.08)',
                         overflow: 'hidden',
+                        position: 'relative',
                     }}>
                         <Img src={staticFile(imageUrl)} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
+
+                        {/* Highlight Ring (Exact MSIL placement) */}
+                        {frame > 15 && (
+                            <div style={{
+                                position: 'absolute',
+                                top: '45.8%', // Positioned over the 4 cards
+                                left: '4.6%',
+                                width: '95.4%',
+                                height: '19%',
+                                border: `6px solid ${COLOR_TOKENS.primary}`,
+                                borderRadius: 25, // Slightly softer corners to match cards
+                                boxShadow: `0 0 0 1000px rgba(0,0,0,${overlayOpacity * 1.5})`, // Darkening outside only
+                                transform: `scale(${focusAnim})`, // Pop-in scaling animation
+                                opacity: focusAnim,
+                            }} />
+                        )}
                     </div>
                 </div>
             </AbsoluteFill>
@@ -60,13 +88,13 @@ const DashboardSlide: React.FC<{ imageUrl: string; activeIndex: number; title: s
 export const Section3_SupplyChain: React.FC = () => {
     return (
         <Series>
-            <Series.Sequence durationInFrames={75}>
+            <Series.Sequence durationInFrames={450}>
                 <DashboardSlide imageUrl="media/RVSF-Dashboard.png" activeIndex={1} title="Registered Vehicle Scrapping Facility" />
             </Series.Sequence>
-            <Series.Sequence durationInFrames={75}>
+            <Series.Sequence durationInFrames={450}>
                 <DashboardSlide imageUrl="media/Recycler-Dashboard.png" activeIndex={2} title="Recycler" />
             </Series.Sequence>
-            <Series.Sequence durationInFrames={75}>
+            <Series.Sequence durationInFrames={450}>
                 <DashboardSlide imageUrl="media/Supplier-Dashboard.png" activeIndex={3} title="Supplier" />
             </Series.Sequence>
         </Series>

@@ -32,8 +32,8 @@ export const Main: React.FC = () => {
                     timing={linearTiming({ durationInFrames: 30 })}
                 />
 
-                {/* Section 3: Supply Chain Transition (approx 7.5s) */}
-                <TransitionSeries.Sequence durationInFrames={225}>
+                {/* Section 3: Supply Chain Transition (15s each = 45s total = 1350 frames) */}
+                <TransitionSeries.Sequence durationInFrames={1350}>
                     <Section3_SupplyChain />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Transition
