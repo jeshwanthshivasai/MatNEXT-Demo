@@ -6,9 +6,10 @@ import { LayoutGrid, ShieldCheck } from 'lucide-react';
 interface SegmentedToggleProps {
     mode: 'corporate' | 'regulatory';
     delay?: number;
+    animateTransition?: boolean;
 }
 
-export const Toggle: React.FC<SegmentedToggleProps> = ({ mode, delay = 0 }) => {
+export const Toggle: React.FC<SegmentedToggleProps> = ({ mode, delay = 0, animateTransition = false }) => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
@@ -19,9 +20,13 @@ export const Toggle: React.FC<SegmentedToggleProps> = ({ mode, delay = 0 }) => {
     });
 
     const activeIndex = mode === 'corporate' ? 0 : 1;
-    // If mode is regulatory from the start (delay=0), it shouldn't animate from 0.
-    // We base the animation ONLY if it's supposed to transition.
-    const progress = interpolate(anim, [0, 1], [mode === 'corporate' ? 0 : 1, activeIndex], {
+
+    // Determine start progress based on whether we are animating the transition
+    const startProgress = animateTransition
+        ? (mode === 'corporate' ? 1 : 0)
+        : (mode === 'corporate' ? 0 : 1);
+
+    const progress = interpolate(anim, [0, 1], [startProgress, activeIndex], {
         extrapolateLeft: 'clamp',
         extrapolateRight: 'clamp',
     });

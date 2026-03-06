@@ -41,8 +41,8 @@ export const Main: React.FC = () => {
                     timing={linearTiming({ durationInFrames: 30 })}
                 />
 
-                {/* Section 4: Compliance Mode (10s) */}
-                <TransitionSeries.Sequence durationInFrames={300}>
+                {/* Section 4: Compliance Mode (15s = Transition 5s + Dashboard 10s) */}
+                <TransitionSeries.Sequence durationInFrames={450}>
                     <Section4_Compliance />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Transition
