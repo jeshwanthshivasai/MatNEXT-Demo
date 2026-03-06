@@ -156,26 +156,19 @@ export const Section2_OEM: React.FC = () => {
                             }}
                         />
 
-                        {/* Overlay for Isolation Focus */}
-                        <div style={{
-                            position: 'absolute',
-                            inset: 0,
-                            backgroundColor: 'black',
-                            opacity: overlayOpacity,
-                            pointerEvents: 'none',
-                        }} />
+                        {/* Overlay for Isolation Focus removed to keep inside of highlight ring clear */}
 
                         {/* Highlight Ring (Appears at ISOLATION_FOCUS_START) */}
                         {frame > ISOLATION_FOCUS_START && (
                             <div style={{
                                 position: 'absolute',
-                                top: '25%', // Manually guesstimating tile position
-                                left: '10%',
-                                width: '80%',
-                                height: '50%',
-                                border: `4px solid ${COLOR_TOKENS.primary}`,
-                                borderRadius: 24,
-                                boxShadow: `0 0 0 1000px rgba(0,0,0,${overlayOpacity * 1.5})`,
+                                top: '45.8%', // Positioned over the 4 cards
+                                left: '4.6%',
+                                width: '95.4%',
+                                height: '19%',
+                                border: `6px solid ${COLOR_TOKENS.primary}`,
+                                borderRadius: 25, // Slightly softer corners to match cards
+                                boxShadow: `0 0 0 1000px rgba(0,0,0,${overlayOpacity * 1.5})`, // Reduced darkening
                                 opacity: focusAnim,
                             }} />
                         )}
