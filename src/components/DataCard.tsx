@@ -28,7 +28,6 @@ export const DataCard: React.FC<DataCardProps> = ({
 
     const translateY = interpolate(anim, [0, 1], [30, 0]);
     const opacity = interpolate(anim, [0, 0.4], [0, 1]);
-    const blur = interpolate(anim, [0, 0.4], [10, 0]);
 
     // Content stagger
     const contentAnim = spring({
@@ -51,7 +50,6 @@ export const DataCard: React.FC<DataCardProps> = ({
                 boxShadow: `0 10px 40px ${COLOR_TOKENS.shadow}`,
                 opacity,
                 transform: `translateY(${translateY}px)`,
-                filter: `blur(${blur}px)`,
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 8,

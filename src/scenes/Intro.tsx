@@ -15,7 +15,6 @@ export const Intro: React.FC = () => {
 
     const scale = interpolate(anim, [0, 1], [0.8, 1]);
     const opacity = interpolate(anim, [0, 0.4], [0, 1]);
-    const blur = interpolate(anim, [0, 0.4], [20, 0]);
 
     const dividerWidth = interpolate(
         spring({ frame: frame - 30, fps, config: ANIMATION_TOKENS.slow }),
@@ -33,7 +32,6 @@ export const Intro: React.FC = () => {
             <div style={{
                 transform: `scale(${scale})`,
                 opacity,
-                filter: `blur(${blur}px)`,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',

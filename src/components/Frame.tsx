@@ -27,7 +27,6 @@ export const Frame: React.FC<FrameProps> = ({
     const scale = interpolate(anim, [0, 1], [0.96, 1]);
     const translateY = interpolate(anim, [0, 1], [60, 0]);
     const opacity = interpolate(anim, [0, 0.4], [0, 1]);
-    const blur = interpolate(anim, [0, 0.4], [20, 0]);
 
     return (
         <div
@@ -41,7 +40,6 @@ export const Frame: React.FC<FrameProps> = ({
                 height: '75%',
                 transform: `scale(${scale}) translateY(${translateY}px)`,
                 opacity,
-                filter: `blur(${blur}px)`,
                 display: 'flex',
                 flexDirection: 'column',
             }}

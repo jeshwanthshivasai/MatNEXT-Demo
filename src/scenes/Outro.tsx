@@ -15,7 +15,6 @@ export const Outro: React.FC = () => {
 
     const scale = interpolate(anim, [0, 1], [0.8, 1]);
     const opacity = interpolate(anim, [0, 0.4], [0, 1]);
-    const blur = interpolate(anim, [0, 0.4], [20, 0]);
 
     return (
         <AbsoluteFill style={{
@@ -27,7 +26,6 @@ export const Outro: React.FC = () => {
             <div style={{
                 transform: `scale(${scale})`,
                 opacity,
-                filter: `blur(${blur}px)`,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',

@@ -37,7 +37,6 @@ export const Typography: React.FC<TypographyProps> = ({
 
     const translateY = interpolate(anim, [0, 1], [fontSize * 0.8, 0]);
     const opacity = interpolate(anim, [0, 0.5], [0, 1]);
-    const blur = interpolate(anim, [0, 0.4], [10, 0]);
 
     const content = (
         <div
@@ -49,7 +48,6 @@ export const Typography: React.FC<TypographyProps> = ({
                 textAlign,
                 opacity,
                 transform: `translateY(${translateY}px)`,
-                filter: `blur(${blur}px)`,
                 width: '100%',
                 letterSpacing,
                 lineHeight: 1.1,
