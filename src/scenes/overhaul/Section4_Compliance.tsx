@@ -30,8 +30,8 @@ export const Section4_Compliance: React.FC = () => {
         config: ANIMATION_TOKENS.slow,
     });
 
-    const startX = width - 656;
-    const startY = 60;
+    const startX = width - 656; // Exact right margin as previous sections
+    const startY = 60; // Exact top margin as previous sections
     const centerX = width / 2 - 298;
     const centerY = height / 2 - 46;
 
@@ -51,6 +51,13 @@ export const Section4_Compliance: React.FC = () => {
         config: ANIMATION_TOKENS.slow,
     });
 
+    let headerTitle = "Regulatory Compliance";
+    if (frame >= dashboard1Delay && frame < dashboard2Delay) {
+        headerTitle = "Regulatory landscape";
+    } else if (frame >= dashboard2Delay) {
+        headerTitle = "Vehicle Wise CBAM compliance";
+    }
+
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background }}>
 
@@ -66,25 +73,27 @@ export const Section4_Compliance: React.FC = () => {
 
             {/* Main Content (fades in) */}
             <AbsoluteFill style={{
-                padding: 60,
+                padding: '200px 60px 60px 60px', // Uniform padding, offset by 60px to account for removed ToasterTabs
                 opacity: contentFade, // Fade in the actual dashboard after toggle returns
             }}>
-                {/* Header Area */}
+                {/* Vertical Line */}
                 <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginBottom: 40,
+                    position: 'absolute',
+                    top: 60,
+                    left: 60,
+                    width: 4,
+                    height: 95,
+                    backgroundColor: COLOR_TOKENS.primary,
+                }} />
+
+                {/* Header Content */}
+                <div style={{
+                    position: 'absolute',
+                    top: 60,
+                    left: 80,
                 }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                        <Typography
-                            text="Regulatory Compliance Mode"
-                            fontSize={32}
-                            fontWeight={600}
-                            color={COLOR_TOKENS.text}
-                            textAlign="left"
-                        />
-                    </div>
+                    <Typography text={headerTitle} fontSize={30} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
+                    <Typography text="Dashboard Overview (OEM)" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
                 </div>
 
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', position: 'relative' }}>
