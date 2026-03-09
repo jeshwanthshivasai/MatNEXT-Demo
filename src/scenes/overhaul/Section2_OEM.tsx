@@ -83,6 +83,9 @@ export const Section2_OEM: React.FC = () => {
     const dashboardTranslateY = 0; // Pan removed
     const overlayOpacity = interpolate(focusAnim, [0, 1], [0, 0.4]);
 
+    // Exit animation (Fade out before transition)
+    const exitAnim = interpolate(frame, [420, 450], [1, 0], { extrapolateRight: 'clamp' });
+
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background }}>
             {/* Vertical Reveal Line */}
@@ -94,7 +97,7 @@ export const Section2_OEM: React.FC = () => {
                 height: lineHeight,
                 backgroundColor: COLOR_TOKENS.primary,
                 // borderRadius: 2,
-                opacity: interpolate(lineAnim, [0, 0.1], [0, 1]),
+                opacity: interpolate(lineAnim, [0, 0.1], [0, 1]) * exitAnim,
             }} />
 
             {/* Header Content (revealed from line) */}
@@ -102,7 +105,7 @@ export const Section2_OEM: React.FC = () => {
                 position: 'absolute',
                 top: 60, // Equal top margin
                 left: 80, // 60px base + 20px gap from the vertical line
-                opacity: revealAnim,
+                opacity: revealAnim * exitAnim,
                 clipPath: `inset(0 ${100 - revealAnim * 100}% 0 0)`, // Reveal from left
                 transform: `translateX(${interpolate(revealAnim, [0, 1], [-20, 0])}px)`,
             }}>
@@ -116,7 +119,7 @@ export const Section2_OEM: React.FC = () => {
                 top: toggleY,
                 left: toggleX,
                 transform: `scale(${toggleScale})`,
-                opacity: interpolate(toggleEntrance, [0, 1], [0, 1]), // Always visible after entrance
+                opacity: interpolate(toggleEntrance, [0, 1], [0, 1]) * exitAnim, // Always visible after entrance
                 zIndex: 10,
             }}>
                 <Toggle mode="corporate" />
@@ -125,7 +128,7 @@ export const Section2_OEM: React.FC = () => {
             {/* Dashboard Content */}
             <AbsoluteFill style={{
                 padding: '160px 60px 60px 60px', // Uniform padding around the dashboard area
-                opacity: dashboardAnim,
+                opacity: dashboardAnim * exitAnim,
                 transform: `translateY(${interpolate(dashboardAnim, [0, 1], [40, 0])}px)`,
             }}>
                 <div style={{

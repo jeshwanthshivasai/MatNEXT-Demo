@@ -36,8 +36,11 @@ const DashboardSlide: React.FC<{
     });
     const lineHeight = interpolate(lineAnim, [0, 1], [0, 95]);
 
+    // Exit animation (Fade out before transition)
+    const exitAnim = interpolate(frame, [420, 450], [1, 0], { extrapolateRight: 'clamp' });
+
     return (
-        <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background }}>
+        <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background, opacity: exitAnim }}>
             <div style={{
                 position: 'absolute',
                 top: 60,

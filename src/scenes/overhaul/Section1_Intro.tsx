@@ -17,6 +17,9 @@ export const Section1_Intro: React.FC = () => {
     const scale = interpolate(anim, [0, 1], [1.1, 1]);
     const opacity = interpolate(anim, [0, 0.5], [0, 1]);
 
+    // Exit animation (Fade out before transition)
+    const exitAnim = interpolate(frame, [120, 150], [1, 0], { extrapolateRight: 'clamp' });
+
     return (
         <AbsoluteFill style={{
             backgroundColor: COLOR_TOKENS.background,
@@ -30,7 +33,7 @@ export const Section1_Intro: React.FC = () => {
             }}>
                 <div style={{
                     transform: `scale(${interpolate(anim, [0, 1], [0.9, 1])})`,
-                    opacity,
+                    opacity: opacity * exitAnim,
                 }}>
                     <Typography
                         text="MatNEXT"
@@ -41,7 +44,7 @@ export const Section1_Intro: React.FC = () => {
                     />
                 </div>
 
-                <div style={{ marginTop: 20 }}>
+                <div style={{ marginTop: 20, opacity: exitAnim }}>
                     <Typography
                         delay={30}
                         text="Circular Supply Chain Intelligence"
@@ -61,7 +64,7 @@ export const Section1_Intro: React.FC = () => {
                 right: 0,
                 display: 'flex',
                 justifyContent: 'center',
-                opacity: interpolate(frame, [40, 60], [0, 1], { extrapolateRight: 'clamp' }),
+                opacity: interpolate(frame, [40, 60], [0, 1], { extrapolateRight: 'clamp' }) * exitAnim,
                 transform: `translateY(${interpolate(frame, [40, 60], [20, 0], { extrapolateRight: 'clamp' })}px)`,
             }}>
                 <p style={{
@@ -83,7 +86,7 @@ export const Section1_Intro: React.FC = () => {
                 width: interpolate(anim, [0, 1], [0, 400]),
                 height: 2,
                 background: `linear-gradient(90deg, transparent, ${COLOR_TOKENS.primary}, transparent)`,
-                opacity: 1,
+                opacity: exitAnim,
             }} />
         </AbsoluteFill>
     );

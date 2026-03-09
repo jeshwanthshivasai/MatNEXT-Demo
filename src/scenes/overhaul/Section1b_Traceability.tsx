@@ -28,11 +28,14 @@ export const Section1b_Traceability: React.FC = () => {
         config: ANIMATION_TOKENS.slow,
     });
 
+    // Exit animation (Fade out before transition)
+    const exitAnim = interpolate(frame, [510, 540], [1, 0], { extrapolateRight: 'clamp' });
+
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background }}>
             <AbsoluteFill style={{
                 padding: '150px 60px 60px 60px',
-                opacity: contentFade,
+                opacity: contentFade * exitAnim,
             }}>
                 {/* Vertical Line */}
                 <div style={{

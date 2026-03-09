@@ -76,8 +76,11 @@ export const Section4_Compliance: React.FC = () => {
     });
     const lineHeight = interpolate(lineAnim, [0, 1], [0, 95]);
 
+    // Exit animation (Fade out before transition)
+    const exitAnim = interpolate(frame, [600, 630], [1, 0], { extrapolateRight: 'clamp' });
+
     return (
-        <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background }}>
+        <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background, opacity: exitAnim }}>
 
             {/* Animated Toggle (Centered then moves) */}
             <div style={{
