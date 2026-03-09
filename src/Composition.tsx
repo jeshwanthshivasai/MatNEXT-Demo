@@ -39,8 +39,8 @@ export const Main: React.FC = () => {
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Transition presentation={fade()} timing={linearTiming({ durationInFrames: 30 })} />
 
-                {/* 4. Compliance (Extended Overview + standardized boards) = 600 frames */}
-                <TransitionSeries.Sequence durationInFrames={600}>
+                {/* 4. Compliance (Toggle intro + 5s tiles + 5s board1 + 5s board2 + exit) = 670 frames */}
+                <TransitionSeries.Sequence durationInFrames={670}>
                     <Section4_Compliance />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Transition presentation={fade()} timing={linearTiming({ durationInFrames: 30 })} />
