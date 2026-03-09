@@ -46,21 +46,23 @@ export const Section4_Compliance: React.FC = () => {
     const exitAnim = interpolate(frame, [board2End, board2End + 30], [1, 0], { extrapolateRight: 'clamp' });
 
     // Header Content Reveal
-    const lineAnim = spring({ frame: frame - REVEAL_START, fps, config: ANIMATION_TOKENS.slow });
-    const lineHeight = interpolate(lineAnim, [0, 1], [0, 95]);
-
     let headerTitle = "Regulatory Compliance";
+    let headerSub = "Dashboard Overview (OEM)";
     let textRevealStart = REVEAL_START;
 
     if (frame >= board2Start) {
         headerTitle = "Vehicle Wise CBAM Compliance";
+        headerSub = "Dashboard";
         textRevealStart = board2Start;
     } else if (frame >= board1Start) {
         headerTitle = "Regulatory Landscape";
+        headerSub = "Dashboard";
         textRevealStart = board1Start;
     }
 
-    const revealAnim = spring({ frame: frame - textRevealStart, fps, config: ANIMATION_TOKENS.slow });
+    const lineAnim = spring({ frame: frame - textRevealStart, fps, config: ANIMATION_TOKENS.slow });
+    const lineHeight = interpolate(lineAnim, [0, 1], [0, 95]);
+    const revealAnim = spring({ frame: frame - (textRevealStart + 10), fps, config: ANIMATION_TOKENS.slow });
 
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background, opacity: exitAnim }}>
@@ -69,7 +71,7 @@ export const Section4_Compliance: React.FC = () => {
             <div style={{ position: 'absolute', top: 60, left: 60, width: 4, height: lineHeight, backgroundColor: COLOR_TOKENS.primary, opacity: interpolate(lineAnim, [0, 0.1], [0, 1]) }} />
             <div style={{ position: 'absolute', top: 60, left: 80, opacity: revealAnim, transform: `translateX(${interpolate(revealAnim, [0, 1], [-20, 0])}px)` }}>
                 <Typography text={headerTitle} fontSize={30} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
-                <Typography delay={15} text="Dashboard Overview (OEM)" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
+                <Typography delay={15} text={headerSub} fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
             </div>
 
             {/* Toggle */}
