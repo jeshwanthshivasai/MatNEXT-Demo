@@ -15,17 +15,15 @@ export const Main: React.FC = () => {
     return (
         <AbsoluteFill style={{ backgroundColor: 'white' }}>
             <TransitionSeries>
-                {/* 1. Intro (5s) */}
-                <TransitionSeries.Sequence durationInFrames={150}>
+                {/* 1. Intro (3s) */}
+                <TransitionSeries.Sequence durationInFrames={90}>
                     <Section1_Intro />
                 </TransitionSeries.Sequence>
-                <TransitionSeries.Transition presentation={fade()} timing={linearTiming({ durationInFrames: 30 })} />
 
-                {/* 1b. Traceability (18s) - Includes buffer */}
-                <TransitionSeries.Sequence durationInFrames={540}>
+                {/* 1b. Traceability (8s) */}
+                <TransitionSeries.Sequence durationInFrames={240}>
                     <Section1b_Traceability />
                 </TransitionSeries.Sequence>
-                <TransitionSeries.Transition presentation={fade()} timing={linearTiming({ durationInFrames: 30 })} />
 
                 {/* 2. OEM Dashboard (DASHBOARD_ENTRANCE + 150 content + 30 exit) = 350 frames */}
                 <TransitionSeries.Sequence durationInFrames={350}>
@@ -39,14 +37,14 @@ export const Main: React.FC = () => {
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Transition presentation={fade()} timing={linearTiming({ durationInFrames: 30 })} />
 
-                {/* 4. Compliance (Toggle intro + 5s tiles + 5s board1 + 5s board2 + exit) = 670 frames */}
-                <TransitionSeries.Sequence durationInFrames={670}>
+                {/* 4. Compliance (Toggle intro + 3 dashboards + exit) = 630 frames */}
+                <TransitionSeries.Sequence durationInFrames={630}>
                     <Section4_Compliance />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Transition presentation={fade()} timing={linearTiming({ durationInFrames: 30 })} />
 
-                {/* 5. Outro (5s) */}
-                <TransitionSeries.Sequence durationInFrames={150}>
+                {/* 5. Outro (3s) */}
+                <TransitionSeries.Sequence durationInFrames={90}>
                     <Outro />
                 </TransitionSeries.Sequence>
             </TransitionSeries>

@@ -73,6 +73,7 @@ export const Section1b_Traceability: React.FC = () => {
                     }}>
                         <OffthreadVideo
                             src={staticFile('media/Traceability-Updated_HD.mp4')}
+                            playbackRate={1.75}
                             style={{
                                 width: '100%',
                                 height: '100%',
