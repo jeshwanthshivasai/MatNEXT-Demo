@@ -108,7 +108,7 @@ export const Section4_Compliance: React.FC = () => {
             </AbsoluteFill>
 
             {/* Dashboard 1 — positioned independently, extends to bottom edge */}
-            <div style={{ position: 'absolute', top: 200, left: 60, right: 60, bottom: 0, opacity: interpolate(frame, [board1Start, board1Start + 20, board1End, board1End + 20], [0, 1, 1, 0], { extrapolateRight: 'clamp' }), display: frame >= board1Start && frame < board1End + 30 ? 'block' : 'none' }}>
+            <div style={{ position: 'absolute', top: 200, left: 60, right: 60, bottom: -1, opacity: interpolate(frame, [board1Start, board1Start + 20, board1End, board1End + 20], [0, 1, 1, 0], { extrapolateRight: 'clamp' }), display: frame >= board1Start && frame < board1End + 30 ? 'block' : 'none' }}>
                 <div style={{ width: '100%', height: '100%', background: 'white', border: `1px solid ${COLOR_TOKENS.border}`, borderRadius: '0px 24px 0px 0px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 80px rgba(0,0,0,0.08)' }}>
                     <Img src={staticFile('media/Regulatory-Landscape.png')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
                     {frame > board1Highlight && (
@@ -118,8 +118,8 @@ export const Section4_Compliance: React.FC = () => {
             </div>
 
             {/* Dashboard 2 — positioned independently, extends to bottom edge */}
-            <div style={{ position: 'absolute', top: 200, left: 60, right: 60, bottom: 0, opacity: interpolate(frame, [board2Start, board2Start + 20, board2End, board2End + 20], [0, 1, 1, 0], { extrapolateRight: 'clamp' }), display: frame >= board2Start ? 'block' : 'none' }}>
-                <div style={{ width: '100%', height: '100%', background: 'white', border: `1px solid ${COLOR_TOKENS.border}`, borderRadius: '0px 24px 24px 24px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 80px rgba(0,0,0,0.08)' }}>
+            <div style={{ position: 'absolute', top: 200, left: 60, right: 60, bottom: -1, opacity: interpolate(frame, [board2Start, board2Start + 20, board2End, board2End + 20], [0, 1, 1, 0], { extrapolateRight: 'clamp' }), display: frame >= board2Start ? 'block' : 'none' }}>
+                <div style={{ width: '100%', height: '100%', background: 'white', border: `1px solid ${COLOR_TOKENS.border}`, borderRadius: '0px 24px 0px 0px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 80px rgba(0,0,0,0.08)' }}>
                     <Img src={staticFile('media/VW-CBAM.png')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
                     {frame > board2Highlight && (
                         <div style={{ position: 'absolute', top: '40%', left: '8%', width: '84%', height: '20%', border: `6px solid ${COLOR_TOKENS.primary}`, borderRadius: 25, boxShadow: `0 0 0 1000px rgba(0,0,0,0.4)`, opacity: interpolate(frame, [board2Highlight, board2Highlight + 15], [0, 1]), transform: `scale(${spring({ frame: frame - board2Highlight, fps })})` }} />
