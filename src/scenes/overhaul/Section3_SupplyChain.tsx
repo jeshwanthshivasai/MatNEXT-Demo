@@ -123,24 +123,6 @@ export const Section3_SupplyChain: React.FC = () => {
                     highlightHeight="30.6%"
                 />
             </Series.Sequence>
-            <Series.Sequence durationInFrames={180}>
-                <DashboardSlide
-                    imageUrl="media/Recycler-Dashboard.png"
-                    activeIndex={2}
-                    title="Recycler"
-                    highlightTop="38%"
-                    highlightHeight="21.5%"
-                />
-            </Series.Sequence>
-            <Series.Sequence durationInFrames={180}>
-                <DashboardSlide
-                    imageUrl="media/Supplier-Dashboard.png"
-                    activeIndex={3}
-                    title="Supplier"
-                    highlightHeight="14.3%"
-                    highlightTop="47%"
-                />
-            </Series.Sequence>
         </Series>
     );
 };

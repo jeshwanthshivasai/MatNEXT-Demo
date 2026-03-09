@@ -32,9 +32,9 @@ export const Main: React.FC = () => {
                     <Section2_OEM />
                 </TransitionSeries.Sequence>
 
-                {/* 3. Supply Chain (3 slides * 180 frames each) = 540 frames */}
+                {/* 3. Supply Chain (RVSF only) = 180 frames */}
                 {/* Transition OEM -> Supply is a hard cut to match internal slide transitions */}
-                <TransitionSeries.Sequence durationInFrames={540}>
+                <TransitionSeries.Sequence durationInFrames={180}>
                     <Section3_SupplyChain />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Transition presentation={fade()} timing={linearTiming({ durationInFrames: 30 })} />
