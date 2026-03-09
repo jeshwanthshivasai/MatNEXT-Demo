@@ -15,8 +15,9 @@ export const Section2_OEM: React.FC = () => {
     const TOGGLE_MOVE_TIME = 80; // Slightly faster move
     const DASHBOARD_ENTRANCE = TOGGLE_CENTER_DUR + TOGGLE_MOVE_TIME;
     const TOASTER_WAVE_START = DASHBOARD_ENTRANCE + 15;
-    const ISOLATION_FOCUS_START = DASHBOARD_ENTRANCE + 60;
+    const ISOLATION_FOCUS_START = DASHBOARD_ENTRANCE + 60; // 2 seconds after entrance
     const SCORE_FOCUS_START = ISOLATION_FOCUS_START + 60;
+    const EXIT_START = DASHBOARD_ENTRANCE + 150; // Total 5s of content (2s clean + 3s focus)
 
     // 1. Toggle Center Animation
     const toggleEntrance = spring({
@@ -84,7 +85,7 @@ export const Section2_OEM: React.FC = () => {
     const overlayOpacity = interpolate(focusAnim, [0, 1], [0, 0.4]);
 
     // Exit animation (Fade out before transition)
-    const exitAnim = interpolate(frame, [420, 450], [1, 0], { extrapolateRight: 'clamp' });
+    const exitAnim = interpolate(frame, [EXIT_START, EXIT_START + 30], [1, 0], { extrapolateRight: 'clamp' });
 
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background }}>

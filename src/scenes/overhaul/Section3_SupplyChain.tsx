@@ -17,7 +17,7 @@ const DashboardSlide: React.FC<{
 
     // MSIL highlight animation, starting shortly after slide entrance
     const focusAnim = spring({
-        frame: frame - 15,
+        frame: frame - 60, // Start highlight after 2 seconds
         fps,
         config: ANIMATION_TOKENS.slow,
     });
@@ -36,8 +36,9 @@ const DashboardSlide: React.FC<{
     });
     const lineHeight = interpolate(lineAnim, [0, 1], [0, 95]);
 
-    // Exit animation (Fade out before transition)
-    const exitAnim = interpolate(frame, [420, 450], [1, 0], { extrapolateRight: 'clamp' });
+    // Exit animation: 5s dashboard content + 1s buffer for transition
+    const DASHBOARD_END = 150;
+    const exitAnim = interpolate(frame, [DASHBOARD_END, DASHBOARD_END + 30], [1, 0], { extrapolateRight: 'clamp' });
 
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background, opacity: exitAnim }}>
@@ -114,7 +115,7 @@ const DashboardSlide: React.FC<{
 export const Section3_SupplyChain: React.FC = () => {
     return (
         <Series>
-            <Series.Sequence durationInFrames={450}>
+            <Series.Sequence durationInFrames={180}>
                 <DashboardSlide
                     imageUrl="media/RVSF-Dashboard.png"
                     activeIndex={1}
@@ -122,7 +123,7 @@ export const Section3_SupplyChain: React.FC = () => {
                     highlightHeight="30.6%"
                 />
             </Series.Sequence>
-            <Series.Sequence durationInFrames={450}>
+            <Series.Sequence durationInFrames={180}>
                 <DashboardSlide
                     imageUrl="media/Recycler-Dashboard.png"
                     activeIndex={2}
@@ -131,7 +132,7 @@ export const Section3_SupplyChain: React.FC = () => {
                     highlightHeight="21.5%"
                 />
             </Series.Sequence>
-            <Series.Sequence durationInFrames={450}>
+            <Series.Sequence durationInFrames={180}>
                 <DashboardSlide
                     imageUrl="media/Supplier-Dashboard.png"
                     activeIndex={3}

@@ -2,15 +2,21 @@ import { Composition } from "remotion";
 import { Main } from "./Composition";
 
 export const RemotionRoot: React.FC = () => {
-    // Calculation:
-    // Intro(150) + Traceability(540) + OEM(450) + Supply(1350) + Compliance(630) + Outro(150) = 3420 additive
-    // Overlaps: 5 transitions * 30 frames = 150 frames
-    // Total Duration: 3420 - 150 = 3270 frames
+    // Calculation (Additive):
+    // Intro: 150
+    // Traceability: 540
+    // OEM: 350
+    // Supply: 540
+    // Compliance: 600 (Split: 4s overview + 5s board1 + 5s board2 + 6s overhead/fades)
+    // Outro: 150
+    // Total Additive = 2330
+    // Overlaps: 4 transitions * 30 frames = 120 frames
+    // Global Duration: 2330 - 120 = 2210 frames
     return (
         <Composition
             id="Main"
             component={Main}
-            durationInFrames={3270}
+            durationInFrames={2210}
             fps={30}
             width={1920}
             height={1080}
