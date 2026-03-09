@@ -41,7 +41,6 @@ export const Main: React.FC = () => {
                 <TransitionSeries.Sequence durationInFrames={630}>
                     <Section4_Compliance />
                 </TransitionSeries.Sequence>
-                <TransitionSeries.Transition presentation={fade()} timing={linearTiming({ durationInFrames: 30 })} />
 
                 {/* 5. Outro (3s) */}
                 <TransitionSeries.Sequence durationInFrames={90}>

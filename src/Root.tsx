@@ -10,13 +10,13 @@ export const RemotionRoot: React.FC = () => {
     // Compliance: 630
     // Outro: 90
     // Total Additive = 1580
-    // Overlaps: 2 transitions * 30 frames = 60 frames
-    // Global Duration: 1580 - 60 = 1520 frames
+    // Overlaps: 1 transition * 30 frames = 30 frames
+    // Global Duration: 1580 - 30 = 1550 frames
     return (
         <Composition
             id="Main"
             component={Main}
-            durationInFrames={1520}
+            durationInFrames={1550}
             fps={30}
             width={1920}
             height={1080}
