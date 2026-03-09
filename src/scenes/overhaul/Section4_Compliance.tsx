@@ -30,20 +30,20 @@ export const Section4_Compliance: React.FC = () => {
     // OEM: LINE_START = TOGGLE_CENTER_DUR + 10
     // OEM: REVEAL_START = LINE_START + 15
     // OEM: DASHBOARD_ENTRANCE = TOGGLE_CENTER_DUR + 80
-    const LINE_START = MOVE_BACK_START + 10;   // 120 (line starts while toggle moves)
-    const TEXT_START = LINE_START + 15;         // 135 (text follows shortly)
-    const TILES_START = MOVE_BACK_START + 35;  // 175 (right as header settles)
-    const TILES_END = TILES_START + 150;       // 340 (5 seconds of tiles)
+    const LINE_START = MOVE_BACK_START + 5;   // 115 (line starts while toggle moves)
+    const TEXT_START = LINE_START + 15;         // 130 (text follows shortly)
+    const TILES_START = MOVE_BACK_START + 40;  // 150 (right as header settles)
+    const TILES_END = TILES_START + 80;       // 230 (3 seconds of tiles)
 
     // Dashboard 1: Regulatory Landscape (2s clean + 3s highlight = 150 frames)
-    const board1Start = TILES_END;             // 340
+    const board1Start = TILES_END;             // 230
     const board1Highlight = board1Start + 60;
-    const board1End = board1Start + 150;       // 490
+    const board1End = board1Start + 150;       // 380
 
     // Dashboard 2: Vehicle Wise CBAM (2s clean + 3s highlight = 150 frames)
-    const board2Start = board1End;             // 490
+    const board2Start = board1End;             // 380
     const board2Highlight = board2Start + 60;
-    const board2End = board2Start + 150;       // 640
+    const board2End = board2Start + 150;       // 530
 
     // Exit Animation
     const exitAnim = interpolate(frame, [board2End, board2End + 30], [1, 0], { extrapolateRight: 'clamp' });
