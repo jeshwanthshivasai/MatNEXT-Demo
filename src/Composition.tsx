@@ -26,27 +26,27 @@ export const Main: React.FC = () => {
                     <Section_Flow src="new_media/Plastic Overall Flow.png" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Plastic Phase 1.png" />
+                    <Section_Flow src="new_media/Plastic Phase 1.png" scale={1.15} objectPosition="60% 45%" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Plastic Phase 2.png" />
+                    <Section_Flow src="new_media/Plastic Phase 2.png" scale={1.35} objectPosition="50% 55%" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Plastic Phase 3.png" />
+                    <Section_Flow src="new_media/Plastic Phase 3.png" scale={1.35} objectPosition="50% 55%" />
                 </TransitionSeries.Sequence>
 
                 {/* 3. Steel Flows (9s = 270 frames) */}
                 <TransitionSeries.Sequence durationInFrames={90}>
-                    <Section_Flow src="new_media/Steel Overall Flow.png" />
+                    <Section_Flow src="new_media/Steel Overall Flow.png" scale={1.30} objectPosition="center 60%" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Steel Phase 1.png" />
+                    <Section_Flow src="new_media/Steel Phase 1.png" scale={1.30} objectPosition="center 60%" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Steel Phase 2.png" />
+                    <Section_Flow src="new_media/Steel Phase 2.png" scale={1.30} objectPosition="center 60%" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Steel Phase 3.png" />
+                    <Section_Flow src="new_media/Steel Phase 3.png" scale={1.30} objectPosition="center 60%" />
                 </TransitionSeries.Sequence>
 
                 {/* 4. Traceability Video (8s = 240 frames) */}
@@ -70,10 +70,10 @@ export const Main: React.FC = () => {
 
                 {/* 6. Copper & Aluminium Flows (4s = 120 frames) */}
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Copper Flow.png" />
+                    <Section_Flow src="new_media/Copper Flow.png" scale={1.22} objectPosition="center 50%" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Aluminium Flow.png" />
+                    <Section_Flow src="new_media/Aluminium Flow.png" scale={1.22} objectPosition="center 50%" />
                 </TransitionSeries.Sequence>
 
                 {/* 7. Outro (2s = 60 frames) */}
