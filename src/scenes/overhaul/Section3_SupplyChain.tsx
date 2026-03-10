@@ -36,9 +36,9 @@ const DashboardSlide: React.FC<{
     });
     const lineHeight = interpolate(lineAnim, [0, 1], [0, 95]);
 
-    // Exit animation: 5s dashboard content + 1s buffer for transition
-    const DASHBOARD_END = 150;
-    const exitAnim = interpolate(frame, [DASHBOARD_END, DASHBOARD_END + 30], [1, 0], { extrapolateRight: 'clamp' });
+    // Exit animation: 110 frames total
+    const DASHBOARD_END = 110;
+    const exitAnim = interpolate(frame, [DASHBOARD_END - 20, DASHBOARD_END], [1, 0], { extrapolateRight: 'clamp' });
 
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background, opacity: exitAnim }}>

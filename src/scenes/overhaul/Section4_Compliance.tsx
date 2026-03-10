@@ -8,13 +8,13 @@ export const Section4_Compliance: React.FC = () => {
     const frame = useCurrentFrame();
     const { fps, width, height } = useVideoConfig();
 
-    // ── 1. Toggle Animation (same as OEM) ──
-    const MOVE_TO_CENTER_START = 30;
+    // ── 1. Toggle Animation ──
+    const MOVE_TO_CENTER_START = 10;
     const moveToCenter = spring({ frame: frame - MOVE_TO_CENTER_START, fps, config: ANIMATION_TOKENS.slow });
 
-    const TOGGLE_SWITCH_START = 65;
+    const TOGGLE_SWITCH_START = 35;
 
-    const MOVE_BACK_START = 110;
+    const MOVE_BACK_START = 60;
     const moveBack = spring({ frame: frame - MOVE_BACK_START, fps, config: ANIMATION_TOKENS.slow });
 
     const startX = width - 656;
@@ -26,26 +26,26 @@ export const Section4_Compliance: React.FC = () => {
     const toggleY = interpolate(moveToCenter, [0, 1], [startY, centerY]) + interpolate(moveBack, [0, 1], [0, startY - centerY]);
 
     // ── 2. Timeline ──
-    const LINE_START = MOVE_BACK_START + 5;    // 115
-    const TEXT_START = LINE_START + 15;         // 130
+    const LINE_START = MOVE_BACK_START + 5;    // 65
+    const TEXT_START = LINE_START + 10;         // 75
 
-    // Dashboard 1: CBAM (2s clean + 3s highlight = 150 frames)
-    const board1Start = MOVE_BACK_START + 40;  // 150
-    const board1Highlight = board1Start + 60;
-    const board1End = board1Start + 150;       // 300
+    // Dashboard 1: CBAM (120 frames)
+    const board1Start = MOVE_BACK_START + 20;  // 80
+    const board1Highlight = board1Start + 45;
+    const board1End = board1Start + 120;       // 200
 
-    // Dashboard 2: Regulatory Landscape (2s clean + 3s highlight = 150 frames)
-    const board2Start = board1End;             // 300
-    const board2Highlight = board2Start + 60;
-    const board2End = board2Start + 150;       // 450
+    // Dashboard 2: Regulatory Landscape (120 frames)
+    const board2Start = board1End;             // 200
+    const board2Highlight = board2Start + 45;
+    const board2End = board2Start + 120;       // 320
 
-    // Dashboard 3: Vehicle Wise CBAM (2s clean + 3s highlight = 150 frames)
-    const board3Start = board2End;             // 450
-    const board3Highlight = board3Start + 60;
-    const board3End = board3Start + 150;       // 600
+    // Dashboard 3: Vehicle Wise CBAM (120 frames)
+    const board3Start = board2End;             // 320
+    const board3Highlight = board3Start + 45;
+    const board3End = board3Start + 120;       // 440
 
     // Exit Animation
-    const exitAnim = interpolate(frame, [board3End, board3End + 30], [1, 0], { extrapolateRight: 'clamp' });
+    const exitAnim = interpolate(frame, [board3End - 20, board3End], [1, 0], { extrapolateRight: 'clamp' });
 
     // ── 3. Header Content Reveal (resets per phase) ──
     let headerTitle = "CBAM Compliance";

@@ -9,15 +9,15 @@ export const Section2_OEM: React.FC = () => {
     const frame = useCurrentFrame();
     const { fps, width, height } = useVideoConfig();
 
-    // Sequence Timings
-    const SCENE_START_DELAY = 45;
-    const TOGGLE_CENTER_DUR = SCENE_START_DELAY + 45; // 1.5 seconds centered instead of 4
-    const TOGGLE_MOVE_TIME = 80; // Slightly faster move
-    const DASHBOARD_ENTRANCE = TOGGLE_CENTER_DUR + TOGGLE_MOVE_TIME;
-    const TOASTER_WAVE_START = DASHBOARD_ENTRANCE + 15;
-    const ISOLATION_FOCUS_START = DASHBOARD_ENTRANCE + 60; // 2 seconds after entrance
-    const SCORE_FOCUS_START = ISOLATION_FOCUS_START + 60;
-    const EXIT_START = DASHBOARD_ENTRANCE + 150; // Total 5s of content (2s clean + 3s focus)
+    // Sequence Timings for exactly 170 frames
+    const SCENE_START_DELAY = 10;
+    const TOGGLE_CENTER_DUR = SCENE_START_DELAY + 25; // 35
+    const TOGGLE_MOVE_TIME = 25; // 60
+    const DASHBOARD_ENTRANCE = TOGGLE_CENTER_DUR + TOGGLE_MOVE_TIME; // 60
+    const TOASTER_WAVE_START = DASHBOARD_ENTRANCE + 10;
+    const ISOLATION_FOCUS_START = DASHBOARD_ENTRANCE + 40;
+    const SCORE_FOCUS_START = ISOLATION_FOCUS_START + 40;
+    const EXIT_START = DASHBOARD_ENTRANCE + 110; // Total 170s
 
     // 1. Toggle Center Animation
     const toggleEntrance = spring({

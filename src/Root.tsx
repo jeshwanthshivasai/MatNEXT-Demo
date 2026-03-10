@@ -2,21 +2,24 @@ import { Composition } from "remotion";
 import { Main } from "./Composition";
 
 export const RemotionRoot: React.FC = () => {
-    // Calculation (Additive):
+    // Exact Additive Timeline based on user requirement:
     // Intro: 60
+    // Plastic Sequence: 270 (90 + 60 + 60 + 60)
+    // Steel Sequence: 270 (90 + 60 + 60 + 60)
     // Traceability: 240
-    // OEM: 350
-    // Supply: 180 (RVSF only)
-    // Compliance: 630
+    // MSIL Dashboard: 170
+    // RVSF Dashboard: 110
+    // Compliance Dashboards: 440
+    // Copper: 60
+    // Aluminium: 60
     // Outro: 60
-    // Total Additive = 1520
-    // Overlaps: 1 transition * 30 frames = 30 frames
-    // Global Duration: 1520 - 30 = 1490 frames
+    // Total = 1740 frames (58 seconds total)
+
     return (
         <Composition
             id="Main"
             component={Main}
-            durationInFrames={1490}
+            durationInFrames={1740}
             fps={30}
             width={1920}
             height={1080}
