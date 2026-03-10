@@ -15,8 +15,8 @@ export const Main: React.FC = () => {
     return (
         <AbsoluteFill style={{ backgroundColor: 'white' }}>
             <TransitionSeries>
-                {/* 1. Intro (3s) */}
-                <TransitionSeries.Sequence durationInFrames={90}>
+                {/* 1. Intro (2s) */}
+                <TransitionSeries.Sequence durationInFrames={60}>
                     <Section1_Intro />
                 </TransitionSeries.Sequence>
 
@@ -42,8 +42,8 @@ export const Main: React.FC = () => {
                     <Section4_Compliance />
                 </TransitionSeries.Sequence>
 
-                {/* 5. Outro (3s) */}
-                <TransitionSeries.Sequence durationInFrames={90}>
+                {/* 5. Outro (2s) */}
+                <TransitionSeries.Sequence durationInFrames={60}>
                     <Outro />
                 </TransitionSeries.Sequence>
             </TransitionSeries>
