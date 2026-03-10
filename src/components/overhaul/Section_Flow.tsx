@@ -4,13 +4,15 @@ import { AbsoluteFill, Img, staticFile } from 'remotion';
 interface SectionFlowProps {
     src: string;
     scale?: number;
-    objectPosition?: string;
+    translateX?: number;
+    translateY?: number;
 }
 
 export const Section_Flow: React.FC<SectionFlowProps> = ({
     src,
     scale = 1.18,
-    objectPosition = 'center center'
+    translateX = 0,
+    translateY = 0
 }) => {
     return (
         <AbsoluteFill style={{ backgroundColor: '#F8FAF9' }}>
@@ -31,8 +33,7 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
                         width: '100%',
                         height: '100%',
                         objectFit: 'contain',
-                        transform: `scale(${scale})`,
-                        objectPosition: objectPosition,
+                        transform: `scale(${scale}) translate(${translateX}px, ${translateY}px)`,
                         transformOrigin: 'center center'
                     }}
                 />
