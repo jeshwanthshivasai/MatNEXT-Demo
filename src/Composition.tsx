@@ -23,30 +23,30 @@ export const Main: React.FC = () => {
 
                 {/* 2. Plastic Flows (9s = 270 frames) */}
                 <TransitionSeries.Sequence durationInFrames={90}>
-                    <Section_Flow src="new_media/Plastic Overall Flow.png" />
+                    <Section_Flow src="new_media/Plastic Overall Flow.png" title="End-to-End Plastic Traceability" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Plastic Phase 1.png" scale={1.2} translateX={-60} translateY={-55} />
+                    <Section_Flow src="new_media/Plastic Phase 1.png" scale={1.2} translateX={-60} translateY={-55} overlayTop={70} overlayBottom={70} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Plastic Phase 2.png" scale={1.35} translateX={0} translateY={-50} />
+                    <Section_Flow src="new_media/Plastic Phase 2.png" scale={1.22} translateX={-70} translateY={-53} overlayTop={60} overlayBottom={60} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Plastic Phase 3.png" scale={1.35} translateX={0} translateY={-50} />
+                    <Section_Flow src="new_media/Plastic Phase 3.png" scale={1.15} translateX={-10} translateY={-50} overlayTop={115} overlayBottom={105} />
                 </TransitionSeries.Sequence>
 
                 {/* 3. Steel Flows (9s = 270 frames) */}
                 <TransitionSeries.Sequence durationInFrames={90}>
-                    <Section_Flow src="new_media/Steel Overall Flow.png" scale={1.30} translateX={0} translateY={-80} />
+                    <Section_Flow src="new_media/Steel Overall Flow.png" scale={1.06} translateX={0} translateY={-5} overlayTop={35} overlayBottom={35}/>
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Steel Phase 1.png" scale={1.30} translateX={0} translateY={-80} />
+                    <Section_Flow src="new_media/Steel Phase 1.png" scale={1.15} translateX={-35} translateY={-5} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Steel Phase 2.png" scale={1.30} translateX={0} translateY={-80} />
+                    <Section_Flow src="new_media/Steel Phase 2.png" scale={1.18} translateX={-1} translateY={-5} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Steel Phase 3.png" scale={1.30} translateX={0} translateY={-80} />
+                    <Section_Flow src="new_media/Steel Phase 3.png" scale={1.27} translateX={-8} translateY={-5} />
                 </TransitionSeries.Sequence>
 
                 {/* 4. Traceability Video (8s = 240 frames) */}
