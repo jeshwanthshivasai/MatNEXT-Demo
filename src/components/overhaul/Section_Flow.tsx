@@ -10,6 +10,7 @@ interface SectionFlowProps {
     overlayTop?: number;
     overlayBottom?: number;
     title?: string;
+    backgroundColor?: string;
 }
 
 export const Section_Flow: React.FC<SectionFlowProps> = ({
@@ -19,7 +20,8 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
     translateY = 0,
     overlayTop = 0,
     overlayBottom = 0,
-    title
+    title,
+    backgroundColor = 'white'
 }) => {
     return (
         <AbsoluteFill style={{ backgroundColor: '#F8FAF9' }}>
@@ -29,7 +31,7 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
                 left: 0,
                 right: 0,
                 bottom: 0,
-                backgroundColor: 'white', // Added white matte here
+                backgroundColor: backgroundColor,
                 overflow: 'hidden',
                 display: 'flex',
                 alignItems: 'center',
@@ -42,7 +44,7 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
                         left: 0,
                         right: 0,
                         height: overlayTop,
-                        backgroundColor: 'white',
+                        backgroundColor: backgroundColor,
                         zIndex: 2,
                     }} />
                 )}
@@ -53,19 +55,30 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
                         left: 0,
                         right: 0,
                         height: overlayBottom,
-                        backgroundColor: 'white',
+                        backgroundColor: backgroundColor,
                         zIndex: 2,
                     }} />
                 )}
 
+                <Img
+                    src={staticFile(src)}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'contain',
+                        transform: `scale(${scale}) translate(${translateX}px, ${translateY}px)`,
+                        transformOrigin: 'center center'
+                    }}
+                />
+
                 {title && (
                     <div style={{
                         position: 'absolute',
-                        top: 80,
-                        right: 120,
+                        top: 65,
+                        // backgroundColor: '#96CC39',
+                        right: 60,
                         zIndex: 10,
-                        width: '100%',
-                        maxWidth: 1000,
+                        width: 800,
                     }}>
                         <Typography
                             text={title}
@@ -77,16 +90,6 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
                         />
                     </div>
                 )}
-                <Img
-                    src={staticFile(src)}
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'contain',
-                        transform: `scale(${scale}) translate(${translateX}px, ${translateY}px)`,
-                        transformOrigin: 'center center'
-                    }}
-                />
             </div>
         </AbsoluteFill>
     );

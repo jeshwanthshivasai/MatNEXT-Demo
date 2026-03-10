@@ -21,15 +21,22 @@ export const Section1b_Traceability: React.FC = () => {
 
     const lineHeight = interpolate(lineAnim, [0, 1], [0, 45]); // Shorter line since subtitle is hidden
 
-    // Fade in content
+    const { durationInFrames } = useVideoConfig();
+
+    // Fade in content quickly at the start
     const contentFade = spring({
-        frame: frame - 15,
+        frame: frame - 5, // Start fading in earlier (at frame 5 instead of 15)
         fps,
         config: ANIMATION_TOKENS.slow,
     });
 
-    // Exit animation (Fade out before transition)
-    const exitAnim = interpolate(frame, [510, 540], [1, 0], { extrapolateRight: 'clamp' });
+    // Exit animation: fade out in the last 30 frames of THIS sequence (240f)
+    const exitAnim = interpolate(
+        frame,
+        [durationInFrames - 30, durationInFrames - 5],
+        [1, 0],
+        { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
+    );
 
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background }}>
