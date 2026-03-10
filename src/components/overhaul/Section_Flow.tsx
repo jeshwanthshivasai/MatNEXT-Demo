@@ -78,7 +78,7 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
                         // backgroundColor: '#96CC39',
                         right: 60,
                         zIndex: 10,
-                        width: 800,
+                        width: 1100,
                     }}>
                         <Typography
                             text={title}

@@ -29,7 +29,7 @@ export const Main: React.FC = () => {
                     <Section_Flow src="new_media/Plastic Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" scale={1.2} translateX={-60} translateY={-55} overlayTop={70} overlayBottom={70} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={30}>
-                    <Section_Flow src="new_media/Plastic Phase 2.png" title="Phase 2: Tracking Material Transformation through Recycling" scale={1.22} translateX={-70} translateY={-53} overlayTop={60} overlayBottom={60} />
+                    <Section_Flow src="new_media/Plastic Phase 2.png" title="Phase 2: Tracking Material Transformation through Recycling" scale={1.22} translateX={-70} translateY={-23} overlayTop={90} overlayBottom={60} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={30}>
                     <Section_Flow src="new_media/Plastic Phase 3.png" title="Phase 3: Manufacturing and the Circular Return Loop" scale={1.15} translateX={-10} translateY={-50} overlayTop={115} overlayBottom={105} />
@@ -70,10 +70,10 @@ export const Main: React.FC = () => {
 
                 {/* 6. Copper & Aluminium Flows (4s = 120 frames) */}
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Copper Flow.png" scale={1.22} translateX={0} translateY={0} />
+                    <Section_Flow src="new_media/Copper Flow.png" title='End-to-End Copper Traceability' backgroundColor="#F1F2F6" scale={1.17} translateX={-7} translateY={5} overlayTop={50} overlayBottom={50} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section_Flow src="new_media/Aluminium Flow.png" scale={1.22} translateX={0} translateY={0} />
+                    <Section_Flow src="new_media/Aluminium Flow.png" title='End-to-End Aluminium Traceability' backgroundColor="#F1F2F6" scale={1.22} translateX={-25} translateY={0} overlayTop={50} overlayBottom={50} />
                 </TransitionSeries.Sequence>
 
                 {/* 7. Outro (2s = 60 frames) */}
