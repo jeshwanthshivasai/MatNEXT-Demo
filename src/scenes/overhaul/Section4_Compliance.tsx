@@ -87,7 +87,7 @@ export const Section4_Compliance: React.FC = () => {
             {/* Dashboard 1: CBAM */}
             <div style={{ position: 'absolute', top: 200, left: 60, right: 60, bottom: -1, opacity: interpolate(frame, [board1Start, board1Start + 20, board1End, board1End + 20], [0, 1, 1, 0], { extrapolateRight: 'clamp' }), display: frame >= board1Start && frame < board1End + 30 ? 'block' : 'none' }}>
                 <div style={{ width: '100%', height: '100%', background: 'white', border: `1px solid ${COLOR_TOKENS.border}`, borderRadius: '0px 24px 0px 0px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 80px rgba(0,0,0,0.08)' }}>
-                    <Img src={staticFile('media/CBAM.png')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
+                    <Img src={staticFile('my_media/CBAM.png')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
                     {frame > board1Highlight && (
                         <div style={{ position: 'absolute', top: '29%', left: '4%', width: '96%', height: '53%', border: `6px solid ${COLOR_TOKENS.primary}`, borderRadius: 25, boxShadow: `0 0 0 1000px rgba(0,0,0,0.4)`, opacity: interpolate(frame, [board1Highlight, board1Highlight + 15], [0, 1]), transform: `scale(${spring({ frame: frame - board1Highlight, fps, config: ANIMATION_TOKENS.slow })})` }} />
                     )}
@@ -97,7 +97,7 @@ export const Section4_Compliance: React.FC = () => {
             {/* Dashboard 2: Regulatory Landscape */}
             <div style={{ position: 'absolute', top: 200, left: 60, right: 60, bottom: -1, opacity: interpolate(frame, [board2Start, board2Start + 20, board2End, board2End + 20], [0, 1, 1, 0], { extrapolateRight: 'clamp' }), display: frame >= board2Start && frame < board2End + 30 ? 'block' : 'none' }}>
                 <div style={{ width: '100%', height: '100%', background: 'white', border: `1px solid ${COLOR_TOKENS.border}`, borderRadius: '0px 24px 0px 0px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 80px rgba(0,0,0,0.08)' }}>
-                    <Img src={staticFile('media/Regulatory-Landscape.png')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
+                    <Img src={staticFile('my_media/Regulatory-Landscape.png')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
                     {frame > board2Highlight && (
                         <div style={{ position: 'absolute', top: '30%', left: '5%', width: '94%', height: '7.5%', border: `6px solid ${COLOR_TOKENS.primary}`, borderRadius: 25, boxShadow: `0 0 0 1000px rgba(0,0,0,0.4)`, opacity: interpolate(frame, [board2Highlight, board2Highlight + 15], [0, 1]), transform: `scale(${spring({ frame: frame - board2Highlight, fps, config: ANIMATION_TOKENS.slow })})` }} />
                     )}
@@ -107,7 +107,7 @@ export const Section4_Compliance: React.FC = () => {
             {/* Dashboard 3: Vehicle Wise CBAM */}
             <div style={{ position: 'absolute', top: 200, left: 60, right: 60, bottom: -1, opacity: interpolate(frame, [board3Start, board3Start + 20, board3End, board3End + 20], [0, 1, 1, 0], { extrapolateRight: 'clamp' }), display: frame >= board3Start ? 'block' : 'none' }}>
                 <div style={{ width: '100%', height: '100%', background: 'white', border: `1px solid ${COLOR_TOKENS.border}`, borderRadius: '0px 24px 0px 0px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 80px rgba(0,0,0,0.08)' }}>
-                    <Img src={staticFile('media/VW-CBAM.png')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
+                    <Img src={staticFile('my_media/VW-CBAM.png')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
                     {frame > board3Highlight && (
                         <div style={{ position: 'absolute', top: '23.5%', left: '5%', width: '93.8%', height: '9.5%', border: `6px solid ${COLOR_TOKENS.primary}`, borderRadius: 25, boxShadow: `0 0 0 1000px rgba(0,0,0,0.4)`, opacity: interpolate(frame, [board3Highlight, board3Highlight + 15], [0, 1]), transform: `scale(${spring({ frame: frame - board3Highlight, fps, config: ANIMATION_TOKENS.slow })})` }} />
                     )}

@@ -151,7 +151,7 @@ export const Section2_OEM: React.FC = () => {
                         position: 'relative',
                     }}>
                         <Img
-                            src={staticFile('media/MSIL-Dashboard.png')}
+                            src={staticFile('my_media/MSIL-Dashboard.png')}
                             style={{
                                 width: '100%',
                                 height: '100%',
