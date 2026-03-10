@@ -117,7 +117,7 @@ export const Section3_SupplyChain: React.FC = () => {
         <Series>
             <Series.Sequence durationInFrames={180}>
                 <DashboardSlide
-                    imageUrl="media/RVSF-Dashboard.png"
+                    imageUrl="my_media/RVSF-Dashboard.png"
                     activeIndex={1}
                     title="Registered Vehicle Scrapping Facility"
                     highlightHeight="30.6%"
