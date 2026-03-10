@@ -27,7 +27,7 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({ src }) => {
                         width: '100%',
                         height: '100%',
                         objectFit: 'contain',
-                        transform: 'scale(1.16)', // This will crop out the outer tablet border if the image is structured like standard mockups
+                        transform: 'scale(1.18)', // This will crop out the outer tablet border if the image is structured like standard mockups
                         transformOrigin: 'center center'
                     }}
                 />
