@@ -4,6 +4,7 @@ import { Typography } from '../../components/Typography';
 import { Toggle } from '../../components/overhaul/Toggle';
 import { ToasterTabs } from '../../components/overhaul/ToasterTabs';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
+import { StatTilesContainer } from '../../components/overhaul/StatTilesContainer';
 
 export const Section2_OEM: React.FC = () => {
     const frame = useCurrentFrame();
@@ -160,21 +161,33 @@ export const Section2_OEM: React.FC = () => {
                             }}
                         />
 
-                        {/* Overlay for Isolation Focus removed to keep inside of highlight ring clear */}
+                        {/* Premium React Tiles Overlay */}
+                        <div style={{
+                            position: 'absolute',
+                            top: '46.5%', // Precise vertical alignment with mockup row
+                            left: '5.5%', // Shifted right
+                            width: '93.4%', // Adjusted width
+                            height: '17.5%', // Matching card height
+                            backgroundColor: '#F5F4EB',
+                            zIndex: 5,
+                        }}>
+                            <StatTilesContainer delay={DASHBOARD_ENTRANCE} />
+                        </div>
 
                         {/* Highlight Ring (Appears at ISOLATION_FOCUS_START) */}
                         {frame > ISOLATION_FOCUS_START && (
                             <div style={{
                                 position: 'absolute',
-                                top: '45.8%', // Positioned over the 4 cards
-                                left: '4.6%',
-                                width: '95.4%',
-                                height: '19%',
+                                top: '44.6%', // Slightly larger to encompass the tiles
+                                left: '4.7%', // Shifted right to match cards
+                                width: '95.2%', // Adjusted width
+                                height: '21%',
                                 border: `6px solid ${COLOR_TOKENS.primary}`,
-                                borderRadius: 25, // Slightly softer corners to match cards
-                                boxShadow: `0 0 0 1000px rgba(0,0,0,${overlayOpacity * 1.5})`, // Reduced darkening
-                                transform: `scale(${focusAnim})`, // Pop-in scaling animation
+                                borderRadius: 25, 
+                                boxShadow: `0 0 0 1000px rgba(0,0,0,${overlayOpacity * 1.5})`,
+                                transform: `scale(${focusAnim})`,
                                 opacity: focusAnim,
+                                zIndex: 6,
                             }} />
                         )}
                     </div>

@@ -22,7 +22,7 @@ export const Main: React.FC = () => {
                 </TransitionSeries.Sequence>
 
                 {/* 2. Plastic Flows (9s = 270 frames) */}
-                <TransitionSeries.Sequence durationInFrames={60}>
+                <TransitionSeries.Sequence durationInFrames={90}>
                     <Section_Flow src="new_media/Plastic Overall Flow.png" title="End-to-End Plastic Traceability" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={30}>
@@ -36,7 +36,7 @@ export const Main: React.FC = () => {
                 </TransitionSeries.Sequence>
 
                 {/* 3. Steel Flows (9s = 270 frames) */}
-                <TransitionSeries.Sequence durationInFrames={60}>
+                <TransitionSeries.Sequence durationInFrames={90}>
                     <Section_Flow src="new_media/Steel Overall Flow.png" title="End-to-End Steel Traceability" backgroundColor="#F1F2F6" scale={1.06} translateX={0} translateY={-5} overlayTop={35} overlayBottom={35} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={30}>
