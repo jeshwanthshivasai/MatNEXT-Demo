@@ -65,29 +65,29 @@ export const StatTile: React.FC<StatTileProps> = ({
         }}>
             {/* Header: Icon + Label */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
-                <div style={{ 
-                    width: 36, 
-                    height: 36, 
-                    borderRadius: 8, 
-                    backgroundColor: `${color}15`, 
-                    display: 'flex', 
-                    alignItems: 'center', 
+                <div style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: 8,
+                    backgroundColor: `${color}15`,
+                    display: 'flex',
+                    alignItems: 'center',
                     justifyContent: 'center',
                     color: color
                 }}>
                     {icon}
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ 
-                        fontSize: 15, 
-                        fontWeight: 700, 
+                    <span style={{
+                        fontSize: 15,
+                        fontWeight: 700,
                         color: COLOR_TOKENS.textSecondary,
                         letterSpacing: 0.5,
                         textTransform: 'uppercase'
                     }}>{label}</span>
-                    <span style={{ 
-                        fontSize: 15, 
-                        fontWeight: 700, 
+                    <span style={{
+                        fontSize: 15,
+                        fontWeight: 700,
                         textTransform: 'uppercase',
                         color: COLOR_TOKENS.textSecondary,
                     }}>{subLabel}</span>
@@ -98,22 +98,22 @@ export const StatTile: React.FC<StatTileProps> = ({
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flex: 1 }}>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
-                        <span style={{ 
-                            fontSize: 32, 
-                            fontWeight: 800, 
+                        <span style={{
+                            fontSize: 32,
+                            fontWeight: 800,
                             color: color,
                             textTransform: 'uppercase',
                         }}>{value}</span>
-                        <span style={{ 
-                            fontSize: 15, 
-                            fontWeight: 700, 
+                        <span style={{
+                            fontSize: 15,
+                            fontWeight: 700,
                             textTransform: 'uppercase',
-                            color: COLOR_TOKENS.textSecondary 
+                            color: COLOR_TOKENS.textSecondary
                         }}>{unit}</span>
                     </div>
-                    <span style={{ 
-                        fontSize: 12, 
-                        fontWeight: 600, 
+                    <span style={{
+                        fontSize: 12,
+                        fontWeight: 600,
                         color: COLOR_TOKENS.textSecondary,
                         marginTop: 4,
                         textTransform: 'uppercase',

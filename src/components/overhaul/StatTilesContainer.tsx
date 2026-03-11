@@ -1,11 +1,11 @@
 import React from 'react';
 import { StatTile } from './StatTile';
-import { 
-    Droplets, 
-    Zap, 
-    Truck, 
-    Battery, 
-    Layers 
+import {
+    Droplets,
+    Zap,
+    Truck,
+    Battery,
+    Layers
 } from 'lucide-react';
 
 interface StatTilesContainerProps {

@@ -183,7 +183,7 @@ export const Section2_OEM: React.FC = () => {
                                 width: '95.2%', // Adjusted width
                                 height: '21%',
                                 border: `6px solid ${COLOR_TOKENS.primary}`,
-                                borderRadius: 25, 
+                                borderRadius: 25,
                                 boxShadow: `0 0 0 1000px rgba(0,0,0,${overlayOpacity * 1.5})`,
                                 transform: `scale(${focusAnim})`,
                                 opacity: focusAnim,
