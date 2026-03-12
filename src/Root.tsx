@@ -4,22 +4,23 @@ import { Main } from "./Composition";
 export const RemotionRoot: React.FC = () => {
     // Exact Additive Timeline based on user requirement:
     // Intro: 60
-    // Plastic Sequence: 180 (90 + 30 + 30 + 30) - Shortened phases
-    // Steel Sequence: 180 (90 + 30 + 30 + 30) - Shortened phases
+    // Stakeholders: 60
+    // Plastic Sequence: 180
+    // Steel Sequence: 180
     // Traceability: 240
-    // MSIL Dashboard: 170
+    // MSIL Dashboard: 200
     // RVSF Dashboard: 110
+    // RVSF Map: 150
     // Compliance Dashboards: 440
-    // Copper: 60
-    // Aluminium: 60
+    // Future Scope: 90
     // Outro: 60
-    // Total = 1500 frames (50 seconds total)
+    // Total = 1770 frames (59 seconds total)
 
     return (
         <Composition
             id="Main"
             component={Main}
-            durationInFrames={1500}
+            durationInFrames={1770}
             fps={30}
             width={1920}
             height={1080}

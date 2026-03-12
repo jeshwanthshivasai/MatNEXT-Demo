@@ -5,12 +5,14 @@ import { fade } from "@remotion/transitions/fade";
 
 // Scenes
 import { Section1_Intro } from './scenes/overhaul/Section1_Intro';
+import { Section1a_Stakeholders } from './scenes/overhaul/Section1a_Stakeholders';
 import { Section_Flow } from './components/overhaul/Section_Flow';
 import { Section1b_Traceability } from './scenes/overhaul/Section1b_Traceability';
 import { Section_Map } from './scenes/overhaul/Section_Map';
 import { Section2_OEM } from './scenes/overhaul/Section2_OEM';
 import { Section3_SupplyChain } from './scenes/overhaul/Section3_SupplyChain';
 import { Section4_Compliance } from './scenes/overhaul/Section4_Compliance';
+import { Section5_FutureScope } from './scenes/overhaul/Section5_FutureScope';
 import { Outro } from './scenes/Outro';
 
 export const Main: React.FC = () => {
@@ -20,6 +22,11 @@ export const Main: React.FC = () => {
                 {/* 1. Intro (2s = 60 frames) */}
                 <TransitionSeries.Sequence durationInFrames={60}>
                     <Section1_Intro />
+                </TransitionSeries.Sequence>
+
+                {/* 1a. Stakeholders (2s = 60 frames) */}
+                <TransitionSeries.Sequence durationInFrames={60}>
+                    <Section1a_Stakeholders />
                 </TransitionSeries.Sequence>
 
                 {/* 2. Plastic Flows (9s = 270 frames) */}
@@ -77,6 +84,11 @@ export const Main: React.FC = () => {
                 {/* 5d. Compliance Dashboards (440 frames) */}
                 <TransitionSeries.Sequence durationInFrames={440}>
                     <Section4_Compliance />
+                </TransitionSeries.Sequence>
+
+                {/* 6. Future Scope (3s = 90 frames) */}
+                <TransitionSeries.Sequence durationInFrames={90}>
+                    <Section5_FutureScope />
                 </TransitionSeries.Sequence>
 
                 {/* 7. Outro (2s = 60 frames) */}
