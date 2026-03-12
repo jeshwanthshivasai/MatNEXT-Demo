@@ -32,22 +32,56 @@ export const Section1_Intro: React.FC = () => {
                 alignItems: 'center',
             }}>
                 <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
                     transform: `scale(${interpolate(anim, [0, 1], [0.9, 1])})`,
                     opacity: opacity * exitAnim,
                 }}>
                     <Typography
                         text="MatNEXT"
-                        fontSize={128}
+                        fontSize={144}
                         fontWeight={500}
                         color={COLOR_TOKENS.primary}
                         letterSpacing={-8}
                     />
+                    <div style={{
+                        marginTop: 5,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1,
+                        opacity: 1
+                    }}>
+                        {/* Left Decoration Line */}
+                        <div style={{
+                            width: interpolate(anim, [0, 1], [0, 150]),
+                            height: 2,
+                            background: `linear-gradient(90deg, transparent, ${COLOR_TOKENS.primary})`,
+                            opacity: exitAnim,
+                        }} />
+
+                        <Typography
+                            text="MaterialNEXT"
+                            fontSize={24}
+                            fontWeight={400}
+                            letterSpacing={0}
+                            color={COLOR_TOKENS.primary}
+                        />
+
+                        {/* Right Decoration Line */}
+                        <div style={{
+                            width: interpolate(anim, [0, 1], [0, 150]),
+                            height: 2,
+                            background: `linear-gradient(90deg, ${COLOR_TOKENS.primary}, transparent)`,
+                            opacity: exitAnim,
+                        }} />
+                    </div>
                 </div>
 
-                <div style={{ marginTop: 20, opacity: exitAnim }}>
+                <div style={{ marginTop: 25, opacity: exitAnim }}>
                     <Typography
                         delay={30}
-                        text="Circular Supply Chain Intelligence"
+                        text="Intelligent Material Traceability System"
                         fontSize={32}
                         color={COLOR_TOKENS.textSecondary}
                         fontWeight={500}
