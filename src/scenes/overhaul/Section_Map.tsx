@@ -109,6 +109,27 @@ export const Section_Map: React.FC = () => {
                             opacity: focusAnim,
                             zIndex: 10,
                         }} />
+
+                        {/* Text Pill (Track ELV collection by RVSF) */}
+                        <div style={{
+                            position: 'absolute',
+                            top: '18%',
+                            left: '50%',
+                            backgroundColor: 'black',
+                            padding: '10px 30px',
+                            borderRadius: 20,
+                            transform: `translateX(-50%) translateY(${interpolate(focusAnim, [0, 1], [0, -35])}px)`,
+                            opacity: focusAnim,
+                            zIndex: 15,
+                        }}>
+                            <Typography
+                                text="Track ELV Collection by RVSF"
+                                fontSize={25}
+                                color="#96CC39"
+                                fontWeight={400}
+                                textAlign="center"
+                            />
+                        </div>
                     </div>
                 </div>
             </AbsoluteFill>
