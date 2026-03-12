@@ -7,6 +7,7 @@ import { fade } from "@remotion/transitions/fade";
 import { Section1_Intro } from './scenes/overhaul/Section1_Intro';
 import { Section_Flow } from './components/overhaul/Section_Flow';
 import { Section1b_Traceability } from './scenes/overhaul/Section1b_Traceability';
+import { Section_Map } from './scenes/overhaul/Section_Map';
 import { Section2_OEM } from './scenes/overhaul/Section2_OEM';
 import { Section3_SupplyChain } from './scenes/overhaul/Section3_SupplyChain';
 import { Section4_Compliance } from './scenes/overhaul/Section4_Compliance';
@@ -55,15 +56,25 @@ export const Main: React.FC = () => {
                 </TransitionSeries.Sequence>
 
                 {/* 5. Dashboards Combined (24s = 720 frames total) */}
+
                 {/* 5a. MSIL Dashboard (170 frames) */}
                 <TransitionSeries.Sequence durationInFrames={200}>
                     <Section2_OEM />
                 </TransitionSeries.Sequence>
+
                 {/* 5b. RVSF Dashboard (110 frames) */}
                 <TransitionSeries.Sequence durationInFrames={110}>
                     <Section3_SupplyChain />
                 </TransitionSeries.Sequence>
-                {/* 5c. Compliance Dashboards (440 frames) */}
+
+                {/* 5c. RVSF Map (150 frames) */}
+                <TransitionSeries.Sequence durationInFrames={150}>
+                    <Section_Map />
+                </TransitionSeries.Sequence>
+
+
+
+                {/* 5d. Compliance Dashboards (440 frames) */}
                 <TransitionSeries.Sequence durationInFrames={440}>
                     <Section4_Compliance />
                 </TransitionSeries.Sequence>
