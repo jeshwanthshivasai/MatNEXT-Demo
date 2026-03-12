@@ -23,7 +23,7 @@ export const Main: React.FC = () => {
 
                 {/* 2. Plastic Flows (9s = 270 frames) */}
                 <TransitionSeries.Sequence durationInFrames={90}>
-                    <Section_Flow src="new_media/Plastic Overall Flow.png" title="End-to-End Plastic Traceability" />
+                    <Section_Flow src="new_media/Plastic Overall Flow.png" title="End-to-End Plastic Traceability" centerTitle subtitle="(Actual data captured in MatNEXT system)" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={30}>
                     <Section_Flow src="new_media/Plastic Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" scale={1.2} translateX={-60} translateY={-55} overlayTop={70} overlayBottom={70} />
@@ -37,7 +37,7 @@ export const Main: React.FC = () => {
 
                 {/* 3. Steel Flows (9s = 270 frames) */}
                 <TransitionSeries.Sequence durationInFrames={90}>
-                    <Section_Flow src="new_media/Steel Overall Flow.png" title="End-to-End Steel Traceability" backgroundColor="#F1F2F6" scale={1.06} translateX={0} translateY={-5} overlayTop={35} overlayBottom={35} />
+                    <Section_Flow src="new_media/Steel Overall Flow.png" title="End-to-End Steel Traceability" backgroundColor="#F1F2F6" scale={1.06} translateX={0} translateY={-5} overlayTop={35} overlayBottom={35} centerTitle subtitle="(Actual data captured in MatNEXT system)" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={30}>
                     <Section_Flow src="new_media/Steel Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" backgroundColor="#F0F2F5" scale={1.15} translateX={-35} translateY={-5} />

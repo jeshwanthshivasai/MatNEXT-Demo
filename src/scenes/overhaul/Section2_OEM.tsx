@@ -205,6 +205,29 @@ export const Section2_OEM: React.FC = () => {
                                 zIndex: 6,
                             }} />
                         )}
+
+                        {/* Disclaimer Text (sample data for reference) */}
+                        {frame > ISOLATION_FOCUS_START && (
+                            <div style={{
+                                position: 'absolute',
+                                top: '70%',
+                                left: '50%',
+                                backgroundColor: 'black',
+                                padding: '5px 20px',
+                                borderRadius: 15,
+                                transform: `translateX(-50%) translateY(${interpolate(focusAnim, [0, 1], [0, -35])}px)`,
+                                opacity: focusAnim,
+                                zIndex: 10,
+                            }}>
+                                <Typography
+                                    text="(sample data for reference)"
+                                    fontSize={25}
+                                    color="#96CC39"
+                                    fontWeight={400}
+                                    textAlign="center"
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
             </AbsoluteFill>

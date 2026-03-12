@@ -11,6 +11,8 @@ interface SectionFlowProps {
     overlayBottom?: number;
     title?: string;
     backgroundColor?: string;
+    centerTitle?: boolean;
+    subtitle?: string;
 }
 
 export const Section_Flow: React.FC<SectionFlowProps> = ({
@@ -21,7 +23,9 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
     overlayTop = 0,
     overlayBottom = 0,
     title,
-    backgroundColor = 'white'
+    backgroundColor = 'white',
+    centerTitle = false,
+    subtitle
 }) => {
     return (
         <AbsoluteFill style={{ backgroundColor: '#F8FAF9' }}>
@@ -75,19 +79,35 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
                     <div style={{
                         position: 'absolute',
                         top: 65,
-                        // backgroundColor: '#96CC39',
-                        right: 60,
+                        left: centerTitle ? 0 : 'auto',
+                        right: centerTitle ? 0 : 60,
                         zIndex: 10,
-                        width: 1100,
+                        width: centerTitle ? '100%' : 1100,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: centerTitle ? 'center' : 'flex-end'
                     }}>
                         <Typography
                             text={title}
                             fontSize={48}
                             fontWeight={700}
-                            textAlign="right"
+                            textAlign={centerTitle ? "center" : "right"}
                             color="#1A1A1A"
                             delay={10}
                         />
+
+                        {subtitle && (
+                            <div style={{ marginTop: -10 }}>
+                                <Typography
+                                    text={subtitle}
+                                    fontSize={20}
+                                    fontWeight={400}
+                                    textAlign={centerTitle ? "center" : "right"}
+                                    color="#666666"
+                                    delay={25}
+                                />
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
