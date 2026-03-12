@@ -56,7 +56,7 @@ export const Main: React.FC = () => {
 
                 {/* 5. Dashboards Combined (24s = 720 frames total) */}
                 {/* 5a. MSIL Dashboard (170 frames) */}
-                <TransitionSeries.Sequence durationInFrames={170}>
+                <TransitionSeries.Sequence durationInFrames={200}>
                     <Section2_OEM />
                 </TransitionSeries.Sequence>
                 {/* 5b. RVSF Dashboard (110 frames) */}

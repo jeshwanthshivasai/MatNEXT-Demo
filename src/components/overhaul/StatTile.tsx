@@ -35,7 +35,7 @@ export const StatTile: React.FC<StatTileProps> = ({
     });
 
     const progressAnim = spring({
-        frame: frame - (delay + 20),
+        frame: frame - delay,
         fps,
         config: ANIMATION_TOKENS.slow,
     });

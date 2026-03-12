@@ -85,6 +85,17 @@ export const Section2_OEM: React.FC = () => {
     const dashboardTranslateY = 0; // Pan removed
     const overlayOpacity = interpolate(focusAnim, [0, 1], [0, 0.4]);
 
+    // 4. Macro Lens Focus (tiles lift off, background blurs)
+    const liftAnim = spring({
+        frame: frame - SCORE_FOCUS_START,
+        fps,
+        config: ANIMATION_TOKENS.slow,
+    });
+    const tileScale = interpolate(liftAnim, [0, 1], [1, 1.1]);
+    const tileLift = interpolate(liftAnim, [0, 1], [0, -60]);
+    const tileShiftX = interpolate(liftAnim, [0, 1], [0, -35]);
+    const bgBlur = interpolate(liftAnim, [0, 1], [0, 6]);
+
     // Exit animation (Fade out before transition)
     const exitAnim = interpolate(frame, [EXIT_START, EXIT_START + 30], [1, 0], { extrapolateRight: 'clamp' });
 
@@ -148,7 +159,7 @@ export const Section2_OEM: React.FC = () => {
                         borderRadius: '0 24px 24px 24px',
                         border: `1px solid ${COLOR_TOKENS.border}`,
                         boxShadow: '0 20px 80px rgba(0,0,0,0.08)',
-                        overflow: 'hidden',
+                        overflow: liftAnim > 0 ? 'visible' : 'hidden',
                         position: 'relative',
                     }}>
                         <Img
@@ -157,7 +168,8 @@ export const Section2_OEM: React.FC = () => {
                                 width: '100%',
                                 height: '100%',
                                 objectFit: 'cover',
-                                objectPosition: 'top center'
+                                objectPosition: 'top center',
+                                filter: `blur(${bgBlur}px)`,
                             }}
                         />
 
@@ -170,6 +182,8 @@ export const Section2_OEM: React.FC = () => {
                             height: '17.5%', // Matching card height
                             backgroundColor: '#F5F4EB',
                             zIndex: 5,
+                            transform: `scale(${tileScale}) translateX(${tileShiftX}px) translateY(${tileLift}px)`,
+                            transformOrigin: 'center center',
                         }}>
                             <StatTilesContainer delay={DASHBOARD_ENTRANCE} />
                         </div>
@@ -185,7 +199,8 @@ export const Section2_OEM: React.FC = () => {
                                 border: `6px solid ${COLOR_TOKENS.primary}`,
                                 borderRadius: 25,
                                 boxShadow: `0 0 0 1000px rgba(0,0,0,${overlayOpacity * 1.5})`,
-                                transform: `scale(${focusAnim})`,
+                                transform: `scale(${focusAnim * tileScale}) translateX(${tileShiftX}px) translateY(${tileLift}px)`,
+                                transformOrigin: 'center center',
                                 opacity: focusAnim,
                                 zIndex: 6,
                             }} />
