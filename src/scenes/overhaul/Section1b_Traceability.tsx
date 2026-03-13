@@ -2,6 +2,7 @@ import React from 'react';
 import { AbsoluteFill, spring, interpolate, useCurrentFrame, useVideoConfig, OffthreadVideo, staticFile } from 'remotion';
 import { Typography } from '../../components/Typography';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
+import { RecordingBlip } from '../../components/overhaul/RecordingBlip';
 
 export const Section1b_Traceability: React.FC = () => {
     const frame = useCurrentFrame();
@@ -66,6 +67,16 @@ export const Section1b_Traceability: React.FC = () => {
                 }}>
                     <Typography text="Complete Vehicle Traceability" fontSize={30} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
                     {/* <Typography text="Material Specific Circularity" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" /> */}
+                </div>
+
+                {/* Recording Blip - Top Right */}
+                <div style={{ 
+                    position: 'absolute',
+                    top: 60,
+                    right: 60,
+                    zIndex: 20
+                }}>
+                    <RecordingBlip />
                 </div>
 
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', position: 'relative' }}>

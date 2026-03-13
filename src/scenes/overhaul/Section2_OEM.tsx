@@ -5,6 +5,7 @@ import { Toggle } from '../../components/overhaul/Toggle';
 import { ToasterTabs } from '../../components/overhaul/ToasterTabs';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
 import { StatTilesContainer } from '../../components/overhaul/StatTilesContainer';
+import { RecordingBlip } from '../../components/overhaul/RecordingBlip';
 
 export const Section2_OEM: React.FC = () => {
     const frame = useCurrentFrame();
@@ -19,6 +20,11 @@ export const Section2_OEM: React.FC = () => {
     const ISOLATION_FOCUS_START = DASHBOARD_ENTRANCE + 40;
     const SCORE_FOCUS_START = ISOLATION_FOCUS_START + 40;
     const EXIT_START = DASHBOARD_ENTRANCE + 110; // Total 170s
+
+    // --- MANUAL ADJUSTMENT: Recording Blips Position ---
+    const BLIP_TOP = 155;
+    const BLIP_RIGHT = 60;
+    // --------------------------------------------------
 
     // 1. Toggle Center Animation
     const toggleEntrance = spring({
@@ -121,9 +127,25 @@ export const Section2_OEM: React.FC = () => {
                 opacity: revealAnim * exitAnim,
                 clipPath: `inset(0 ${100 - revealAnim * 100}% 0 0)`, // Reveal from left
                 transform: `translateX(${interpolate(revealAnim, [0, 1], [-20, 0])}px)`,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 10,
+                zIndex: 10,
             }}>
                 <Typography text="Corporate OEM" fontSize={30} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
                 <Typography delay={15} text="Dashboard" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
+            </div>
+
+            {/* Manual Recording Blip Adjustment (MSIL) */}
+            <div style={{ 
+                position: 'absolute',
+                top: 155, // Adjust this to move it up/down
+                right: 60, // Adjust this to move it left/right
+                opacity: dashboardAnim * exitAnim,
+                transform: `translateY(${interpolate(dashboardAnim, [0, 1], [10, 0])}px)`,
+                zIndex: 15,
+            }}>
+                <RecordingBlip />
             </div>
 
             {/* Main Toggle (Centered then moves) */}

@@ -7,6 +7,7 @@ import { RVSFMaterialCard } from '../../components/overhaul/RVSFMaterialCard';
 import { RVSFPerformanceCard } from '../../components/overhaul/RVSFPerformanceCard';
 import { RVSFScrapCard } from '../../components/overhaul/RVSFScrapCard';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
+import { RecordingBlip } from '../../components/overhaul/RecordingBlip';
 
 const DashboardSlide: React.FC<{
     imageUrl: string;
@@ -14,13 +15,13 @@ const DashboardSlide: React.FC<{
     title: string;
     highlightTop?: string;
     highlightHeight?: string;
-}> = ({ imageUrl, activeIndex, title, highlightTop = '38.8%', highlightHeight = '19%' }) => {
+}> = ({ imageUrl, activeIndex, title, highlightTop = '37.8%', highlightHeight = '33%' }) => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
     // MSIL highlight animation, starting shortly after slide entrance
     const focusAnim = spring({
-        frame: frame - 60, // Start highlight after 2 seconds
+        frame: frame - 10, // Start highlight almost immediately
         fps,
         config: ANIMATION_TOKENS.slow,
     });
@@ -60,12 +61,26 @@ const DashboardSlide: React.FC<{
                 opacity: revealAnim,
                 clipPath: `inset(0 ${100 - revealAnim * 100}% 0 0)`, // Reveal from left
                 transform: `translateX(${interpolate(revealAnim, [0, 1], [-20, 0])}px)`,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 10,
+                zIndex: 10,
             }}>
                 <Typography text={title} fontSize={30} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
                 <Typography delay={15} text="Dashboard" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
             </div>
 
-            {/* Static Toggle in the exact final position from Section 2 */}
+            {/* Manual Recording Blip Adjustment (RVSF) */}
+            <div style={{ 
+                position: 'absolute',
+                top: 155, // Adjust this to move it up/down
+                right: 60, // Adjust this to move it left/right
+                zIndex: 15,
+            }}>
+                <RecordingBlip />
+            </div>
+
+            {/* Static Toggle and Blip in the exact final position from Section 2 */}
             <div style={{
                 position: 'absolute',
                 top: 60,
@@ -94,27 +109,30 @@ const DashboardSlide: React.FC<{
                         {/* Card Overlays Area */}
                         <div style={{
                             position: 'absolute',
-                            top: '58.5%',
-                            left: '4.5%',
-                            width: '91.2%',
-                            height: '27%',
+                            top: '38.5%', // Slightly higher to cover
+                            left: '4.2%', 
+                            width: '95.5%', // Wider to cover right edge
+                            height: '31.5%', // Taller to cover bottom edge
+                            backgroundColor: '#F5F4EB', // Corrected dashboard background
+                            borderRadius: '20px',
                             zIndex: 5,
                             display: 'flex',
-                            gap: '0.8%',
+                            gap: '0.6%', 
+                            padding: '12px 16px', // Slightly more padding for internal centering
                         }}>
                             <div style={{ flex: 1.05 }}>
-                                <RVSFPerformanceCard delay={20} />
+                                <RVSFPerformanceCard delay={0} />
                             </div>
                             <div style={{ flex: 1 }}>
-                                <RVSFScrapCard delay={35} />
+                                <RVSFScrapCard delay={0} />
                             </div>
                             <div style={{ flex: 1.02 }}>
-                                <RVSFMaterialCard delay={50} />
+                                <RVSFMaterialCard delay={0} />
                             </div>
                         </div>
 
                         {/* Highlight Ring (Exact MSIL placement) */}
-                        {frame > 15 && (
+                        {frame > 5 && (
                             <div style={{
                                 position: 'absolute',
                                 top: highlightTop, // Positioned over the 4 cards
@@ -143,7 +161,6 @@ export const Section3_SupplyChain: React.FC = () => {
                     imageUrl="my_media/RVSF-Dashboard.png"
                     activeIndex={1}
                     title="Registered Vehicle Scrapping Facility"
-                    highlightHeight="30.6%"
                 />
             </Series.Sequence>
         </Series>

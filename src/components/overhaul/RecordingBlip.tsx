@@ -11,30 +11,27 @@ export const RecordingBlip: React.FC = () => {
     const dotScale = interpolate(pulsation, [0, 1], [0.8, 1.2]);
 
     return (
-        <AbsoluteFill style={{ pointerEvents: 'none', zIndex: 1000 }}>
+        <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 12,
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            padding: '12px 20px',
+            borderRadius: 40,
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            pointerEvents: 'none',
+        }}>
+            {/* Red Dot */}
             <div style={{
-                position: 'absolute',
-                top: 75,
-                right: 60,
-                display: 'flex',
-                alignItems: 'center',
-                gap: 12,
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                padding: '12px 20px',
-                borderRadius: 40,
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255,255,255,0.1)'
-            }}>
-                {/* Red Dot */}
-                <div style={{
-                    width: 14,
-                    height: 14,
-                    backgroundColor: '#FF3B30',
-                    borderRadius: '50%',
-                    opacity: dotOpacity,
-                    transform: `scale(${dotScale})`,
-                    boxShadow: '0 0 15px #FF3B30'
-                }} />
+                width: 14,
+                height: 14,
+                backgroundColor: '#FF3B30',
+                borderRadius: '50%',
+                opacity: dotOpacity,
+                transform: `scale(${dotScale})`,
+                boxShadow: '0 0 15px #FF3B30'
+            }} />
 
                 {/* REC Label
                 <span style={{
@@ -54,17 +51,16 @@ export const RecordingBlip: React.FC = () => {
                     margin: '0 8px'
                 }} /> */}
 
-                {/* Subtitle Label */}
-                <span style={{
-                    color: '#96cc39',
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: 20,
-                    fontWeight: 500,
-                    opacity: 1
-                }}>
+            {/* Subtitle Label */}
+            <span style={{
+                color: '#96cc39',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: 20,
+                fontWeight: 500,
+                opacity: 1
+            }}>
                     Actual Data
-                </span>
-            </div>
-        </AbsoluteFill>
+            </span>
+        </div>
     );
 };

@@ -3,6 +3,7 @@ import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Img
 import { Typography } from '../../components/Typography';
 import { Toggle } from '../../components/overhaul/Toggle';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
+import { RecordingBlip } from '../../components/overhaul/RecordingBlip';
 
 export const Section4_Compliance: React.FC = () => {
     const frame = useCurrentFrame();
@@ -77,6 +78,16 @@ export const Section4_Compliance: React.FC = () => {
             <div style={{ position: 'absolute', top: 60, left: 80, opacity: revealAnim, transform: `translateX(${interpolate(revealAnim, [0, 1], [-20, 0])}px)` }}>
                 <Typography text={headerTitle} fontSize={30} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
                 <Typography delay={15} text={headerSub} fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
+            </div>
+
+            {/* Recording Blip - Top Right */}
+            <div style={{ 
+                position: 'absolute',
+                top: 60,
+                right: 60,
+                zIndex: 20
+            }}>
+                <RecordingBlip />
             </div>
 
             {/* Toggle */}

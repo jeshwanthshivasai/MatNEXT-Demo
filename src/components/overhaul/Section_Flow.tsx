@@ -1,6 +1,7 @@
 import React from 'react';
 import { AbsoluteFill, Img, staticFile } from 'remotion';
 import { Typography } from '../Typography';
+import { RecordingBlip } from './RecordingBlip';
 
 interface SectionFlowProps {
     src: string;
@@ -74,6 +75,16 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
                         transformOrigin: 'center center'
                     }}
                 />
+
+                {/* Recording Blip - Top Right */}
+                <div style={{ 
+                    position: 'absolute',
+                    top: 60,
+                    right: 60,
+                    zIndex: 20
+                }}>
+                    <RecordingBlip />
+                </div>
 
                 {title && (
                     <div style={{

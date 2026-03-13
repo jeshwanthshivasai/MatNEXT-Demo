@@ -10626,7 +10626,7 @@
             }, /* @__PURE__ */ react.createElement(
                 cjs.Img,
                 {
-                    src: (0, cjs.staticFile)("new_media/New_Stakeholders.png"),
+                    src: (0, cjs.staticFile)("new_media/New-Stakeholders.png"),
                     style: {
                         width: "100%",
                         height: "100%",

@@ -1,5 +1,5 @@
-import React from 'react';
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Img, staticFile } from 'remotion';
+import { RecordingBlip } from '../../components/overhaul/RecordingBlip';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
 
 export const Section1a_Stakeholders: React.FC = () => {
@@ -42,15 +42,26 @@ export const Section1a_Stakeholders: React.FC = () => {
                 opacity: opacity
             }}>
                 <Img 
-                    src={staticFile('new_media/New_Stakeholders.png')} 
+                    src={staticFile('new_media/New-Stakeholders.png')} 
                     style={{
                         width: '100%',
                         height: '100%',
                         objectFit: 'contain',
-                        scale: '1.05',
+                        scale: '1.07',
                         padding: 20
                     }}
                 />
+            </div>
+
+            {/* Recording Blip - Top Right */}
+            <div style={{ 
+                position: 'absolute',
+                top: 60,
+                right: 60,
+                zIndex: 20,
+                opacity: exitAnim
+            }}>
+                <RecordingBlip />
             </div>
         </AbsoluteFill>
     );
