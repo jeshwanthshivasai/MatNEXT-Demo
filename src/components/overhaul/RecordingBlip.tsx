@@ -58,7 +58,7 @@ export const RecordingBlip: React.FC = () => {
                 <span style={{
                     color: '#96cc39',
                     fontFamily: 'Inter, sans-serif',
-                    fontSize: 18,
+                    fontSize: 20,
                     fontWeight: 500,
                     opacity: 1
                 }}>

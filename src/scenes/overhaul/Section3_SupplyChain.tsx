@@ -3,6 +3,9 @@ import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Img
 import { Typography } from '../../components/Typography';
 import { Toggle } from '../../components/overhaul/Toggle';
 import { ToasterTabs } from '../../components/overhaul/ToasterTabs';
+import { RVSFMaterialCard } from '../../components/overhaul/RVSFMaterialCard';
+import { RVSFPerformanceCard } from '../../components/overhaul/RVSFPerformanceCard';
+import { RVSFScrapCard } from '../../components/overhaul/RVSFScrapCard';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
 
 const DashboardSlide: React.FC<{
@@ -23,6 +26,8 @@ const DashboardSlide: React.FC<{
     });
     const overlayOpacity = interpolate(focusAnim, [0, 1], [0, 0.4]);
 
+    const exitAnim = interpolate(frame, [160, 180], [1, 0], { extrapolateRight: 'clamp' });
+
     const lineAnim = spring({
         frame: frame - 10,
         fps,
@@ -35,10 +40,6 @@ const DashboardSlide: React.FC<{
         config: ANIMATION_TOKENS.slow,
     });
     const lineHeight = interpolate(lineAnim, [0, 1], [0, 95]);
-
-    // Exit animation: 110 frames total
-    const DASHBOARD_END = 110;
-    const exitAnim = interpolate(frame, [DASHBOARD_END - 20, DASHBOARD_END], [1, 0], { extrapolateRight: 'clamp' });
 
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background, opacity: exitAnim }}>
@@ -89,6 +90,28 @@ const DashboardSlide: React.FC<{
                         position: 'relative',
                     }}>
                         <Img src={staticFile(imageUrl)} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
+
+                        {/* Card Overlays Area */}
+                        <div style={{
+                            position: 'absolute',
+                            top: '58.5%',
+                            left: '4.5%',
+                            width: '91.2%',
+                            height: '27%',
+                            zIndex: 5,
+                            display: 'flex',
+                            gap: '0.8%',
+                        }}>
+                            <div style={{ flex: 1.05 }}>
+                                <RVSFPerformanceCard delay={20} />
+                            </div>
+                            <div style={{ flex: 1 }}>
+                                <RVSFScrapCard delay={35} />
+                            </div>
+                            <div style={{ flex: 1.02 }}>
+                                <RVSFMaterialCard delay={50} />
+                            </div>
+                        </div>
 
                         {/* Highlight Ring (Exact MSIL placement) */}
                         {frame > 15 && (

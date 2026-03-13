@@ -40,7 +40,7 @@ export const Main: React.FC = () => {
                     <Section_Flow src="new_media/Plastic Overall Flow.png" title="End-to-End Plastic Traceability" centerTitle subtitle="(Actual data captured in MatNEXT system)" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={30}>
-                    <Section_Flow src="new_media/Plastic Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" scale={1.2} translateX={-60} translateY={-55} overlayTop={70} overlayBottom={70} />
+                    <Section_Flow src="new_media/Plastic Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" scale={1.2} translateX={-60} translateY={-20} overlayTop={110} overlayBottom={50} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={30}>
                     <Section_Flow src="new_media/Plastic Phase 2.png" title="Phase 2: Tracking Material Transformation through Recycling" scale={1.22} translateX={-70} translateY={-23} overlayTop={90} overlayBottom={60} />
