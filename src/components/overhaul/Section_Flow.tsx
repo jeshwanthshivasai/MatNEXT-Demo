@@ -79,19 +79,19 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
                     <div style={{
                         position: 'absolute',
                         top: 65,
-                        left: centerTitle ? 0 : 'auto',
-                        right: centerTitle ? 0 : 60,
+                        left: centerTitle ? 0 : 60,
+                        right: centerTitle ? 0 : 'auto',
                         zIndex: 10,
                         width: centerTitle ? '100%' : 1400,
                         display: 'flex',
                         flexDirection: 'column',
-                        alignItems: centerTitle ? 'center' : 'flex-end'
+                        alignItems: centerTitle ? 'center' : 'flex-start'
                     }}>
                         <Typography
                             text={title}
-                            fontSize={48}
+                            fontSize={40}
                             fontWeight={700}
-                            textAlign={centerTitle ? "center" : "right"}
+                            textAlign={centerTitle ? "center" : "left"}
                             color="#1A1A1A"
                             delay={10}
                         />
@@ -102,7 +102,7 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
                                     text={subtitle}
                                     fontSize={20}
                                     fontWeight={400}
-                                    textAlign={centerTitle ? "center" : "right"}
+                                    textAlign={centerTitle ? "center" : "left"}
                                     color="#666666"
                                     delay={25}
                                 />

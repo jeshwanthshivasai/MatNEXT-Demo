@@ -14,10 +14,16 @@ import { Section3_SupplyChain } from './scenes/overhaul/Section3_SupplyChain';
 import { Section4_Compliance } from './scenes/overhaul/Section4_Compliance';
 import { Section5_FutureScope } from './scenes/overhaul/Section5_FutureScope';
 import { Outro } from './scenes/Outro';
+import { RecordingBlip } from './components/overhaul/RecordingBlip';
+import { useCurrentFrame } from 'remotion';
 
 export const Main: React.FC = () => {
+    const frame = useCurrentFrame();
+    const showRec = frame >= 120 && frame < 720;
+
     return (
         <AbsoluteFill style={{ backgroundColor: 'white' }}>
+            {showRec && <RecordingBlip />}
             <TransitionSeries>
                 {/* 1. Intro (2s = 60 frames) */}
                 <TransitionSeries.Sequence durationInFrames={60}>
