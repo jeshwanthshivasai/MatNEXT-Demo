@@ -61,7 +61,7 @@ export const Outro: React.FC = () => {
                         }} />
 
                         <Typography
-                            text="MaterialNEXT"
+                            text="Stands for MaterialNEXT"
                             fontSize={24}
                             fontWeight={400}
                             letterSpacing={0}

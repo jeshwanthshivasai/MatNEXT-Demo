@@ -220,7 +220,7 @@ export const Section2_OEM: React.FC = () => {
                                 zIndex: 10,
                             }}>
                                 <Typography
-                                    text="(sample data for reference)"
+                                    text="(sample target data for reference)"
                                     fontSize={25}
                                     color="#96CC39"
                                     fontWeight={400}
