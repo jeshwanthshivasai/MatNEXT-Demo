@@ -4,7 +4,7 @@ import { COLOR_TOKENS } from '../../style/tokens';
 
 export const RecordingBlip: React.FC = () => {
     const frame = useCurrentFrame();
-    
+
     // Pulsation effect (sin wave)
     const pulsation = (Math.sin(frame / 10) + 1) / 2;
     const dotOpacity = interpolate(pulsation, [0, 1], [0.3, 1]);
@@ -62,7 +62,7 @@ export const RecordingBlip: React.FC = () => {
                     fontWeight: 500,
                     opacity: 1
                 }}>
-                    Actual Data used in MatNEXT System
+                    Actual Data
                 </span>
             </div>
         </AbsoluteFill>
