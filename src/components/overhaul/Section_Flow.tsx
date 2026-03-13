@@ -82,7 +82,7 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
                         left: centerTitle ? 0 : 'auto',
                         right: centerTitle ? 0 : 60,
                         zIndex: 10,
-                        width: centerTitle ? '100%' : 1100,
+                        width: centerTitle ? '100%' : 1400,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: centerTitle ? 'center' : 'flex-end'

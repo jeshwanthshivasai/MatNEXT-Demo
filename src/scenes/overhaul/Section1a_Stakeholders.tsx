@@ -47,6 +47,7 @@ export const Section1a_Stakeholders: React.FC = () => {
                         width: '100%',
                         height: '100%',
                         objectFit: 'contain',
+                        scale: '1.05',
                         padding: 20
                     }}
                 />
