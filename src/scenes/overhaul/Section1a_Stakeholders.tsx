@@ -42,7 +42,7 @@ export const Section1a_Stakeholders: React.FC = () => {
                 opacity: opacity
             }}>
                 <Img 
-                    src={staticFile('new_media/Stakeholders.png')} 
+                    src={staticFile('new_media/New_Stakeholders.png')} 
                     style={{
                         width: '100%',
                         height: '100%',
