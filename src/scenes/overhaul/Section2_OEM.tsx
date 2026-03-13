@@ -22,7 +22,7 @@ export const Section2_OEM: React.FC = () => {
     const EXIT_START = DASHBOARD_ENTRANCE + 110; // Total 170s
 
     // --- MANUAL ADJUSTMENT: Recording Blips Position ---
-    const BLIP_TOP = 155;
+    const BLIP_TOP = 162;
     const BLIP_RIGHT = 60;
     // --------------------------------------------------
 
@@ -139,8 +139,8 @@ export const Section2_OEM: React.FC = () => {
             {/* Manual Recording Blip Adjustment (MSIL) */}
             <div style={{ 
                 position: 'absolute',
-                top: 155, // Adjust this to move it up/down
-                right: 60, // Adjust this to move it left/right
+                top: BLIP_TOP, 
+                right: BLIP_RIGHT, 
                 opacity: dashboardAnim * exitAnim,
                 transform: `translateY(${interpolate(dashboardAnim, [0, 1], [10, 0])}px)`,
                 zIndex: 15,

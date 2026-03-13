@@ -19,6 +19,11 @@ const DashboardSlide: React.FC<{
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
+    // --- MANUAL ADJUSTMENT: Recording Blips Position ---
+    const BLIP_TOP = 162;
+    const BLIP_RIGHT = 60;
+    // --------------------------------------------------
+
     // MSIL highlight animation, starting shortly after slide entrance
     const focusAnim = spring({
         frame: frame - 10, // Start highlight almost immediately
@@ -73,8 +78,8 @@ const DashboardSlide: React.FC<{
             {/* Manual Recording Blip Adjustment (RVSF) */}
             <div style={{ 
                 position: 'absolute',
-                top: 155, // Adjust this to move it up/down
-                right: 60, // Adjust this to move it left/right
+                top: BLIP_TOP, 
+                right: BLIP_RIGHT, 
                 zIndex: 15,
             }}>
                 <RecordingBlip />
