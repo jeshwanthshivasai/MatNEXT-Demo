@@ -3,10 +3,66 @@ import { AbsoluteFill, spring, interpolate, useCurrentFrame, useVideoConfig, Off
 import { Typography } from '../../components/Typography';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
 import { RecordingBlip } from '../../components/overhaul/RecordingBlip';
+import { HighlightRing } from '../../components/overhaul/HighlightRing';
+
+interface Keyframe {
+    frame: number;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+}
+
+interface RingSettings {
+    startFrame: number;
+    endFrame: number;
+    keyframes: Keyframe[];
+}
+
+// --- MANUAL CONTROL KNOBS ---
+// 17:10 = 520f. Sequence starts at 480f. Relative start = 40.
+// 18:10 = 550f. Relative end = 70.
+const RING_1_SETTINGS: RingSettings = {
+    startFrame: 40,
+    endFrame: 70,
+    keyframes: [
+        { frame: 40, x: 730, y: 860, width: 330, height: 70 },
+        { frame: 70, x: 730, y: 860, width: 330, height: 70 },
+    ]
+};
+
+// 22:14 = 674f. Sequence starts at 480f. Relative start = 194.
+// 23:04 = 694f. Relative end = 214.
+const RING_2_SETTINGS: RingSettings = {
+    startFrame: 194,
+    endFrame: 214,
+    keyframes: [
+        { frame: 194, x: 600, y: 960, width: 310, height: 55 },
+        { frame: 214, x: 600, y: 960, width: 350, height: 55 },
+    ]
+};
+
+const getKeyframeValue = (frame: number, keyframes: Keyframe[], property: keyof Keyframe) => {
+    const sorted = [...keyframes].sort((a, b) => a.frame - b.frame);
+    if (frame <= sorted[0].frame) return sorted[0][property];
+    if (frame >= sorted[sorted.length - 1].frame) return sorted[sorted.length - 1][property];
+
+    for (let i = 0; i < sorted.length - 1; i++) {
+        const start = sorted[i];
+        const end = sorted[i + 1];
+        if (frame >= start.frame && frame <= end.frame) {
+            return interpolate(frame, [start.frame, end.frame], [start[property], end[property]]);
+        }
+    }
+    return sorted[0][property];
+};
 
 export const Section1b_Traceability: React.FC = () => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
+
+    const isRing1Visible = frame >= RING_1_SETTINGS.startFrame && frame <= RING_1_SETTINGS.endFrame;
+    const isRing2Visible = frame >= RING_2_SETTINGS.startFrame && frame <= RING_2_SETTINGS.endFrame;
 
     const lineAnim = spring({
         frame: frame - 10,
@@ -78,6 +134,37 @@ export const Section1b_Traceability: React.FC = () => {
                 }}>
                     <RecordingBlip />
                 </div>
+
+            {/* Recycled Material Highlights */}
+            {isRing1Visible && (
+                <div style={{ 
+                    position: 'absolute', 
+                    left: getKeyframeValue(frame, RING_1_SETTINGS.keyframes, 'x'), 
+                    top: getKeyframeValue(frame, RING_1_SETTINGS.keyframes, 'y'), 
+                    transform: 'translate(-50%, -50%)', 
+                    zIndex: 30 
+                }}>
+                    <HighlightRing 
+                        width={getKeyframeValue(frame, RING_1_SETTINGS.keyframes, 'width')} 
+                        height={getKeyframeValue(frame, RING_1_SETTINGS.keyframes, 'height')} 
+                    />
+                </div>
+            )}
+
+            {isRing2Visible && (
+                <div style={{ 
+                    position: 'absolute', 
+                    left: getKeyframeValue(frame, RING_2_SETTINGS.keyframes, 'x'), 
+                    top: getKeyframeValue(frame, RING_2_SETTINGS.keyframes, 'y'), 
+                    transform: 'translate(-50%, -50%)', 
+                    zIndex: 30 
+                }}>
+                    <HighlightRing 
+                        width={getKeyframeValue(frame, RING_2_SETTINGS.keyframes, 'width')} 
+                        height={getKeyframeValue(frame, RING_2_SETTINGS.keyframes, 'height')} 
+                    />
+                </div>
+            )}
 
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', position: 'relative' }}>
                     <div style={{
