@@ -61,11 +61,11 @@ export const Outro: React.FC = () => {
                         }} />
 
                         <Typography
-                            text="Stands for MaterialNEXT"
+                            text="SaaS Platform"
                             fontSize={24}
                             fontWeight={400}
                             letterSpacing={0}
-                            color={COLOR_TOKENS.primary}
+                            color="#96CC39"
                         />
 
                         {/* Right Decoration Line */}
