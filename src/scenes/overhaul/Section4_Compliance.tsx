@@ -6,7 +6,7 @@ import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
 
 export const Section4_Compliance: React.FC = () => {
     const frame = useCurrentFrame();
-    const { fps, width, height } = useVideoConfig();
+    const { fps, width, height, durationInFrames } = useVideoConfig();
 
     // ── 1. Toggle Animation ──
     const MOVE_TO_CENTER_START = 10;
@@ -29,23 +29,23 @@ export const Section4_Compliance: React.FC = () => {
     const LINE_START = MOVE_BACK_START + 5;    // 65
     const TEXT_START = LINE_START + 10;         // 75
 
-    // Dashboard 1: CBAM (120 frames)
+    // Dashboard 1: CBAM (136 frames)
     const board1Start = MOVE_BACK_START + 20;  // 80
     const board1Highlight = board1Start + 45;
-    const board1End = board1Start + 120;       // 200
+    const board1End = board1Start + 136;       // 216
 
-    // Dashboard 2: Regulatory Landscape (120 frames)
-    const board2Start = board1End;             // 200
+    // Dashboard 2: Regulatory Landscape (137 frames)
+    const board2Start = board1End;             // 216
     const board2Highlight = board2Start + 45;
-    const board2End = board2Start + 120;       // 320
+    const board2End = board2Start + 137;       // 353
 
-    // Dashboard 3: Vehicle Wise CBAM (120 frames)
-    const board3Start = board2End;             // 320
+    // Dashboard 3: Vehicle Wise CBAM (137 frames)
+    const board3Start = board2End;             // 353
     const board3Highlight = board3Start + 45;
-    const board3End = board3Start + 120;       // 440
+    const board3End = board3Start + 137;       // 490
 
     // Exit Animation
-    const exitAnim = interpolate(frame, [board3End - 20, board3End], [1, 0], { extrapolateRight: 'clamp' });
+    const exitAnim = interpolate(frame, [durationInFrames - 30, durationInFrames - 5], [1, 0], { extrapolateRight: 'clamp' });
 
     // ── 3. Header Content Reveal (resets per phase) ──
     let headerTitle = "CBAM Compliance";

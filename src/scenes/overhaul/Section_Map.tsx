@@ -7,7 +7,7 @@ import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
 
 export const Section_Map: React.FC = () => {
     const frame = useCurrentFrame();
-    const { fps } = useVideoConfig();
+    const { fps, durationInFrames } = useVideoConfig();
 
     const lineAnim = spring({
         frame: frame - 10,
@@ -30,9 +30,7 @@ export const Section_Map: React.FC = () => {
     const overlayOpacity = interpolate(focusAnim, [0, 1], [0, 0.4]);
     const lineHeight = interpolate(lineAnim, [0, 1], [0, 95]);
 
-    // Duration is 150 frames as planned in Composition.tsx
-    const DURATION = 150;
-    const exitAnim = interpolate(frame, [DURATION - 20, DURATION], [1, 0], { extrapolateRight: 'clamp' });
+    const exitAnim = interpolate(frame, [durationInFrames - 30, durationInFrames - 5], [1, 0], { extrapolateRight: 'clamp' });
 
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background, opacity: exitAnim }}>

@@ -23,22 +23,22 @@ interface RingSettings {
 // 17:10 = 520f. Sequence starts at 480f. Relative start = 40.
 // 18:10 = 550f. Relative end = 70.
 const RING_1_SETTINGS: RingSettings = {
-    startFrame: 40,
-    endFrame: 70,
+    startFrame: 48,
+    endFrame: 85,
     keyframes: [
-        { frame: 40, x: 730, y: 860, width: 330, height: 70 },
-        { frame: 70, x: 730, y: 860, width: 330, height: 70 },
+        { frame: 48, x: 730, y: 860, width: 330, height: 70 },
+        { frame: 85, x: 730, y: 860, width: 330, height: 70 },
     ]
 };
 
 // 22:14 = 674f. Sequence starts at 480f. Relative start = 194.
 // 23:04 = 694f. Relative end = 214.
 const RING_2_SETTINGS: RingSettings = {
-    startFrame: 194,
-    endFrame: 214,
+    startFrame: 220,
+    endFrame: 339,
     keyframes: [
-        { frame: 194, x: 600, y: 960, width: 310, height: 55 },
-        { frame: 214, x: 600, y: 960, width: 350, height: 55 },
+        { frame: 220, x: 600, y: 960, width: 350, height: 55 },
+        { frame: 339, x: 600, y: 960, width: 350, height: 55 },
     ]
 };
 
@@ -87,7 +87,7 @@ export const Section1b_Traceability: React.FC = () => {
         config: ANIMATION_TOKENS.slow,
     });
 
-    // Exit animation: fade out in the last 30 frames of THIS sequence (240f)
+    // Exit animation: fade out in the last 30 frames of THIS sequence
     const exitAnim = interpolate(
         frame,
         [durationInFrames - 30, durationInFrames - 5],
@@ -178,7 +178,7 @@ export const Section1b_Traceability: React.FC = () => {
                     }}>
                         <OffthreadVideo
                             src={staticFile('my_media/Traceability-Updated_HD.mp4')}
-                            playbackRate={1.75}
+                            playbackRate={1.44}
                             style={{
                                 width: '100%',
                                 height: '100%',

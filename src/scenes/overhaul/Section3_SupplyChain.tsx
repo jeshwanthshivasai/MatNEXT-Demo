@@ -17,7 +17,7 @@ const DashboardSlide: React.FC<{
     highlightHeight?: string;
 }> = ({ imageUrl, activeIndex, title, highlightTop = '37.8%', highlightHeight = '33%' }) => {
     const frame = useCurrentFrame();
-    const { fps } = useVideoConfig();
+    const { fps, durationInFrames } = useVideoConfig();
 
     // --- MANUAL ADJUSTMENT: Recording Blips Position ---
     const BLIP_TOP = 162;
@@ -32,7 +32,7 @@ const DashboardSlide: React.FC<{
     });
     const overlayOpacity = interpolate(focusAnim, [0, 1], [0, 0.4]);
 
-    const exitAnim = interpolate(frame, [160, 180], [1, 0], { extrapolateRight: 'clamp' });
+    const exitAnim = interpolate(frame, [durationInFrames - 30, durationInFrames - 5], [1, 0], { extrapolateRight: 'clamp' });
 
     const lineAnim = spring({
         frame: frame - 10,

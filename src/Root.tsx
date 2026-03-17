@@ -14,13 +14,13 @@ export const RemotionRoot: React.FC = () => {
     // Compliance Dashboards: 440
     // Future Scope: 90
     // Outro: 60
-    // Total = 1770 frames (59 seconds total)
+    // Total = 2220 frames (74 seconds total)
 
     return (
         <Composition
             id="Main"
             component={Main}
-            durationInFrames={1770}
+            durationInFrames={2220}
             fps={30}
             width={1920}
             height={1080}

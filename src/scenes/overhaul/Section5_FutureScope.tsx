@@ -4,7 +4,7 @@ import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
 
 export const Section5_FutureScope: React.FC = () => {
     const frame = useCurrentFrame();
-    const { fps } = useVideoConfig();
+    const { fps, durationInFrames } = useVideoConfig();
 
     const anim = spring({
         frame,
@@ -15,9 +15,7 @@ export const Section5_FutureScope: React.FC = () => {
     const opacity = interpolate(anim, [0, 1], [0, 1]);
     const scale = interpolate(anim, [0, 1], [0.95, 1]);
 
-    // Duration is 90 frames (3s)
-    const DURATION = 90;
-    const exitAnim = interpolate(frame, [DURATION - 15, DURATION], [1, 0], { extrapolateRight: 'clamp' });
+    const exitAnim = interpolate(frame, [durationInFrames - 30, durationInFrames - 5], [1, 0], { extrapolateRight: 'clamp' });
 
     return (
         <AbsoluteFill style={{ 

@@ -9,7 +9,7 @@ import { RecordingBlip } from '../../components/overhaul/RecordingBlip';
 
 export const Section2_OEM: React.FC = () => {
     const frame = useCurrentFrame();
-    const { fps, width, height } = useVideoConfig();
+    const { fps, width, height, durationInFrames } = useVideoConfig();
 
     // Sequence Timings for exactly 170 frames
     const SCENE_START_DELAY = 10;
@@ -103,7 +103,7 @@ export const Section2_OEM: React.FC = () => {
     const bgBlur = interpolate(liftAnim, [0, 1], [0, 6]);
 
     // Exit animation (Fade out before transition)
-    const exitAnim = interpolate(frame, [EXIT_START, EXIT_START + 30], [1, 0], { extrapolateRight: 'clamp' });
+    const exitAnim = interpolate(frame, [durationInFrames - 30, durationInFrames - 5], [1, 0], { extrapolateRight: 'clamp' });
 
     return (
         <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background }}>
