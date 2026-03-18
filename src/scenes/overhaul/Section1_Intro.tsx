@@ -62,7 +62,7 @@ export const Section1_Intro: React.FC = () => {
 
                         <Typography
                             text="SaaS Platform"
-                            fontSize={60}
+                            fontSize={40}
                             fontWeight={400}
                             letterSpacing={0}
                             color="#96CC39"

@@ -62,7 +62,7 @@ export const Outro: React.FC = () => {
 
                         <Typography
                             text="SaaS Platform"
-                            fontSize={24}
+                            fontSize={40}
                             fontWeight={400}
                             letterSpacing={0}
                             color="#96CC39"
