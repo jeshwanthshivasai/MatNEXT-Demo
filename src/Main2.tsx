@@ -71,12 +71,16 @@ export const Main2: React.FC = () => {
 
                 {/* 5c. RVSF Map (180 frames) */}
                 <TransitionSeries.Sequence durationInFrames={180}>
-                    <Section_Map />
+                    <Section_Map videoSrc="tata_media/RVSF_Map.mp4" />
                 </TransitionSeries.Sequence>
 
                 {/* 5d. Compliance Dashboards (490 frames) */}
                 <TransitionSeries.Sequence durationInFrames={490}>
-                    <Section4_Compliance />
+                    <Section4_Compliance 
+                        cbamSrc="tata_media/CBAM.png"
+                        regulatorySrc="tata_media/Regulatory-Landscape.png"
+                        vwCbamSrc="tata_media/VW-CBAM.png"
+                    />
                 </TransitionSeries.Sequence>
 
                 {/* 6. Outro (2s = 60 frames) */}
