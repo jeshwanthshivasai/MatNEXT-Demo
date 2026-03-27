@@ -17,15 +17,15 @@ export const Section2_OEM: React.FC<{
     const frame = useCurrentFrame();
     const { fps, width, height, durationInFrames } = useVideoConfig();
 
-    // Sequence Timings for exactly 170 frames
-    const SCENE_START_DELAY = 10;
-    const TOGGLE_CENTER_DUR = SCENE_START_DELAY + 25; // 35
-    const TOGGLE_MOVE_TIME = 25; // 60
-    const DASHBOARD_ENTRANCE = TOGGLE_CENTER_DUR + TOGGLE_MOVE_TIME; // 60
-    const TOASTER_WAVE_START = DASHBOARD_ENTRANCE + 10;
-    const ISOLATION_FOCUS_START = DASHBOARD_ENTRANCE + 40;
-    const SCORE_FOCUS_START = ISOLATION_FOCUS_START + 40;
-    const EXIT_START = DASHBOARD_ENTRANCE + 110; // Total 170s
+    // Sequence Timings doubled
+    const SCENE_START_DELAY = 20;
+    const TOGGLE_CENTER_DUR = SCENE_START_DELAY + 50; // 70
+    const TOGGLE_MOVE_TIME = 50; // 120
+    const DASHBOARD_ENTRANCE = TOGGLE_CENTER_DUR + TOGGLE_MOVE_TIME; // 120
+    const TOASTER_WAVE_START = DASHBOARD_ENTRANCE + 20;
+    const ISOLATION_FOCUS_START = DASHBOARD_ENTRANCE + 80;
+    const SCORE_FOCUS_START = ISOLATION_FOCUS_START + 80;
+    const EXIT_START = DASHBOARD_ENTRANCE + 220; // Total 340
 
     // --- MANUAL ADJUSTMENT: Recording Blips Position ---
     const BLIP_TOP = 162;

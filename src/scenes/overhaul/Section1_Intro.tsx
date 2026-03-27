@@ -18,7 +18,7 @@ export const Section1_Intro: React.FC = () => {
     const opacity = interpolate(anim, [0, 0.5], [0, 1]);
 
     // Exit animation (Fade out before transition)
-    const exitAnim = interpolate(frame, [120, 150], [1, 0], { extrapolateRight: 'clamp' });
+    const exitAnim = interpolate(frame, [270, 300], [1, 0], { extrapolateRight: 'clamp' });
 
     return (
         <AbsoluteFill style={{
@@ -98,7 +98,7 @@ export const Section1_Intro: React.FC = () => {
 
                 <div style={{ marginTop: 25, opacity: exitAnim }}>
                     <Typography
-                        delay={30}
+                        delay={60}
                         text="Intelligent Material Traceability System"
                         fontSize={32}
                         color={COLOR_TOKENS.textSecondary}
@@ -116,8 +116,8 @@ export const Section1_Intro: React.FC = () => {
                 right: 0,
                 display: 'flex',
                 justifyContent: 'center',
-                opacity: interpolate(frame, [40, 60], [0, 1], { extrapolateRight: 'clamp' }) * exitAnim,
-                transform: `translateY(${interpolate(frame, [40, 60], [20, 0], { extrapolateRight: 'clamp' })}px)`,
+                opacity: interpolate(frame, [80, 120], [0, 1], { extrapolateRight: 'clamp' }) * exitAnim,
+                transform: `translateY(${interpolate(frame, [80, 120], [20, 0], { extrapolateRight: 'clamp' })}px)`,
             }}>
                 <p style={{
                     color: COLOR_TOKENS.primary,

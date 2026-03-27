@@ -22,23 +22,22 @@ interface RingSettings {
 // --- MANUAL CONTROL KNOBS ---
 // 17:10 = 520f. Sequence starts at 480f. Relative start = 40.
 // 18:10 = 550f. Relative end = 70.
+// Doubled relative timings
 const RING_1_SETTINGS: RingSettings = {
-    startFrame: 48,
-    endFrame: 85,
+    startFrame: 96,
+    endFrame: 170,
     keyframes: [
-        { frame: 48, x: 730, y: 860, width: 330, height: 70 },
-        { frame: 85, x: 730, y: 860, width: 330, height: 70 },
+        { frame: 96, x: 730, y: 860, width: 330, height: 70 },
+        { frame: 170, x: 730, y: 860, width: 330, height: 70 },
     ]
 };
 
-// 22:14 = 674f. Sequence starts at 480f. Relative start = 194.
-// 23:04 = 694f. Relative end = 214.
 const RING_2_SETTINGS: RingSettings = {
-    startFrame: 220,
-    endFrame: 339,
+    startFrame: 440,
+    endFrame: 678,
     keyframes: [
-        { frame: 220, x: 600, y: 960, width: 350, height: 55 },
-        { frame: 339, x: 600, y: 960, width: 350, height: 55 },
+        { frame: 440, x: 600, y: 960, width: 350, height: 55 },
+        { frame: 678, x: 600, y: 960, width: 350, height: 55 },
     ]
 };
 
@@ -180,7 +179,7 @@ export const Section1b_Traceability: React.FC<{ hideBlip?: boolean }> = ({ hideB
                     }}>
                         <OffthreadVideo
                             src={staticFile('my_media/Traceability-Updated_HD.mp4')}
-                            playbackRate={1.44}
+                            playbackRate={0.72}
                             style={{
                                 width: '100%',
                                 height: '100%',

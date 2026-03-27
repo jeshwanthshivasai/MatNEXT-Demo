@@ -170,7 +170,7 @@ export const Section3_SupplyChain: React.FC<{
 }) => {
     return (
         <Series>
-            <Series.Sequence durationInFrames={180}>
+            <Series.Sequence durationInFrames={360}>
                 <DashboardSlide
                     imageUrl={dashboardSrc}
                     activeIndex={1}

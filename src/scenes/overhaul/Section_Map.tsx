@@ -14,13 +14,13 @@ export const Section_Map: React.FC<{
         const { fps, durationInFrames } = useVideoConfig();
 
         const lineAnim = spring({
-            frame: frame - 10,
+            frame: frame - 20,
             fps,
             config: ANIMATION_TOKENS.slow,
         });
 
         const revealAnim = spring({
-            frame: frame - 25,
+            frame: frame - 50,
             fps,
             config: ANIMATION_TOKENS.slow,
         });
@@ -34,7 +34,7 @@ export const Section_Map: React.FC<{
         const overlayOpacity = interpolate(focusAnim, [0, 1], [0, 0.4]);
         const lineHeight = interpolate(lineAnim, [0, 1], [0, 95]);
 
-        const exitAnim = interpolate(frame, [durationInFrames - 30, durationInFrames - 5], [1, 0], { extrapolateRight: 'clamp' });
+        const exitAnim = interpolate(frame, [durationInFrames - 60, durationInFrames - 10], [1, 0], { extrapolateRight: 'clamp' });
 
         return (
             <AbsoluteFill style={{ backgroundColor: COLOR_TOKENS.background, opacity: exitAnim }}>
@@ -59,7 +59,7 @@ export const Section_Map: React.FC<{
                     transform: `translateX(${interpolate(revealAnim, [0, 1], [-20, 0])}px)`,
                 }}>
                     <Typography text="Registered Vehicle Scrapping Facility" fontSize={30} fontWeight={600} color={COLOR_TOKENS.text} textAlign="left" />
-                    <Typography delay={15} text="Map View" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
+                    <Typography delay={30} text="Map View" fontSize={24} color={COLOR_TOKENS.textSecondary} fontWeight={400} textAlign="left" />
                 </div>
 
                 {/* Toggle (matches RVSF dashboard position) */}
