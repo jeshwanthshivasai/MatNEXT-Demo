@@ -1,6 +1,9 @@
 import React from 'react';
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
+import { loadFont } from "@remotion/google-fonts/Inter";
+
+const { fontFamily } = loadFont();
 
 interface StatTileProps {
     label: string;
@@ -62,6 +65,7 @@ export const StatTile: React.FC<StatTileProps> = ({
             boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
             opacity: entrance,
             transform: `translateY(${interpolate(entrance, [0, 1], [20, 0])}px)`,
+            fontFamily,
         }}>
             {/* Header: Icon + Label */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>

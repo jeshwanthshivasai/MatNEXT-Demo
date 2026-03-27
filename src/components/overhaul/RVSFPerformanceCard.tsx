@@ -1,13 +1,16 @@
 import React from 'react';
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
+import { loadFont } from "@remotion/google-fonts/Inter";
+
+const { fontFamily } = loadFont();
 
 const DATA = [
-    { label: 'No. of Vehicles Scrapped =', value: '6,607' },
-    { label: 'Inventory (MT/kg/Nos.) =', value: '6,607 Nos' },
-    { label: 'No. of COD generated =', value: '8,807' },
-    { label: 'No. of MSIL Test Vehicles Scrapped =', value: '242' },
-    { label: 'No. of collection centres (tab - state wise)', value: '54' },
+    { label: 'No. of Vehicles Scrapped =', value: '7,268' },
+    { label: 'Inventory (MT/kg/Nos.) =', value: '7,268 Nos' },
+    { label: 'No. of COD generated =', value: '9,688' },
+    { label: 'No. of MSIL Test Vehicles Scrapped =', value: '266' },
+    { label: 'No. of collection centres (tab - state wise)', value: '59' },
     { label: 'Process Loss', value: '-' },
 ];
 
@@ -40,7 +43,7 @@ export const RVSFPerformanceCard: React.FC<{ delay?: number }> = ({ delay = 0 })
             boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
             opacity: entrance,
             transform: `translateY(${interpolate(entrance, [0, 1], [20, 0])}px)`,
-            fontFamily: 'Inter, sans-serif',
+            fontFamily,
         }}>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6 }}>
                 {DATA.map((item, i) => (
@@ -70,7 +73,7 @@ export const RVSFPerformanceCard: React.FC<{ delay?: number }> = ({ delay = 0 })
             <div style={{ marginTop: 12 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
                     <span style={{ fontSize: 13, fontWeight: 700, color: '#166534' }}>Performance Rating</span>
-                    <span style={{ fontSize: 12, fontWeight: 700, color: '#166534' }}>101.115% of Target</span>
+                    <span style={{ fontSize: 12, fontWeight: 700, color: '#166534' }}>111.227% of Target</span>
                 </div>
                 <div style={{
                     width: '100%',

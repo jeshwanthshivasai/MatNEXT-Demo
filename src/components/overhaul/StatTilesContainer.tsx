@@ -25,10 +25,10 @@ export const StatTilesContainer: React.FC<StatTilesContainerProps> = ({ delay = 
             <StatTile
                 label="Plastic"
                 subLabel="Recycled"
-                value="18,684"
+                value="20,552"
                 unit="Kgs"
                 targetText="Out of 25,000 Kgs target"
-                percentage={75}
+                percentage={82}
                 color="#10B981"
                 icon={<Droplets size={20} />}
                 delay={delay}
@@ -36,10 +36,10 @@ export const StatTilesContainer: React.FC<StatTilesContainerProps> = ({ delay = 
             <StatTile
                 label="Steel"
                 subLabel="Recycled"
-                value="730,070"
+                value="803,077"
                 unit="Kgs"
                 targetText="Out of 800,000 Kgs target"
-                percentage={91}
+                percentage={100}
                 color="#3B82F6"
                 icon={<Zap size={20} />}
                 delay={delay}
@@ -47,10 +47,10 @@ export const StatTilesContainer: React.FC<StatTilesContainerProps> = ({ delay = 
             <StatTile
                 label="ELVs"
                 subLabel="Collected"
-                value="6,607"
+                value="7,268"
                 unit="ELVs"
                 targetText="Out of 7,500 ELVs target"
-                percentage={88}
+                percentage={97}
                 color="#F59E0B"
                 icon={<Truck size={20} />}
                 delay={delay}
@@ -58,10 +58,10 @@ export const StatTilesContainer: React.FC<StatTilesContainerProps> = ({ delay = 
             <StatTile
                 label="Battery"
                 subLabel="Recycled"
-                value="0"
-                unit=""
-                targetText="Target data not available"
-                percentage={0}
+                value="4,200"
+                unit="Kgs"
+                targetText="Out of 5,000 Kgs target"
+                percentage={84}
                 color="#8B5CF6"
                 icon={<Battery size={20} />}
                 delay={delay}
@@ -69,10 +69,10 @@ export const StatTilesContainer: React.FC<StatTilesContainerProps> = ({ delay = 
             <StatTile
                 label="Non-"
                 subLabel="Ferrous"
-                value="0"
-                unit=""
-                targetText="Target data not available"
-                percentage={0}
+                value="12,500"
+                unit="Kgs"
+                targetText="Out of 15,000 Kgs target"
+                percentage={83}
                 color="#EC4899"
                 icon={<Layers size={20} />}
                 delay={delay}

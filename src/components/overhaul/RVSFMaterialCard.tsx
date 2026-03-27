@@ -1,15 +1,17 @@
 import React from 'react';
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
+import { loadFont } from "@remotion/google-fonts/Inter";
+
+const { fontFamily } = loadFont();
 
 const DATA = [
-    { label: 'Total Weight (Kgs)', value: '6,340.00' },
-    { label: 'Mix Steel (Kgs)', value: '4,115.40' },
-    { label: 'Aluminium (Kgs)', value: '373.30' },
-    { label: 'Hazardous Waste (Kgs)', value: '389.85' },
-    { label: 'Shell & Painted Steel (Kgs)', value: '435.80' },
-    { label: 'Plastic Scrap (Kgs)', value: '182.00' },
-    { label: 'Process Loss (Kgs)', value: '114.05' },
+    { label: 'Total Weight (Kgs)', value: '6,974.00' },
+    { label: 'Mix Steel (Kgs)', value: '4,526.94' },
+    { label: 'Aluminium (Kgs)', value: '410.63' },
+    { label: 'Hazardous Waste (Kgs)', value: '428.84' },
+    { label: 'Shell & Painted Steel (Kgs)', value: '479.38' },
+    { label: 'Plastic Scrap (Kgs)', value: '200.20' },
 ];
 
 export const RVSFMaterialCard: React.FC<{ delay?: number }> = ({ delay = 0 }) => {
@@ -35,7 +37,7 @@ export const RVSFMaterialCard: React.FC<{ delay?: number }> = ({ delay = 0 }) =>
             boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
             opacity: entrance,
             transform: `translateY(${interpolate(entrance, [0, 1], [20, 0])}px)`,
-            fontFamily: 'Inter, sans-serif',
+            fontFamily,
         }}>
             <div style={{
                 color: '#D97706',

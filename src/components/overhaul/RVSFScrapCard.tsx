@@ -1,12 +1,15 @@
 import React from 'react';
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
+import { loadFont } from "@remotion/google-fonts/Inter";
+
+const { fontFamily } = loadFont();
 
 const DATA = [
-    { label: 'Steel (Kgs) =', value: '730,070', rating: '9.0' },
-    { label: 'Plastic (Kgs) =', value: '18,684', rating: '7.5' },
-    { label: 'Cast Iron (Kgs) =', value: '0', rating: '8.2' },
-    { label: 'Li-Ion Batteries (Kgs) =', value: '0', rating: '8.5' },
+    { label: 'Steel (Kgs) =', value: '803,077', rating: '9.0' },
+    { label: 'Plastic (Kgs) =', value: '20,552', rating: '7.5' },
+    { label: 'Cast Iron (Kgs) =', value: '12,500', rating: '8.2' },
+    { label: 'Li-Ion Batteries (Kgs) =', value: '4,200', rating: '8.5' },
     { label: 'Other materials (Kgs) =', value: '0', rating: '0' },
 ];
 
@@ -33,7 +36,7 @@ export const RVSFScrapCard: React.FC<{ delay?: number }> = ({ delay = 0 }) => {
             boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
             opacity: entrance,
             transform: `translateY(${interpolate(entrance, [0, 1], [20, 0])}px)`,
-            fontFamily: 'Inter, sans-serif',
+            fontFamily,
         }}>
             <div style={{
                 color: '#1d4ed8',
