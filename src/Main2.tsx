@@ -4,7 +4,6 @@ import { TransitionSeries } from "@remotion/transitions";
 
 // Scenes
 import { Section1_Intro } from './scenes/overhaul/Section1_Intro';
-import { Section1a_Stakeholders } from './scenes/overhaul/Section1a_Stakeholders';
 import { Section_Flow } from './components/overhaul/Section_Flow';
 import { Section1b_Traceability } from './scenes/overhaul/Section1b_Traceability';
 import { Section_Map } from './scenes/overhaul/Section_Map';
@@ -23,55 +22,51 @@ export const Main2: React.FC = () => {
                     <Section1_Intro />
                 </TransitionSeries.Sequence>
 
-                {/* 1a. Stakeholders (2s = 60 frames) */}
-                {/* Added hideBlip={true} to remove the blinking "Actual data" as requested */}
-                <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section1a_Stakeholders hideBlip={true} />
-                </TransitionSeries.Sequence>
+                {/* Stakeholders Removed from Main2 as requested */}
 
                 {/* 2. Plastic Flows (9.5s = 285 frames) */}
                 <TransitionSeries.Sequence durationInFrames={135}>
-                    <Section_Flow src="new_media/Plastic Overall Flow.png" title="End-to-End Plastic Traceability" centerTitle subtitle="(Actual data captured in MatNEXT system)" />
+                    <Section_Flow hideBlip={true} src="new_media/Plastic Overall Flow.png" title="End-to-End Plastic Traceability" centerTitle subtitle="(Actual data captured in MatNEXT system)" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={50}>
-                    <Section_Flow src="new_media/Plastic Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" scale={1.2} translateX={-60} translateY={-20} overlayTop={110} overlayBottom={50} />
+                    <Section_Flow hideBlip={true} src="new_media/Plastic Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" scale={1.2} translateX={-60} translateY={-20} overlayTop={110} overlayBottom={50} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={50}>
-                    <Section_Flow src="new_media/Plastic Phase 2.png" title="Phase 2: Tracking Material Transformation through Recycling" scale={1.22} translateX={-70} translateY={-23} overlayTop={90} overlayBottom={60} />
+                    <Section_Flow hideBlip={true} src="new_media/Plastic Phase 2.png" title="Phase 2: Tracking Material Transformation through Recycling" scale={1.22} translateX={-70} translateY={-23} overlayTop={90} overlayBottom={60} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={50}>
-                    <Section_Flow src="new_media/Plastic Phase 3.png" title="Phase 3: Manufacturing and the Circular Return Loop" scale={1.15} translateX={-10} translateY={-50} overlayTop={115} overlayBottom={105} />
+                    <Section_Flow hideBlip={true} src="new_media/Plastic Phase 3.png" title="Phase 3: Manufacturing and the Circular Return Loop" scale={1.15} translateX={-10} translateY={-50} overlayTop={115} overlayBottom={105} />
                 </TransitionSeries.Sequence>
 
                 {/* 3. Steel Flows (9.5s = 285 frames) */}
                 <TransitionSeries.Sequence durationInFrames={135}>
-                    <Section_Flow src="new_media/Steel Overall Flow.png" title="End-to-End Steel Traceability" backgroundColor="#F1F2F6" scale={1.06} translateX={0} translateY={-5} overlayTop={35} overlayBottom={35} centerTitle subtitle="(Actual data captured in MatNEXT system)" />
+                    <Section_Flow hideBlip={true} src="new_media/Steel Overall Flow.png" title="End-to-End Steel Traceability" backgroundColor="#F1F2F6" scale={1.06} translateX={0} translateY={-5} overlayTop={35} overlayBottom={35} centerTitle subtitle="(Actual data captured in MatNEXT system)" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={50}>
-                    <Section_Flow src="new_media/Steel Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" backgroundColor="#F0F2F5" scale={1.15} translateX={-35} translateY={-5} />
+                    <Section_Flow hideBlip={true} src="new_media/Steel Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" backgroundColor="#F0F2F5" scale={1.15} translateX={-35} translateY={-5} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={50}>
-                    <Section_Flow src="new_media/Steel Phase 2.png" title="Phase 2: Tracking Material Transformation through Recycling" scale={1.18} translateX={-1} translateY={-5} />
+                    <Section_Flow hideBlip={true} src="new_media/Steel Phase 2.png" title="Phase 2: Tracking Material Transformation through Recycling" scale={1.18} translateX={-1} translateY={-5} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={50}>
-                    <Section_Flow src="new_media/Steel Phase 3.png" title="Phase 3: Manufacturing and the Circular Return Loop" scale={1.27} translateX={-8} translateY={-5} />
+                    <Section_Flow hideBlip={true} src="new_media/Steel Phase 3.png" title="Phase 3: Manufacturing and the Circular Return Loop" scale={1.27} translateX={-8} translateY={-5} />
                 </TransitionSeries.Sequence>
 
                 {/* 4. Traceability Video (11.3s = 340 frames) */}
                 <TransitionSeries.Sequence durationInFrames={340}>
-                    <Section1b_Traceability />
+                    <Section1b_Traceability hideBlip={true} />
                 </TransitionSeries.Sequence>
 
                 {/* 5. Dashboards Combined (24s = 720 frames total) */}
 
                 {/* 5a. MSIL Dashboard (230 frames) */}
                 <TransitionSeries.Sequence durationInFrames={230}>
-                    <Section2_OEM />
+                    <Section2_OEM hideBlip={true} />
                 </TransitionSeries.Sequence>
 
                 {/* 5b. RVSF Dashboard (130 frames) */}
                 <TransitionSeries.Sequence durationInFrames={130}>
-                    <Section3_SupplyChain />
+                    <Section3_SupplyChain hideBlip={true} />
                 </TransitionSeries.Sequence>
 
                 {/* 5c. RVSF Map (180 frames) */}
@@ -91,12 +86,9 @@ export const Main2: React.FC = () => {
 
                 {/* 7. Outro (2s = 60 frames) */}
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section1_Outro />
+                    <Outro />
                 </TransitionSeries.Sequence>
             </TransitionSeries>
         </AbsoluteFill>
     );
 };
-
-// Re-importing Outro if needed or assuming Section1_Outro is correct
-import { Outro as Section1_Outro } from './scenes/Outro';

@@ -1,3 +1,4 @@
+import React from 'react';
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Img, staticFile } from 'remotion';
 import { RecordingBlip } from '../../components/overhaul/RecordingBlip';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';

@@ -57,7 +57,7 @@ const getKeyframeValue = (frame: number, keyframes: Keyframe[], property: keyof 
     return sorted[0][property];
 };
 
-export const Section1b_Traceability: React.FC = () => {
+export const Section1b_Traceability: React.FC<{ hideBlip?: boolean }> = ({ hideBlip = false }) => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
@@ -126,14 +126,16 @@ export const Section1b_Traceability: React.FC = () => {
                 </div>
 
                 {/* Recording Blip - Top Right */}
-                <div style={{ 
-                    position: 'absolute',
-                    top: 60,
-                    right: 60,
-                    zIndex: 20
-                }}>
-                    <RecordingBlip />
-                </div>
+                {!hideBlip && (
+                    <div style={{ 
+                        position: 'absolute',
+                        top: 60,
+                        right: 60,
+                        zIndex: 20
+                    }}>
+                        <RecordingBlip />
+                    </div>
+                )}
 
             {/* Recycled Material Highlights */}
             {isRing1Visible && (

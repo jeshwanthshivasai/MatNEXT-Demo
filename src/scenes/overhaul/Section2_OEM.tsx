@@ -7,7 +7,7 @@ import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
 import { StatTilesContainer } from '../../components/overhaul/StatTilesContainer';
 import { RecordingBlip } from '../../components/overhaul/RecordingBlip';
 
-export const Section2_OEM: React.FC = () => {
+export const Section2_OEM: React.FC<{ hideBlip?: boolean }> = ({ hideBlip = false }) => {
     const frame = useCurrentFrame();
     const { fps, width, height, durationInFrames } = useVideoConfig();
 
@@ -137,16 +137,18 @@ export const Section2_OEM: React.FC = () => {
             </div>
 
             {/* Manual Recording Blip Adjustment (MSIL) */}
-            <div style={{ 
-                position: 'absolute',
-                top: BLIP_TOP, 
-                right: BLIP_RIGHT, 
-                opacity: dashboardAnim * exitAnim,
-                transform: `translateY(${interpolate(dashboardAnim, [0, 1], [10, 0])}px)`,
-                zIndex: 15,
-            }}>
-                <RecordingBlip />
-            </div>
+            {!hideBlip && (
+                <div style={{ 
+                    position: 'absolute',
+                    top: BLIP_TOP, 
+                    right: BLIP_RIGHT, 
+                    opacity: dashboardAnim * exitAnim,
+                    transform: `translateY(${interpolate(dashboardAnim, [0, 1], [10, 0])}px)`,
+                    zIndex: 15,
+                }}>
+                    <RecordingBlip />
+                </div>
+            )}
 
             {/* Main Toggle (Centered then moves) */}
             <div style={{

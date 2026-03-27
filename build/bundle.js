@@ -10462,7 +10462,8 @@ const RecordingBlip = () => {
 
 
 
-const Section1a_Stakeholders = () => {
+
+const Section1a_Stakeholders = ({ hideBlip = false }) => {
   const frame = (0,cjs.useCurrentFrame)();
   const { fps } = (0,cjs.useVideoConfig)();
   const anim = (0,cjs.spring)({
@@ -10474,14 +10475,14 @@ const Section1a_Stakeholders = () => {
   const scale = (0,cjs.interpolate)(anim, [0, 1], [0.95, 1]);
   const DURATION = 60;
   const exitAnim = (0,cjs.interpolate)(frame, [DURATION - 15, DURATION], [1, 0], { extrapolateRight: "clamp" });
-  return /* @__PURE__ */ React.createElement(cjs.AbsoluteFill, { style: {
+  return /* @__PURE__ */ react.createElement(cjs.AbsoluteFill, { style: {
     backgroundColor: COLOR_TOKENS.background,
     opacity: exitAnim,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     padding: 60
-  } }, /* @__PURE__ */ React.createElement("div", { style: {
+  } }, /* @__PURE__ */ react.createElement("div", { style: {
     width: "100%",
     height: "100%",
     backgroundColor: "white",
@@ -10493,7 +10494,7 @@ const Section1a_Stakeholders = () => {
     alignItems: "center",
     transform: `scale(${scale})`,
     opacity
-  } }, /* @__PURE__ */ React.createElement(
+  } }, /* @__PURE__ */ react.createElement(
     cjs.Img,
     {
       src: (0,cjs.staticFile)("new_media/New-Stakeholders.png"),
@@ -10505,13 +10506,13 @@ const Section1a_Stakeholders = () => {
         padding: 20
       }
     }
-  )), /* @__PURE__ */ React.createElement("div", { style: {
+  )), !hideBlip && /* @__PURE__ */ react.createElement("div", { style: {
     position: "absolute",
     top: 60,
     right: 60,
     zIndex: 20,
     opacity: exitAnim
-  } }, /* @__PURE__ */ React.createElement(RecordingBlip, null)));
+  } }, /* @__PURE__ */ react.createElement(RecordingBlip, null)));
 };
 
 ;// CONCATENATED MODULE: ./src/components/overhaul/Section_Flow.tsx
@@ -10529,7 +10530,8 @@ const Section_Flow = ({
   title,
   backgroundColor = "white",
   centerTitle = false,
-  subtitle
+  subtitle,
+  hideBlip = false
 }) => {
   return /* @__PURE__ */ react.createElement(cjs.AbsoluteFill, { style: { backgroundColor: "#F8FAF9" } }, /* @__PURE__ */ react.createElement("div", { style: {
     position: "absolute",
@@ -10570,7 +10572,7 @@ const Section_Flow = ({
         transformOrigin: "center center"
       }
     }
-  ), /* @__PURE__ */ react.createElement("div", { style: {
+  ), !hideBlip && /* @__PURE__ */ react.createElement("div", { style: {
     position: "absolute",
     top: 60,
     right: 60,
@@ -10683,7 +10685,7 @@ const getKeyframeValue = (frame, keyframes, property) => {
   }
   return sorted[0][property];
 };
-const Section1b_Traceability = () => {
+const Section1b_Traceability = ({ hideBlip = false }) => {
   const frame = (0,cjs.useCurrentFrame)();
   const { fps } = (0,cjs.useVideoConfig)();
   const isRing1Visible = frame >= RING_1_SETTINGS.startFrame && frame <= RING_1_SETTINGS.endFrame;
@@ -10731,7 +10733,7 @@ const Section1b_Traceability = () => {
     clipPath: `inset(0 ${100 - revealAnim * 100}% 0 0)`,
     // Reveal from left
     transform: `translateX(${(0,cjs.interpolate)(revealAnim, [0, 1], [-20, 0])}px)`
-  } }, /* @__PURE__ */ react.createElement(Typography, { text: "Complete Vehicle Traceability", fontSize: 30, fontWeight: 600, color: COLOR_TOKENS.text, textAlign: "left" })), /* @__PURE__ */ react.createElement("div", { style: {
+  } }, /* @__PURE__ */ react.createElement(Typography, { text: "Complete Vehicle Traceability", fontSize: 30, fontWeight: 600, color: COLOR_TOKENS.text, textAlign: "left" })), !hideBlip && /* @__PURE__ */ react.createElement("div", { style: {
     position: "absolute",
     top: 60,
     right: 60,
@@ -11453,7 +11455,7 @@ const StatTilesContainer = ({ delay = 0 }) => {
 
 
 
-const Section2_OEM = () => {
+const Section2_OEM = ({ hideBlip = false }) => {
   const frame = (0,cjs.useCurrentFrame)();
   const { fps, width, height, durationInFrames } = (0,cjs.useVideoConfig)();
   const SCENE_START_DELAY = 10;
@@ -11549,7 +11551,7 @@ const Section2_OEM = () => {
     flexDirection: "column",
     gap: 10,
     zIndex: 10
-  } }, /* @__PURE__ */ react.createElement(Typography, { text: "Corporate OEM", fontSize: 30, fontWeight: 600, color: COLOR_TOKENS.text, textAlign: "left" }), /* @__PURE__ */ react.createElement(Typography, { delay: 15, text: "Dashboard", fontSize: 24, color: COLOR_TOKENS.textSecondary, fontWeight: 400, textAlign: "left" })), /* @__PURE__ */ react.createElement("div", { style: {
+  } }, /* @__PURE__ */ react.createElement(Typography, { text: "Corporate OEM", fontSize: 30, fontWeight: 600, color: COLOR_TOKENS.text, textAlign: "left" }), /* @__PURE__ */ react.createElement(Typography, { delay: 15, text: "Dashboard", fontSize: 24, color: COLOR_TOKENS.textSecondary, fontWeight: 400, textAlign: "left" })), !hideBlip && /* @__PURE__ */ react.createElement("div", { style: {
     position: "absolute",
     top: BLIP_TOP,
     right: BLIP_RIGHT,
@@ -11849,7 +11851,7 @@ const RVSFScrapCard = ({ delay = 0 }) => {
 
 
 
-const DashboardSlide = ({ imageUrl, activeIndex, title, highlightTop = "37.8%", highlightHeight = "33%" }) => {
+const DashboardSlide = ({ imageUrl, activeIndex, title, highlightTop = "37.8%", highlightHeight = "33%", hideBlip = false }) => {
   const frame = (0,cjs.useCurrentFrame)();
   const { fps, durationInFrames } = (0,cjs.useVideoConfig)();
   const BLIP_TOP = 162;
@@ -11893,7 +11895,7 @@ const DashboardSlide = ({ imageUrl, activeIndex, title, highlightTop = "37.8%", 
     flexDirection: "column",
     gap: 10,
     zIndex: 10
-  } }, /* @__PURE__ */ react.createElement(Typography, { text: title, fontSize: 30, fontWeight: 600, color: COLOR_TOKENS.text, textAlign: "left" }), /* @__PURE__ */ react.createElement(Typography, { delay: 15, text: "Dashboard", fontSize: 24, color: COLOR_TOKENS.textSecondary, fontWeight: 400, textAlign: "left" })), /* @__PURE__ */ react.createElement("div", { style: {
+  } }, /* @__PURE__ */ react.createElement(Typography, { text: title, fontSize: 30, fontWeight: 600, color: COLOR_TOKENS.text, textAlign: "left" }), /* @__PURE__ */ react.createElement(Typography, { delay: 15, text: "Dashboard", fontSize: 24, color: COLOR_TOKENS.textSecondary, fontWeight: 400, textAlign: "left" })), !hideBlip && /* @__PURE__ */ react.createElement("div", { style: {
     position: "absolute",
     top: BLIP_TOP,
     right: BLIP_RIGHT,
@@ -11947,13 +11949,14 @@ const DashboardSlide = ({ imageUrl, activeIndex, title, highlightTop = "37.8%", 
     opacity: focusAnim
   } })))));
 };
-const Section3_SupplyChain = () => {
+const Section3_SupplyChain = ({ hideBlip = false }) => {
   return /* @__PURE__ */ react.createElement(cjs.Series, null, /* @__PURE__ */ react.createElement(cjs.Series.Sequence, { durationInFrames: 180 }, /* @__PURE__ */ react.createElement(
     DashboardSlide,
     {
       imageUrl: "my_media/RVSF-Dashboard.png",
       activeIndex: 1,
-      title: "Registered Vehicle Scrapping Facility"
+      title: "Registered Vehicle Scrapping Facility",
+      hideBlip
     }
   )));
 };
@@ -12997,7 +13000,25 @@ const SteelMojo = () => {
   return /* @__PURE__ */ react.createElement(cjs.AbsoluteFill, null, /* @__PURE__ */ react.createElement(SteelMojoScene, null));
 };
 
+;// CONCATENATED MODULE: ./src/Main2.tsx
+
+
+
+
+
+
+
+
+
+
+
+
+const Main2 = () => {
+  return /* @__PURE__ */ react.createElement(cjs.AbsoluteFill, { style: { backgroundColor: "white" } }, /* @__PURE__ */ react.createElement(TransitionSeries, null, /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 60 }, /* @__PURE__ */ react.createElement(Section1_Intro, null)), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 135 }, /* @__PURE__ */ react.createElement(Section_Flow, { hideBlip: true, src: "new_media/Plastic Overall Flow.png", title: "End-to-End Plastic Traceability", centerTitle: true, subtitle: "(Actual data captured in MatNEXT system)" })), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 50 }, /* @__PURE__ */ react.createElement(Section_Flow, { hideBlip: true, src: "new_media/Plastic Phase 1.png", title: "Phase 1: Capturing Data at the point of Recovery", scale: 1.2, translateX: -60, translateY: -20, overlayTop: 110, overlayBottom: 50 })), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 50 }, /* @__PURE__ */ react.createElement(Section_Flow, { hideBlip: true, src: "new_media/Plastic Phase 2.png", title: "Phase 2: Tracking Material Transformation through Recycling", scale: 1.22, translateX: -70, translateY: -23, overlayTop: 90, overlayBottom: 60 })), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 50 }, /* @__PURE__ */ react.createElement(Section_Flow, { hideBlip: true, src: "new_media/Plastic Phase 3.png", title: "Phase 3: Manufacturing and the Circular Return Loop", scale: 1.15, translateX: -10, translateY: -50, overlayTop: 115, overlayBottom: 105 })), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 135 }, /* @__PURE__ */ react.createElement(Section_Flow, { hideBlip: true, src: "new_media/Steel Overall Flow.png", title: "End-to-End Steel Traceability", backgroundColor: "#F1F2F6", scale: 1.06, translateX: 0, translateY: -5, overlayTop: 35, overlayBottom: 35, centerTitle: true, subtitle: "(Actual data captured in MatNEXT system)" })), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 50 }, /* @__PURE__ */ react.createElement(Section_Flow, { hideBlip: true, src: "new_media/Steel Phase 1.png", title: "Phase 1: Capturing Data at the point of Recovery", backgroundColor: "#F0F2F5", scale: 1.15, translateX: -35, translateY: -5 })), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 50 }, /* @__PURE__ */ react.createElement(Section_Flow, { hideBlip: true, src: "new_media/Steel Phase 2.png", title: "Phase 2: Tracking Material Transformation through Recycling", scale: 1.18, translateX: -1, translateY: -5 })), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 50 }, /* @__PURE__ */ react.createElement(Section_Flow, { hideBlip: true, src: "new_media/Steel Phase 3.png", title: "Phase 3: Manufacturing and the Circular Return Loop", scale: 1.27, translateX: -8, translateY: -5 })), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 340 }, /* @__PURE__ */ react.createElement(Section1b_Traceability, { hideBlip: true })), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 230 }, /* @__PURE__ */ react.createElement(Section2_OEM, { hideBlip: true })), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 130 }, /* @__PURE__ */ react.createElement(Section3_SupplyChain, { hideBlip: true })), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 180 }, /* @__PURE__ */ react.createElement(Section_Map, null)), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 490 }, /* @__PURE__ */ react.createElement(Section4_Compliance, null)), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 100 }, /* @__PURE__ */ react.createElement(Section5_FutureScope, null)), /* @__PURE__ */ react.createElement(TransitionSeries.Sequence, { durationInFrames: 60 }, /* @__PURE__ */ react.createElement(Outro, null))));
+};
+
 ;// CONCATENATED MODULE: ./src/Root.tsx
+
 
 
 
@@ -13040,6 +13061,16 @@ const RemotionRoot = () => {
       id: "SteelMojo",
       component: SteelMojo,
       durationInFrames: 700,
+      fps: 30,
+      width: 1920,
+      height: 1080
+    }
+  ), /* @__PURE__ */ React.createElement(
+    cjs.Composition,
+    {
+      id: "Main2",
+      component: Main2,
+      durationInFrames: 2160,
       fps: 30,
       width: 1920,
       height: 1080

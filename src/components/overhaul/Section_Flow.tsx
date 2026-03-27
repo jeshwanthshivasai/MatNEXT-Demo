@@ -14,6 +14,7 @@ interface SectionFlowProps {
     backgroundColor?: string;
     centerTitle?: boolean;
     subtitle?: string;
+    hideBlip?: boolean;
 }
 
 export const Section_Flow: React.FC<SectionFlowProps> = ({
@@ -26,7 +27,8 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
     title,
     backgroundColor = 'white',
     centerTitle = false,
-    subtitle
+    subtitle,
+    hideBlip = false
 }) => {
     return (
         <AbsoluteFill style={{ backgroundColor: '#F8FAF9' }}>
@@ -77,14 +79,16 @@ export const Section_Flow: React.FC<SectionFlowProps> = ({
                 />
 
                 {/* Recording Blip - Top Right */}
-                <div style={{ 
-                    position: 'absolute',
-                    top: 60,
-                    right: 60,
-                    zIndex: 20
-                }}>
-                    <RecordingBlip />
-                </div>
+                {!hideBlip && (
+                    <div style={{ 
+                        position: 'absolute',
+                        top: 60,
+                        right: 60,
+                        zIndex: 20
+                    }}>
+                        <RecordingBlip />
+                    </div>
+                )}
 
                 {title && (
                     <div style={{

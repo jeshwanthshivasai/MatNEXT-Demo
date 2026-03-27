@@ -15,7 +15,8 @@ const DashboardSlide: React.FC<{
     title: string;
     highlightTop?: string;
     highlightHeight?: string;
-}> = ({ imageUrl, activeIndex, title, highlightTop = '37.8%', highlightHeight = '33%' }) => {
+    hideBlip?: boolean;
+}> = ({ imageUrl, activeIndex, title, highlightTop = '37.8%', highlightHeight = '33%', hideBlip = false }) => {
     const frame = useCurrentFrame();
     const { fps, durationInFrames } = useVideoConfig();
 
@@ -76,14 +77,16 @@ const DashboardSlide: React.FC<{
             </div>
 
             {/* Manual Recording Blip Adjustment (RVSF) */}
-            <div style={{ 
-                position: 'absolute',
-                top: BLIP_TOP, 
-                right: BLIP_RIGHT, 
-                zIndex: 15,
-            }}>
-                <RecordingBlip />
-            </div>
+            {!hideBlip && (
+                <div style={{ 
+                    position: 'absolute',
+                    top: BLIP_TOP, 
+                    right: BLIP_RIGHT, 
+                    zIndex: 15,
+                }}>
+                    <RecordingBlip />
+                </div>
+            )}
 
             {/* Static Toggle and Blip in the exact final position from Section 2 */}
             <div style={{
@@ -158,7 +161,7 @@ const DashboardSlide: React.FC<{
     );
 };
 
-export const Section3_SupplyChain: React.FC = () => {
+export const Section3_SupplyChain: React.FC<{ hideBlip?: boolean }> = ({ hideBlip = false }) => {
     return (
         <Series>
             <Series.Sequence durationInFrames={180}>
@@ -166,6 +169,7 @@ export const Section3_SupplyChain: React.FC = () => {
                     imageUrl="my_media/RVSF-Dashboard.png"
                     activeIndex={1}
                     title="Registered Vehicle Scrapping Facility"
+                    hideBlip={hideBlip}
                 />
             </Series.Sequence>
         </Series>
