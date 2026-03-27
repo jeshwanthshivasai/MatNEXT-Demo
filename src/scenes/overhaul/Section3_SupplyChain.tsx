@@ -161,12 +161,18 @@ const DashboardSlide: React.FC<{
     );
 };
 
-export const Section3_SupplyChain: React.FC<{ hideBlip?: boolean }> = ({ hideBlip = false }) => {
+export const Section3_SupplyChain: React.FC<{ 
+    hideBlip?: boolean;
+    dashboardSrc?: string;
+}> = ({ 
+    hideBlip = false,
+    dashboardSrc = 'my_media/RVSF-Dashboard.png'
+}) => {
     return (
         <Series>
             <Series.Sequence durationInFrames={180}>
                 <DashboardSlide
-                    imageUrl="my_media/RVSF-Dashboard.png"
+                    imageUrl={dashboardSrc}
                     activeIndex={1}
                     title="Registered Vehicle Scrapping Facility"
                     hideBlip={hideBlip}

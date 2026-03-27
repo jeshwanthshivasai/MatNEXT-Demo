@@ -61,12 +61,12 @@ export const Main2: React.FC = () => {
 
                 {/* 5a. MSIL Dashboard (230 frames) */}
                 <TransitionSeries.Sequence durationInFrames={230}>
-                    <Section2_OEM hideBlip={true} />
+                    <Section2_OEM hideBlip={true} dashboardSrc="tata_media/MSIL-Dashboard.png" />
                 </TransitionSeries.Sequence>
 
                 {/* 5b. RVSF Dashboard (130 frames) */}
                 <TransitionSeries.Sequence durationInFrames={130}>
-                    <Section3_SupplyChain hideBlip={true} />
+                    <Section3_SupplyChain hideBlip={true} dashboardSrc="tata_media/RVSF-Dashboard.png" />
                 </TransitionSeries.Sequence>
 
                 {/* 5c. RVSF Map (180 frames) */}

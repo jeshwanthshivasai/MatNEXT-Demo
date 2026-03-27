@@ -7,7 +7,13 @@ import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
 import { StatTilesContainer } from '../../components/overhaul/StatTilesContainer';
 import { RecordingBlip } from '../../components/overhaul/RecordingBlip';
 
-export const Section2_OEM: React.FC<{ hideBlip?: boolean }> = ({ hideBlip = false }) => {
+export const Section2_OEM: React.FC<{ 
+    hideBlip?: boolean;
+    dashboardSrc?: string;
+}> = ({ 
+    hideBlip = false,
+    dashboardSrc = 'my_media/MSIL-Dashboard.png'
+}) => {
     const frame = useCurrentFrame();
     const { fps, width, height, durationInFrames } = useVideoConfig();
 
@@ -187,7 +193,7 @@ export const Section2_OEM: React.FC<{ hideBlip?: boolean }> = ({ hideBlip = fals
                         position: 'relative',
                     }}>
                         <Img
-                            src={staticFile('my_media/MSIL-Dashboard.png')}
+                            src={staticFile(dashboardSrc)}
                             style={{
                                 width: '100%',
                                 height: '100%',
