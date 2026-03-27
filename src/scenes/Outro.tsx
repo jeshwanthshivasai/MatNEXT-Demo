@@ -22,8 +22,26 @@ export const Outro: React.FC = () => {
 
     return (
         <AbsoluteFill style={{
-            backgroundColor: COLOR_TOKENS.background,
+            backgroundColor: '#050814',
         }}>
+            {/* Sarvam-Style Gradient Background */}
+            <div style={{
+                position: 'absolute',
+                inset: 0,
+                background: `linear-gradient(135deg, #050814 0%, #0a1226 50%, #050814 100%)`,
+            }} />
+            
+            <div style={{
+                position: 'absolute',
+                width: 600,
+                height: 600,
+                borderRadius: '50%',
+                background: `radial-gradient(circle, ${COLOR_TOKENS.primary}11 0%, transparent 70%)`,
+                left: '70%',
+                top: '60%',
+                filter: 'blur(80px)',
+            }} />
+
             {/* Pulsating Grid Background */}
             <PulsatingGrid />
 
