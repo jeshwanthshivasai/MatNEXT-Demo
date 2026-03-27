@@ -3,7 +3,7 @@ import { Main } from "./Composition";
 import { Showreel } from "./Showreel";
 import { SteelFlow } from "./SteelFlow";
 import { SteelMojo } from "./SteelMojo";
-import { MojoMain } from "./MojoMain";
+import { Main2 } from "./Main2";
 
 export const RemotionRoot: React.FC = () => {
     // Exact Additive Timeline based on user requirement:
@@ -55,9 +55,9 @@ export const RemotionRoot: React.FC = () => {
                 height={1080}
             />
             <Composition
-                id="MainMojo"
-                component={MojoMain}
-                durationInFrames={2635}
+                id="Main2"
+                component={Main2}
+                durationInFrames={2220}
                 fps={30}
                 width={1920}
                 height={1080}

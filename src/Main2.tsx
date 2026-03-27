@@ -1,6 +1,8 @@
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
 import { TransitionSeries } from "@remotion/transitions";
+
+// Scenes
 import { Section1_Intro } from './scenes/overhaul/Section1_Intro';
 import { Section1a_Stakeholders } from './scenes/overhaul/Section1a_Stakeholders';
 import { Section_Flow } from './components/overhaul/Section_Flow';
@@ -11,23 +13,23 @@ import { Section3_SupplyChain } from './scenes/overhaul/Section3_SupplyChain';
 import { Section4_Compliance } from './scenes/overhaul/Section4_Compliance';
 import { Section5_FutureScope } from './scenes/overhaul/Section5_FutureScope';
 import { Outro } from './scenes/Outro';
-import { SteelMojoScene } from './scenes/SteelMojoScene';
 
-export const MojoMain: React.FC = () => {
+export const Main2: React.FC = () => {
     return (
         <AbsoluteFill style={{ backgroundColor: 'white' }}>
             <TransitionSeries>
-                {/* 1. Intro (60 frames) */}
+                {/* 1. Intro (2s = 60 frames) */}
                 <TransitionSeries.Sequence durationInFrames={60}>
                     <Section1_Intro />
                 </TransitionSeries.Sequence>
 
-                {/* 1a. Stakeholders (60 frames) */}
+                {/* 1a. Stakeholders (2s = 60 frames) */}
+                {/* Added hideBlip={true} to remove the blinking "Actual data" as requested */}
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Section1a_Stakeholders />
+                    <Section1a_Stakeholders hideBlip={true} />
                 </TransitionSeries.Sequence>
 
-                {/* 2. Plastic Flows (285 frames) */}
+                {/* 2. Plastic Flows (9.5s = 285 frames) */}
                 <TransitionSeries.Sequence durationInFrames={135}>
                     <Section_Flow src="new_media/Plastic Overall Flow.png" title="End-to-End Plastic Traceability" centerTitle subtitle="(Actual data captured in MatNEXT system)" />
                 </TransitionSeries.Sequence>
@@ -41,44 +43,60 @@ export const MojoMain: React.FC = () => {
                     <Section_Flow src="new_media/Plastic Phase 3.png" title="Phase 3: Manufacturing and the Circular Return Loop" scale={1.15} translateX={-10} translateY={-50} overlayTop={115} overlayBottom={105} />
                 </TransitionSeries.Sequence>
 
-                {/* 3. INTEGRATED MOJO FLOW (Replaces static Steel segment) */}
-                {/* Mojo is 700 frames */}
-                <TransitionSeries.Sequence durationInFrames={700}>
-                    <SteelMojoScene />
+                {/* 3. Steel Flows (9.5s = 285 frames) */}
+                <TransitionSeries.Sequence durationInFrames={135}>
+                    <Section_Flow src="new_media/Steel Overall Flow.png" title="End-to-End Steel Traceability" backgroundColor="#F1F2F6" scale={1.06} translateX={0} translateY={-5} overlayTop={35} overlayBottom={35} centerTitle subtitle="(Actual data captured in MatNEXT system)" />
+                </TransitionSeries.Sequence>
+                <TransitionSeries.Sequence durationInFrames={50}>
+                    <Section_Flow src="new_media/Steel Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" backgroundColor="#F0F2F5" scale={1.15} translateX={-35} translateY={-5} />
+                </TransitionSeries.Sequence>
+                <TransitionSeries.Sequence durationInFrames={50}>
+                    <Section_Flow src="new_media/Steel Phase 2.png" title="Phase 2: Tracking Material Transformation through Recycling" scale={1.18} translateX={-1} translateY={-5} />
+                </TransitionSeries.Sequence>
+                <TransitionSeries.Sequence durationInFrames={50}>
+                    <Section_Flow src="new_media/Steel Phase 3.png" title="Phase 3: Manufacturing and the Circular Return Loop" scale={1.27} translateX={-8} translateY={-5} />
                 </TransitionSeries.Sequence>
 
-                {/* 4. Traceability Video (340 frames) */}
+                {/* 4. Traceability Video (11.3s = 340 frames) */}
                 <TransitionSeries.Sequence durationInFrames={340}>
                     <Section1b_Traceability />
                 </TransitionSeries.Sequence>
 
-                {/* 5. Dashboards Combined */}
+                {/* 5. Dashboards Combined (24s = 720 frames total) */}
+
+                {/* 5a. MSIL Dashboard (230 frames) */}
                 <TransitionSeries.Sequence durationInFrames={230}>
                     <Section2_OEM />
                 </TransitionSeries.Sequence>
 
+                {/* 5b. RVSF Dashboard (130 frames) */}
                 <TransitionSeries.Sequence durationInFrames={130}>
                     <Section3_SupplyChain />
                 </TransitionSeries.Sequence>
 
+                {/* 5c. RVSF Map (180 frames) */}
                 <TransitionSeries.Sequence durationInFrames={180}>
                     <Section_Map />
                 </TransitionSeries.Sequence>
 
+                {/* 5d. Compliance Dashboards (490 frames) */}
                 <TransitionSeries.Sequence durationInFrames={490}>
                     <Section4_Compliance />
                 </TransitionSeries.Sequence>
 
-                {/* 6. Future Scope (100 frames) */}
+                {/* 6. Future Scope (3.3s = 100 frames) */}
                 <TransitionSeries.Sequence durationInFrames={100}>
                     <Section5_FutureScope />
                 </TransitionSeries.Sequence>
 
-                {/* 7. Outro (60 frames) */}
+                {/* 7. Outro (2s = 60 frames) */}
                 <TransitionSeries.Sequence durationInFrames={60}>
-                    <Outro />
+                    <Section1_Outro />
                 </TransitionSeries.Sequence>
             </TransitionSeries>
         </AbsoluteFill>
     );
 };
+
+// Re-importing Outro if needed or assuming Section1_Outro is correct
+import { Outro as Section1_Outro } from './scenes/Outro';

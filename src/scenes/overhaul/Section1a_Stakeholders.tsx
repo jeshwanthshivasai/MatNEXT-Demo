@@ -2,7 +2,7 @@ import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Img
 import { RecordingBlip } from '../../components/overhaul/RecordingBlip';
 import { COLOR_TOKENS, ANIMATION_TOKENS } from '../../style/tokens';
 
-export const Section1a_Stakeholders: React.FC = () => {
+export const Section1a_Stakeholders: React.FC<{ hideBlip?: boolean }> = ({ hideBlip = false }) => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
@@ -54,15 +54,17 @@ export const Section1a_Stakeholders: React.FC = () => {
             </div>
 
             {/* Recording Blip - Top Right */}
-            <div style={{ 
-                position: 'absolute',
-                top: 60,
-                right: 60,
-                zIndex: 20,
-                opacity: exitAnim
-            }}>
-                <RecordingBlip />
-            </div>
+            {!hideBlip && (
+                <div style={{ 
+                    position: 'absolute',
+                    top: 60,
+                    right: 60,
+                    zIndex: 20,
+                    opacity: exitAnim
+                }}>
+                    <RecordingBlip />
+                </div>
+            )}
         </AbsoluteFill>
     );
 };
