@@ -42,7 +42,7 @@ export const Main: React.FC = () => {
                 <TransitionSeries.Sequence durationInFrames={50}>
                     <Section_Flow src="new_media/Plastic Phase 3.png" title="Phase 3: Manufacturing and the Circular Return Loop" scale={1.15} translateX={-10} translateY={-50} overlayTop={115} overlayBottom={105} />
                 </TransitionSeries.Sequence>
-
+ 
                 {/* 3. Steel Flows (9.5s = 285 frames) */}
                 <TransitionSeries.Sequence durationInFrames={135}>
                     <Section_Flow src="new_media/Steel Overall Flow.png" title="End-to-End Steel Traceability" backgroundColor="#F1F2F6" scale={1.06} translateX={0} translateY={-5} overlayTop={35} overlayBottom={35} centerTitle subtitle="(Actual data captured in MatNEXT system)" />

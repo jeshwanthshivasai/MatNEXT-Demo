@@ -26,30 +26,30 @@ export const Main2: React.FC = () => {
 
                 {/* 2. Plastic Flows (9.5s = 285 frames) */}
                 <TransitionSeries.Sequence durationInFrames={135}>
-                    <Section_Flow hideBlip={true} src="new_media/Plastic Overall Flow.png" title="End-to-End Plastic Traceability" centerTitle subtitle="(Actual data captured in MatNEXT system)" />
+                    <Section_Flow hideBlip={true} src="tata_media/Plastic Overall Flow.png" title="End-to-End Plastic Traceability" centerTitle subtitle="(Actual data captured in MatNEXT system)" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={50}>
-                    <Section_Flow hideBlip={true} src="new_media/Plastic Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" scale={1.2} translateX={-60} translateY={-20} overlayTop={110} overlayBottom={50} />
+                    <Section_Flow hideBlip={true} src="tata_media/Plastic Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" scale={1.2} translateX={-60} translateY={-20} overlayTop={110} overlayBottom={50} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={50}>
-                    <Section_Flow hideBlip={true} src="new_media/Plastic Phase 2.png" title="Phase 2: Tracking Material Transformation through Recycling" scale={1.22} translateX={-70} translateY={-23} overlayTop={90} overlayBottom={60} />
+                    <Section_Flow hideBlip={true} src="tata_media/Plastic Phase 2.png" title="Phase 2: Tracking Material Transformation through Recycling" scale={1.22} translateX={-70} translateY={-23} overlayTop={90} overlayBottom={60} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={50}>
-                    <Section_Flow hideBlip={true} src="new_media/Plastic Phase 3.png" title="Phase 3: Manufacturing and the Circular Return Loop" scale={1.15} translateX={-10} translateY={-50} overlayTop={115} overlayBottom={105} />
+                    <Section_Flow hideBlip={true} src="tata_media/Plastic Phase 3.png" title="Phase 3: Manufacturing and the Circular Return Loop" scale={1.15} translateX={-10} translateY={-50} overlayTop={115} overlayBottom={105} />
                 </TransitionSeries.Sequence>
 
                 {/* 3. Steel Flows (9.5s = 285 frames) */}
                 <TransitionSeries.Sequence durationInFrames={135}>
-                    <Section_Flow hideBlip={true} src="new_media/Steel Overall Flow.png" title="End-to-End Steel Traceability" backgroundColor="#F1F2F6" scale={1.06} translateX={0} translateY={-5} overlayTop={35} overlayBottom={35} centerTitle subtitle="(Actual data captured in MatNEXT system)" />
+                    <Section_Flow hideBlip={true} src="tata_media/Steel Overall Flow.png" title="End-to-End Steel Traceability" backgroundColor="#F1F2F6" scale={1.06} translateX={0} translateY={-5} overlayTop={35} overlayBottom={35} centerTitle subtitle="(Actual data captured in MatNEXT system)" />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={50}>
-                    <Section_Flow hideBlip={true} src="new_media/Steel Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" backgroundColor="#F0F2F5" scale={1.15} translateX={-35} translateY={-5} />
+                    <Section_Flow hideBlip={true} src="tata_media/Steel Phase 1.png" title="Phase 1: Capturing Data at the point of Recovery" backgroundColor="#F0F2F5" scale={1.15} translateX={-35} translateY={-5} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={50}>
-                    <Section_Flow hideBlip={true} src="new_media/Steel Phase 2.png" title="Phase 2: Tracking Material Transformation through Recycling" scale={1.18} translateX={-1} translateY={-5} />
+                    <Section_Flow hideBlip={true} src="tata_media/Steel Phase 2.png" title="Phase 2: Tracking Material Transformation through Recycling" scale={1.18} translateX={-1} translateY={-5} />
                 </TransitionSeries.Sequence>
                 <TransitionSeries.Sequence durationInFrames={50}>
-                    <Section_Flow hideBlip={true} src="new_media/Steel Phase 3.png" title="Phase 3: Manufacturing and the Circular Return Loop" scale={1.27} translateX={-8} translateY={-5} />
+                    <Section_Flow hideBlip={true} src="tata_media/Steel Phase 3.png" title="Phase 3: Manufacturing and the Circular Return Loop" scale={1.27} translateX={-8} translateY={-5} />
                 </TransitionSeries.Sequence>
 
                 {/* 4. Traceability Video (11.3s = 340 frames) */}
@@ -79,12 +79,7 @@ export const Main2: React.FC = () => {
                     <Section4_Compliance />
                 </TransitionSeries.Sequence>
 
-                {/* 6. Future Scope (3.3s = 100 frames) */}
-                <TransitionSeries.Sequence durationInFrames={100}>
-                    <Section5_FutureScope />
-                </TransitionSeries.Sequence>
-
-                {/* 7. Outro (2s = 60 frames) */}
+                {/* 6. Outro (2s = 60 frames) */}
                 <TransitionSeries.Sequence durationInFrames={60}>
                     <Outro />
                 </TransitionSeries.Sequence>
