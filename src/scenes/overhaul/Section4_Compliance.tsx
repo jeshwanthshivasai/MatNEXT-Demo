@@ -107,7 +107,7 @@ export const Section4_Compliance: React.FC<{
                 <div style={{ width: '100%', height: '100%', background: 'white', border: `1px solid ${COLOR_TOKENS.border}`, borderRadius: '0px 24px 0px 0px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 80px rgba(0,0,0,0.08)' }}>
                     <Img src={staticFile(regulatorySrc)} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
                     {frame > board2Highlight && (
-                        <div style={{ position: 'absolute', top: '30%', left: '5%', width: '94%', height: '7.5%', border: `6px solid ${COLOR_TOKENS.primary}`, borderRadius: 25, boxShadow: `0 0 0 1000px rgba(0,0,0,0.4)`, opacity: interpolate(frame, [board2Highlight, board2Highlight + 15], [0, 1]), transform: `scale(${spring({ frame: frame - board2Highlight, fps, config: ANIMATION_TOKENS.slow })})` }} />
+                        <div style={{ position: 'absolute', top: '32.2%', left: '5.2%', width: '94.5%', height: '7.5%', border: `6px solid ${COLOR_TOKENS.primary}`, borderRadius: 25, boxShadow: `0 0 0 1000px rgba(0,0,0,0.4)`, opacity: interpolate(frame, [board2Highlight, board2Highlight + 15], [0, 1]), transform: `scale(${spring({ frame: frame - board2Highlight, fps, config: ANIMATION_TOKENS.slow })})` }} />
                     )}
                 </div>
             </div>
@@ -117,7 +117,7 @@ export const Section4_Compliance: React.FC<{
                 <div style={{ width: '100%', height: '100%', background: 'white', border: `1px solid ${COLOR_TOKENS.border}`, borderRadius: '0px 24px 0px 0px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 80px rgba(0,0,0,0.08)' }}>
                     <Img src={staticFile(vwCbamSrc)} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
                     {frame > board3Highlight && (
-                        <div style={{ position: 'absolute', top: '23.5%', left: '5%', width: '93.8%', height: '9.5%', border: `6px solid ${COLOR_TOKENS.primary}`, borderRadius: 25, boxShadow: `0 0 0 1000px rgba(0,0,0,0.4)`, opacity: interpolate(frame, [board3Highlight, board3Highlight + 15], [0, 1]), transform: `scale(${spring({ frame: frame - board3Highlight, fps, config: ANIMATION_TOKENS.slow })})` }} />
+                        <div style={{ position: 'absolute', top: '25.5%', left: '5.2%', width: '94.5%', height: '9.5%', border: `6px solid ${COLOR_TOKENS.primary}`, borderRadius: 25, boxShadow: `0 0 0 1000px rgba(0,0,0,0.4)`, opacity: interpolate(frame, [board3Highlight, board3Highlight + 15], [0, 1]), transform: `scale(${spring({ frame: frame - board3Highlight, fps, config: ANIMATION_TOKENS.slow })})` }} />
                     )}
                 </div>
             </div>
