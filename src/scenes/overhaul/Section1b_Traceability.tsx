@@ -24,20 +24,20 @@ interface RingSettings {
 // 18:10 = 550f. Relative end = 70.
 // Doubled relative timings
 const RING_1_SETTINGS: RingSettings = {
-    startFrame: 96,
-    endFrame: 170,
+    startFrame: 65,
+    endFrame: 128,
     keyframes: [
-        { frame: 96, x: 730, y: 860, width: 330, height: 70 },
-        { frame: 170, x: 730, y: 860, width: 330, height: 70 },
+        { frame: 65, x: 660, y: 790, width: 300, height: 70 },
+        { frame: 128, x: 660, y: 790, width: 300, height: 70 },
     ]
 };
 
 const RING_2_SETTINGS: RingSettings = {
-    startFrame: 440,
-    endFrame: 678,
+    startFrame: 444,
+    endFrame: 623,
     keyframes: [
-        { frame: 440, x: 600, y: 960, width: 350, height: 55 },
-        { frame: 678, x: 600, y: 960, width: 350, height: 55 },
+        { frame: 444, x: 700, y: 880, width: 320, height: 55 },
+        { frame: 623, x: 700, y: 880, width: 320, height: 55 },
     ]
 };
 
@@ -56,7 +56,13 @@ const getKeyframeValue = (frame: number, keyframes: Keyframe[], property: keyof 
     return sorted[0][property];
 };
 
-export const Section1b_Traceability: React.FC<{ hideBlip?: boolean }> = ({ hideBlip = false }) => {
+export const Section1b_Traceability: React.FC<{ 
+    hideBlip?: boolean;
+    videoSrc?: string;
+}> = ({ 
+    hideBlip = false,
+    videoSrc = 'my_media/Traceability-Updated_HD.mp4'
+}) => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
@@ -178,8 +184,8 @@ export const Section1b_Traceability: React.FC<{ hideBlip?: boolean }> = ({ hideB
                         position: 'relative',
                     }}>
                         <OffthreadVideo
-                            src={staticFile('my_media/Traceability-Updated_HD.mp4')}
-                            playbackRate={0.72}
+                            src={staticFile(videoSrc)}
+                            playbackRate={1.0}
                             style={{
                                 width: '100%',
                                 height: '100%',

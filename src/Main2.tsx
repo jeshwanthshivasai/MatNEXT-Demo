@@ -52,9 +52,9 @@ export const Main2: React.FC = () => {
                     <Section_Flow hideBlip={true} src="tata_media/Steel Phase 3.png" title="Phase 3: Manufacturing and the Circular Return Loop" scale={1.27} translateX={-8} translateY={-5} />
                 </TransitionSeries.Sequence>
 
-                {/* 4. Traceability Video (22.6s = 680 frames) */}
-                <TransitionSeries.Sequence durationInFrames={680}>
-                    <Section1b_Traceability hideBlip={true} />
+                {/* 4. Traceability Video (20.8s = 625 frames) */}
+                <TransitionSeries.Sequence durationInFrames={625}>
+                    <Section1b_Traceability hideBlip={true} videoSrc="tata_media/sample_oem_traceability_video.mp4" />
                 </TransitionSeries.Sequence>
 
                 {/* 5. Dashboards Combined (48s = 1440 frames total) */}
