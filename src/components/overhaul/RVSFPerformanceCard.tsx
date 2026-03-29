@@ -9,7 +9,7 @@ const DATA = [
     { label: 'No. of Vehicles Scrapped =', value: '7,268' },
     { label: 'Inventory (MT/kg/Nos.) =', value: '7,268 Nos' },
     { label: 'No. of COD generated =', value: '9,688' },
-    { label: 'No. of MSIL Test Vehicles Scrapped =', value: '266' },
+    { label: 'No. of Test Vehicles Scrapped =', value: '266' },
     { label: 'No. of collection centres (tab - state wise)', value: '59' },
     { label: 'Process Loss', value: '-' },
 ];

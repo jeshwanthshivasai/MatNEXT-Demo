@@ -45,7 +45,7 @@ const ToasterTab: React.FC<ToasterTabProps> = ({ label, active, delay = 0 }) => 
 };
 
 export const ToasterTabs: React.FC<{ activeIndex?: number; delay?: number }> = ({ activeIndex = 0, delay = 0 }) => {
-    const tabs = ['MSIL', 'RVSF'];
+    const tabs = ['OEM', 'RVSF'];
 
     return (
         <div style={{
